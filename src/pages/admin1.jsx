@@ -132,7 +132,6 @@ const Item = ({
 
 const Admin1 = () => {
   const [checkedList, setCheckedList] = React.useState([]);
-  const [allChecked, setAllChecked] = React.useState(false);
   console.log(checkedList);
   return (
     <Container>
@@ -153,14 +152,13 @@ const Admin1 = () => {
             <MdCheck
               style={{ cursor: 'pointer' }}
               onClick={() => {
-                if (allChecked) {
+                if (checkedList.length === SAMPLE_DATA.length) {
                   setCheckedList([]);
                 } else {
                   setCheckedList([
                     ...SAMPLE_DATA.map((element, index) => index + 1),
                   ]);
                 }
-                setAllChecked(!allChecked);
               }}
               size={15}
               color="#bcbcbc"
