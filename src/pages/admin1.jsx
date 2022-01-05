@@ -57,7 +57,7 @@ const ItemStyle = styled.div`
   }
 `;
 
-const SAMPLE_DATA = [
+let SAMPLE_DATA = [
   {
     number: 1,
     name: 'product 1',
@@ -130,6 +130,13 @@ const Item = ({
   );
 };
 
+function removeItem(checkedList, setCheckedList) {
+  SAMPLE_DATA = SAMPLE_DATA.filter(
+    (item) => checkedList.indexOf(item.number) === -1,
+  );
+  setCheckedList([]);
+}
+
 const Admin1 = () => {
   const [checkedList, setCheckedList] = React.useState([]);
   console.log(checkedList);
@@ -140,7 +147,12 @@ const Admin1 = () => {
           style={{ visibility: `${checkedList.length ? 'visible' : 'hidden'}` }}
         >
           <MdOutlineEdit size={20} color="#686868" />
-          <MdDelete style={{ marginLeft: '10px' }} size={20} color="#686868" />
+          <MdDelete
+            onClick={() => removeItem(checkedList, setCheckedList)}
+            style={{ marginLeft: '10px' }}
+            size={20}
+            color="#686868"
+          />
         </div>
         <div>
           <MdAddCircleOutline size={20} color="#686868" />
@@ -156,7 +168,7 @@ const Admin1 = () => {
                   setCheckedList([]);
                 } else {
                   setCheckedList([
-                    ...SAMPLE_DATA.map((element, index) => index + 1),
+                    ...SAMPLE_DATA.map((element) => element.number),
                   ]);
                 }
               }}
