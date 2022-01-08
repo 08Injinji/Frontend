@@ -8,6 +8,7 @@ import {
   MdOutlineEdit,
   MdCheck,
 } from 'react-icons/md';
+import Modal from '../components/modal';
 
 const Container = styled.div`
   width: 100%;
@@ -62,7 +63,8 @@ let SAMPLE_DATA = [
     number: 1,
     name: 'product 1',
     price: 8500,
-    image: 'image_link',
+    image: ['image_link', '', '', ''],
+    // color: ['white', 'red', 'black'],
     description: 'description 1',
     stock: 994,
   },
@@ -130,6 +132,7 @@ const Item = ({
   );
 };
 
+// 상품 리스트에서 제거
 function removeItem(checkedList, setCheckedList) {
   SAMPLE_DATA = SAMPLE_DATA.filter(
     (item) => checkedList.indexOf(item.number) === -1,
@@ -199,6 +202,7 @@ const Admin1 = () => {
           );
         })}
       </Table>
+      <Modal />
     </Container>
   );
 };
