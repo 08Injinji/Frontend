@@ -1,12 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import {
-  MdClose,
-  MdOutlineAddCircleOutline,
-  MdOutlineCreate,
-  MdDeleteOutline,
-} from 'react-icons/md';
+import { MdClose, MdOutlineAddCircleOutline } from 'react-icons/md';
 import { Input, TextArea } from './basic';
+import Image from './image';
 
 const ModalBackground = styled.div`
   position: fixed;
@@ -64,7 +60,12 @@ const ColorItem = ({ index, data, setData }) => {
         marginBottom: '5px',
       }}
     >
-      <div style={{ display: 'flex', alignItems: 'center' }}>
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+        }}
+      >
         <MdClose
           onClick={(e) => {
             setData({
@@ -77,43 +78,69 @@ const ColorItem = ({ index, data, setData }) => {
           }}
         />
       </div>
-      <div style={{ display: 'flex', alignItems: 'center' }}>
-        <Input
-          placeholder="색상"
-          value={data.color.filter((item) => item.index === index).color}
-          onChange={(e) => {
-            setData({
-              ...data,
-              color: [
-                ...data.color.filter((item) => item.index !== index),
-                {
-                  index: index,
-                  color: e.target.value,
-                  hexCode: data.color.filter((item) => item.index === index)[0]
-                    .hexCode,
-                },
-              ],
-            });
-          }}
-        />
-        <Input
-          placeholder="색상 코드"
-          value={data.color.filter((item) => item.index === index).hexCode}
-          onChange={(e) => {
-            setData({
-              ...data,
-              color: [
-                ...data.color.filter((item) => item.index !== index),
-                {
-                  index: index,
-                  color: data.color.filter((item) => item.index === index)[0]
-                    .color,
-                  hexCode: e.target.value,
-                },
-              ],
-            });
-          }}
-        />
+      <div
+        style={{
+          display: 'flex',
+          width: '200px',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+        }}
+      >
+        <div>
+          <input
+            style={{
+              width: '80px',
+              outline: 'none',
+              border: 'none',
+              padding: ' 5px',
+              borderRadius: '5px',
+            }}
+            placeholder="색상"
+            value={data.color.filter((item) => item.index === index).color}
+            onChange={(e) => {
+              setData({
+                ...data,
+                color: [
+                  ...data.color.filter((item) => item.index !== index),
+                  {
+                    index: index,
+                    color: e.target.value,
+                    hexCode: data.color.filter(
+                      (item) => item.index === index,
+                    )[0].hexCode,
+                  },
+                ],
+              });
+            }}
+          />
+        </div>
+        <div>
+          <input
+            style={{
+              width: '80px',
+              outline: 'none',
+              border: 'none',
+              padding: ' 5px',
+              borderRadius: '5px',
+            }}
+            placeholder="색상 코드"
+            value={data.color.filter((item) => item.index === index).hexCode}
+            onChange={(e) => {
+              setData({
+                ...data,
+                color: [
+                  ...data.color.filter((item) => item.index !== index),
+                  {
+                    index: index,
+                    color: data.color.filter((item) => item.index === index)[0]
+                      .color,
+                    hexCode: e.target.value,
+                  },
+                ],
+              });
+            }}
+          />
+        </div>
       </div>
       <div
         style={{
@@ -129,7 +156,22 @@ const ColorItem = ({ index, data, setData }) => {
   );
 };
 
+const ReadImageUrl = (files, ref, data, setData) => {
+  if (!files) return false;
+  const reader = new FileReader();
+
+  reader.onload = () => {
+    // 미리보기
+    // ref.current.style.backgroundImage = `url(${reader.result})`;
+    console.log(reader.result);
+    setData({ ...data, image: [...data.image, reader.result] });
+  };
+
+  reader.readAsDataURL(files);
+};
+
 const Modal = () => {
+  const imageArea = React.useRef();
   const [data, setData] = React.useState({
     name: '',
     price: '',
@@ -187,9 +229,7 @@ const Modal = () => {
                   placeholder="가격 입력"
                   width="80%"
                   value={data.price}
-                  onChange={(e) =>
-                    setData({ ...data, price: parseInt(e.target.value, 10) })
-                  }
+                  onChange={(e) => setData({ ...data, price: e.target.value })}
                 />
                 <span style={{ marginLeft: '10px', fontSize: '14px' }}>원</span>
               </div>
@@ -201,9 +241,7 @@ const Modal = () => {
                   placeholder="재고 입력"
                   width="80%"
                   value={data.stock}
-                  onChange={(e) =>
-                    setData({ ...data, stock: parseInt(e.target.value, 10) })
-                  }
+                  onChange={(e) => setData({ ...data, stock: e.target.value })}
                 />
               </div>
             </div>
@@ -287,6 +325,9 @@ const Modal = () => {
                 이미지 추가
               </label>
               <input
+                onChange={(e) =>
+                  ReadImageUrl(e.target.files[0], imageArea, data, setData)
+                }
                 id="chooseFile"
                 style={{ display: 'none' }}
                 type="file"
@@ -294,20 +335,19 @@ const Modal = () => {
               />
             </div>
           </div>
-          <div
-            style={{
-              width: '100%',
-              minHeight: '150px',
-              background: 'mediumaquamarine',
-              marginTop: '30px',
-            }}
-          >
-            image area
-          </div>
+
+          <Image data={data} setData={setData} />
+
           <div style={{ marginTop: '30px' }}>
             <div>상세설명</div>
             <div style={{ marginTop: '30px' }}>
-              <TextArea width="100%" height="150px" />
+              <TextArea
+                onChange={(e) =>
+                  setData({ ...data, description: e.target.value })
+                }
+                width="100%"
+                height="150px"
+              />
             </div>
           </div>
         </div>
