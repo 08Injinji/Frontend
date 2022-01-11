@@ -37,8 +37,24 @@ const Button = styled.div`
   align-items: center;
 `;
 
-const Submit = (data) => {
-  alert(JSON.stringify(data));
+const SubmitFormData = (data) => {
+  console.log(...data.image);
+  const formData = new FormData();
+  formData.append('image', data.image);
+  formData.append(
+    'data',
+    JSON.stringify({
+      ...data,
+      image: '',
+    }),
+  );
+
+  fetch('https://3.36.96.63/fetchtest/upload', {
+    method: 'POST',
+    body: formData,
+  })
+    .then((res) => res.json())
+    .then((json) => console.log(json));
 };
 
 const ColorItem = ({ index, data, setData }) => {
@@ -105,9 +121,9 @@ const ColorItem = ({ index, data, setData }) => {
                   {
                     index: index,
                     color: e.target.value,
-                    hexCode: data.color.filter(
+                    colorcode: data.color.filter(
                       (item) => item.index === index,
-                    )[0].hexCode,
+                    )[0].colorcode,
                   },
                 ],
               });
@@ -124,7 +140,7 @@ const ColorItem = ({ index, data, setData }) => {
               borderRadius: '5px',
             }}
             placeholder="색상 코드"
-            value={data.color.filter((item) => item.index === index).hexCode}
+            value={data.color.filter((item) => item.index === index).colorcode}
             onChange={(e) => {
               setData({
                 ...data,
@@ -134,7 +150,7 @@ const ColorItem = ({ index, data, setData }) => {
                     index: index,
                     color: data.color.filter((item) => item.index === index)[0]
                       .color,
-                    hexCode: e.target.value,
+                    colorcode: e.target.value,
                   },
                 ],
               });
@@ -148,7 +164,7 @@ const ColorItem = ({ index, data, setData }) => {
           height: '12px',
           borderRadius: '50%',
           background: `${
-            data.color.filter((item) => item.index === index)[0].hexCode
+            data.color.filter((item) => item.index === index)[0].colorcode
           }`,
         }}
       ></div>
@@ -156,22 +172,42 @@ const ColorItem = ({ index, data, setData }) => {
   );
 };
 
-const ReadImageUrl = (files, ref, data, setData) => {
+const ReadImageUrl = (files, urlList, setUrlList) => {
   if (!files) return false;
   const reader = new FileReader();
 
   reader.onload = () => {
-    // 미리보기
-    // ref.current.style.backgroundImage = `url(${reader.result})`;
-    console.log(reader.result);
-    setData({ ...data, image: [...data.image, reader.result] });
+    setUrlList([...urlList, reader.result]);
   };
 
   reader.readAsDataURL(files);
 };
 
+const AddToFormData = (files) => {
+  const formData = new FormData();
+  formData.append('image', files);
+
+  // 서버에 이미지 전송
+  //   fetch('https://3.36.96.63/fetchtest/upload', {
+  //     method: 'POST',
+  //     body: formData,
+  //   })
+  //     .then((res) => res.json())
+  //     .then((json) => console.log(json));
+  formData.get('image');
+  //   for (let value of formData.values()) {
+  //     console.log(value);
+  //   }
+};
+
+const AddToImageArray = (imageFileList, setImageFileList, file) => {
+  console.log(file);
+  setImageFileList([...imageFileList, file]);
+};
+
 const Modal = () => {
   const imageArea = React.useRef();
+  const [urlList, setUrlList] = React.useState([]);
   const [data, setData] = React.useState({
     name: '',
     price: '',
@@ -263,7 +299,7 @@ const Modal = () => {
                           ? 1
                           : data.color[data.color.length - 1].index + 1,
                       color: '',
-                      hexCode: '',
+                      colorcode: '',
                     },
                   ],
                 });
@@ -325,9 +361,14 @@ const Modal = () => {
                 이미지 추가
               </label>
               <input
-                onChange={(e) =>
-                  ReadImageUrl(e.target.files[0], imageArea, data, setData)
-                }
+                onChange={(e) => {
+                  //   ReadImageUrl(e.target.files[0], imageArea, data, setData);
+                  setData({
+                    ...data,
+                    image: [...data.image, e.target.files[0]],
+                  });
+                  //   ReadImageUrl(e.target.files[0], urlList, setUrlList);
+                }}
                 id="chooseFile"
                 style={{ display: 'none' }}
                 type="file"
@@ -354,7 +395,7 @@ const Modal = () => {
         <div style={{ position: 'relative', bottom: 0, height: '50px' }}>
           <Button
             style={{ position: 'absolute', right: 0 }}
-            onClick={() => Submit(data)}
+            onClick={() => SubmitFormData(data)}
           />
         </div>
       </ModalContainer>

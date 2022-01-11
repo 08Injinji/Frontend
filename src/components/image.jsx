@@ -31,23 +31,40 @@ const ImageItemStyle = styled.div`
   }
 `;
 
-const ImageItem = ({ url, list, data, setData }) => {
+const ReadImageUrl = (file, url, setUrl) => {
+  if (!file) return false;
+  const reader = new FileReader();
+
+  reader.onload = () => {
+    setUrl(reader.result);
+  };
+
+  reader.readAsDataURL(file);
+};
+
+const ImageItem = ({ file, name, list, data, setData }) => {
   const ref = React.useRef();
   const [hover, setHover] = React.useState(false);
+  const [url, setUrl] = React.useState('');
   const handleMouseHover = () => {
     setHover(true);
   };
   const handleMouseOut = () => {
     setHover(false);
   };
+
+  React.useLayoutEffect(() => {
+    ReadImageUrl(file, url, setUrl);
+  }, [file, url]);
+
   React.useEffect(() => {
     ref.current.addEventListener('mouseover', handleMouseHover);
     ref.current.addEventListener('mouseout', handleMouseOut);
 
-    return (ref) => {
-      ref.current.removeEventListener('hover', handleMouseHover);
-      ref.current.removeEventListener('mouseout', handleMouseHover);
-    };
+    // return () => {
+    //   ref.current.removeEventListener('mouseover', handleMouseHover);
+    //   ref.current.removeEventListener('mouseout', handleMouseOut);
+    // };
   }, []);
 
   return (
@@ -56,7 +73,7 @@ const ImageItem = ({ url, list, data, setData }) => {
         onClick={() => {
           setData({
             ...data,
-            image: [...data.image.filter((item) => item !== url)],
+            image: [...data.image.filter((item) => item.name !== name)],
           });
         }}
         style={{
@@ -76,7 +93,13 @@ const Image = ({ data, setData }) => {
   return (
     <ImageContainer>
       {data.image?.map((item, index) => (
-        <ImageItem key={index} url={item} data={data} setData={setData} />
+        <ImageItem
+          key={index}
+          file={item}
+          name={item.name}
+          data={data}
+          setData={setData}
+        />
       ))}
     </ImageContainer>
   );
