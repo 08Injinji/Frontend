@@ -37,6 +37,7 @@ const ReadImageUrl = (file, url, setUrl) => {
 
   reader.onload = () => {
     setUrl(reader.result);
+    console.log(reader.result);
   };
 
   reader.readAsDataURL(file);

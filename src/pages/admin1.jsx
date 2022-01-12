@@ -63,7 +63,7 @@ let SAMPLE_DATA = [
     number: 1,
     name: 'product 1',
     price: 8500,
-    image: ['image_link', '', '', ''],
+    image: [],
     // color: ['white', 'red', 'black'],
     description: 'description 1',
     stock: 994,
@@ -143,13 +143,25 @@ function removeItem(checkedList, setCheckedList) {
 const Admin1 = () => {
   const [checkedList, setCheckedList] = React.useState([]);
   const [isModalOpen, setModalOpen] = React.useState(false);
+  const [isModifying, setModifying] = React.useState(false);
   return (
     <Container>
       <Control>
         <div
           style={{ visibility: `${checkedList.length ? 'visible' : 'hidden'}` }}
         >
-          <MdOutlineEdit size={20} color="#686868" />
+          <MdOutlineEdit
+            onClick={() => {
+              setModalOpen(true);
+              setModifying(true);
+            }}
+            style={{
+              display: `${checkedList.length === 1 ? 'inline-block' : 'none'}`,
+              cursor: 'pointer',
+            }}
+            size={20}
+            color="#686868"
+          />
           <MdDelete
             onClick={() => removeItem(checkedList, setCheckedList)}
             style={{ marginLeft: '10px' }}
@@ -207,7 +219,17 @@ const Admin1 = () => {
           );
         })}
       </Table>
-      {isModalOpen ? <Modal setModalOpen={setModalOpen} /> : undefined}
+      {isModalOpen ? (
+        <Modal
+          givenData={
+            isModifying
+              ? SAMPLE_DATA.filter((item) => item.number === checkedList[0])
+              : undefined
+          }
+          setModifying={setModifying}
+          setModalOpen={setModalOpen}
+        />
+      ) : undefined}
     </Container>
   );
 };

@@ -205,16 +205,21 @@ const AddToImageArray = (imageFileList, setImageFileList, file) => {
   setImageFileList([...imageFileList, file]);
 };
 
-const Modal = ({ setModalOpen }) => {
+const Modal = ({ givenData, setModalOpen, setModifying }) => {
+  React.useEffect(() => {
+    if (givenData !== undefined) {
+      console.log(givenData[0]);
+    }
+  });
   const imageArea = React.useRef();
   const [urlList, setUrlList] = React.useState([]);
   const [data, setData] = React.useState({
-    name: '',
-    price: '',
-    stock: '',
+    name: `${givenData !== undefined ? givenData[0].name : ''}`,
+    price: `${givenData !== undefined ? givenData[0].price : ''}`,
+    stock: `${givenData !== undefined ? givenData[0].stock : ''}`,
     color: [],
-    image: [],
-    description: '',
+    image: givenData !== undefined ? givenData[0].image : [],
+    description: `${givenData !== undefined ? givenData[0].description : ''}`,
   });
   return (
     <ModalBackground>
@@ -229,7 +234,10 @@ const Modal = ({ setModalOpen }) => {
           <div>상품 정보</div>
           <div>
             <MdClose
-              onClick={() => setModalOpen(false)}
+              onClick={() => {
+                setModalOpen(false);
+                setModifying(false);
+              }}
               style={{ cursor: 'pointer' }}
             />
           </div>
@@ -389,6 +397,7 @@ const Modal = ({ setModalOpen }) => {
                 onChange={(e) =>
                   setData({ ...data, description: e.target.value })
                 }
+                value={data.description}
                 width="100%"
                 height="150px"
               />
