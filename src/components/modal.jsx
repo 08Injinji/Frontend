@@ -205,7 +205,7 @@ const AddToImageArray = (imageFileList, setImageFileList, file) => {
   setImageFileList([...imageFileList, file]);
 };
 
-const Modal = () => {
+const Modal = ({ setModalOpen }) => {
   const imageArea = React.useRef();
   const [urlList, setUrlList] = React.useState([]);
   const [data, setData] = React.useState({
@@ -228,7 +228,10 @@ const Modal = () => {
         >
           <div>상품 정보</div>
           <div>
-            <MdClose />
+            <MdClose
+              onClick={() => setModalOpen(false)}
+              style={{ cursor: 'pointer' }}
+            />
           </div>
         </div>
         <div style={{ height: 'calc(100% - 80px)', overflowY: 'auto' }}>

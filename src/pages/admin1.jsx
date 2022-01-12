@@ -142,7 +142,7 @@ function removeItem(checkedList, setCheckedList) {
 
 const Admin1 = () => {
   const [checkedList, setCheckedList] = React.useState([]);
-  console.log(checkedList);
+  const [isModalOpen, setModalOpen] = React.useState(false);
   return (
     <Container>
       <Control>
@@ -158,7 +158,12 @@ const Admin1 = () => {
           />
         </div>
         <div>
-          <MdAddCircleOutline size={20} color="#686868" />
+          <MdAddCircleOutline
+            onClick={() => setModalOpen(true)}
+            style={{ cursor: 'pointer' }}
+            size={20}
+            color="#686868"
+          />
         </div>
       </Control>
       <Table>
@@ -202,7 +207,7 @@ const Admin1 = () => {
           );
         })}
       </Table>
-      <Modal />
+      {isModalOpen ? <Modal setModalOpen={setModalOpen} /> : undefined}
     </Container>
   );
 };
