@@ -43,10 +43,10 @@ const ReadImageUrl = (file, url, setUrl) => {
   reader.readAsDataURL(file);
 };
 
-const ImageItem = ({ file, name, list, data, setData }) => {
+const ImageItem = ({ file, name, link, data, setData }) => {
   const ref = React.useRef();
   const [hover, setHover] = React.useState(false);
-  const [url, setUrl] = React.useState('');
+  const [url, setUrl] = React.useState(file ? '' : link);
   const handleMouseHover = () => {
     setHover(true);
   };
@@ -55,7 +55,9 @@ const ImageItem = ({ file, name, list, data, setData }) => {
   };
 
   React.useLayoutEffect(() => {
-    ReadImageUrl(file, url, setUrl);
+    if (!file) {
+      ReadImageUrl(file, url, setUrl);
+    }
   }, [file, url]);
 
   React.useEffect(() => {
@@ -93,15 +95,25 @@ const ImageItem = ({ file, name, list, data, setData }) => {
 const Image = ({ data, setData }) => {
   return (
     <ImageContainer>
-      {data.image?.map((item, index) => (
-        <ImageItem
-          key={index}
-          file={item}
-          name={item.name}
-          data={data}
-          setData={setData}
-        />
-      ))}
+      {data.color?.map((item, index) =>
+        item.image ? (
+          <ImageItem
+            key={index}
+            link={item.image}
+            name={item.name}
+            data={data}
+            setData={setData}
+          />
+        ) : (
+          <ImageItem
+            key={index}
+            file={item}
+            name={item.name}
+            data={data}
+            setData={setData}
+          />
+        ),
+      )}
     </ImageContainer>
   );
 };
