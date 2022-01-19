@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Gnb from './components/gnb';
+import Footer from './components/footer';
 import Main from './pages/main';
 import Product from './pages/product';
 import About from './pages/about';
@@ -31,6 +32,7 @@ ReactDOM.render(
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
+    <Footer />
   </React.StrictMode>,
   document.getElementById('root'),
 );
