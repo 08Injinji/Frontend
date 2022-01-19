@@ -5,7 +5,7 @@ const Input = styled.input`
   height: ${(props) => props.height || '30px'};
   outline: none;
   border: none;
-  border-bottom: 1px solid #222;
+  border-bottom: 1px solid #ccc;
   font-size: 16px;
   padding-left: 10px;
 `;
@@ -16,6 +16,9 @@ const TextArea = styled.textarea`
   resize: none;
   outline: none;
   font-family: 'Noto Sans KR';
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
 `;
 
 export { Input, TextArea };

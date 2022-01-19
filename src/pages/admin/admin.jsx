@@ -1,6 +1,6 @@
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
-import Injinji from '../components/icon';
+import Injinji from '../../components/icon';
 import { MdLogout } from 'react-icons/md';
 
 const Container = styled.div`
@@ -79,7 +79,7 @@ const InfoCircle = styled.div`
 
 const Admin = () => {
   let location = useLocation();
-  console.log(location.pathname.split('/'));
+
   return (
     <Container>
       <Left>
@@ -97,7 +97,7 @@ const Admin = () => {
           </Link>
           <Link to="2">
             <ListItem isActive={location.pathname.split('/')[2] === '2'}>
-              메뉴 추가
+              계정 관리
             </ListItem>
           </Link>
           <Link to="3">

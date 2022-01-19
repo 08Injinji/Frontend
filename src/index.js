@@ -8,9 +8,10 @@ import Main from './pages/main';
 import Product from './pages/product';
 import About from './pages/about';
 import Login from './pages/login';
-import Admin from './pages/admin';
 import NotFound from './pages/notFound';
-import Admin1 from './pages/admin1';
+import Admin from './pages/admin/admin';
+import Admin1 from './pages/admin/admin1';
+import Admin2 from './pages/admin/admin2';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -24,7 +25,7 @@ ReactDOM.render(
         <Route path="/login" element={<Login />} />
         <Route path="/admin" element={<Admin />}>
           <Route path="1" element={<Admin1 />} />
-          <Route path="2" />
+          <Route path="2" element={<Admin2 />} />
           <Route path="3" />
           <Route path="4" />
           <Route path="5" />
