@@ -85,7 +85,7 @@ const Gnb = () => {
         >
           <Logo pagenumber="0" title=""></Logo>
           <Btn pagenumber="1" title="about"></Btn>
-          <Btn pagenumber="2" title="products"></Btn>
+          <Btn pagenumber="2" title="product"></Btn>
         </div>
       </Navbar>
       <Outlet />
