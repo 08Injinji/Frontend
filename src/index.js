@@ -12,6 +12,7 @@ import NotFound from './pages/notFound';
 import Admin from './pages/admin/admin';
 import Admin1 from './pages/admin/admin1';
 import Admin2 from './pages/admin/admin2';
+import AdminLogin from './pages/admin/login';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -30,6 +31,7 @@ ReactDOM.render(
           <Route path="4" />
           <Route path="5" />
         </Route>
+        <Route path="/admin/login" element={<AdminLogin />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
