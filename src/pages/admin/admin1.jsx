@@ -114,6 +114,14 @@ const Admin1 = () => {
   const [checkedList, setCheckedList] = React.useState([]);
   const [isModalOpen, setModalOpen] = React.useState(false);
   const [isModifying, setModifying] = React.useState(false);
+
+  function GetItemData() {
+    fetch('https://3.36.96.63/fetchtest/fetchAll', {
+      method: 'GET',
+    })
+      .then((res) => res.json())
+      .then((json) => setData(json));
+  }
   // 서버에서 데이터 받아오기
   React.useLayoutEffect(() => {
     fetch('https://3.36.96.63/fetchtest/fetchAll', {
@@ -212,6 +220,7 @@ const Admin1 = () => {
           }
           setModifying={setModifying}
           setModalOpen={setModalOpen}
+          GetItemData={GetItemData}
         />
       ) : undefined}
     </Container>
