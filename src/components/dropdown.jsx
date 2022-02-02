@@ -37,7 +37,7 @@ const DropdownList = styled.div`
   left: 0;
   width: 110px;
   border-radius: 5px;
-  border: 1px solid #a4c9f5;
+  box-shadow: 0px 0px 2px #a4c9f5;
   background: #fcfcfc;
   font-size: 12px;
   font-family: 'Noto Sans KR', serif;
