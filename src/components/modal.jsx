@@ -38,15 +38,13 @@ const Button = styled.div`
   justify-content: center;
   align-items: center;
   color: #333;
+  cursor: pointer;
 `;
 
 // 배열 -> 폼데이터 변환 후 서버에 전송
-const SubmitFormData = (data) => {
-  console.dir(JSON.stringify({ ...data, image: '' }));
+const SubmitFormData = (data, refresh) => {
   const formData = new FormData();
-  for (let i = 0; i < data.image.length; i++) {
-    formData.append('image', data.image[i]);
-  }
+  delete data['preview'];
   formData.append(
     'data',
     JSON.stringify({
@@ -54,6 +52,9 @@ const SubmitFormData = (data) => {
       image: '',
     }),
   );
+  for (let i = 0; i < data.image.length; i++) {
+    formData.append('image', data.image[i]);
+  }
   console.log(...formData);
   fetch('https://3.36.96.63/fetchtest/upload', {
     method: 'POST',
@@ -62,6 +63,7 @@ const SubmitFormData = (data) => {
     .then((res) => {
       console.log(res);
       console.log(res.data);
+      refresh();
     })
     // .then((json) => console.log(json))
     .catch((err) => console.warn(err));
@@ -215,12 +217,29 @@ const ColorItem = ({ index, data, setData }) => {
 //   reader.readAsDataURL(files);
 // };
 
-const Modal = ({ givenData, setModalOpen, setModifying }) => {
+const Modal = ({ givenData, setModalOpen, setModifying, GetItemData }) => {
   React.useEffect(() => {
     if (givenData !== undefined) {
       console.log(givenData[0]);
     }
   });
+
+  const ReadAndSaveImageUrl = (file, data, setData) => {
+    if (!file) return false;
+    const reader = new FileReader();
+
+    reader.onload = () => {
+      setData({
+        ...data,
+        image: [...data.image, file],
+        preview: [...data.preview, reader.result],
+      });
+      console.log(reader.result);
+    };
+
+    reader.readAsDataURL(file);
+  };
+
   const [data, setData] = React.useState({
     name: `${givenData !== undefined ? givenData[0].name : ''}`,
     price: `${givenData !== undefined ? givenData[0].price : ''}`,
@@ -229,7 +248,11 @@ const Modal = ({ givenData, setModalOpen, setModifying }) => {
       givenData !== undefined && givenData[0].color !== undefined
         ? [...givenData[0].color]
         : [],
-    image: givenData !== undefined ? givenData[0].image : [],
+    image: [],
+    preview:
+      givenData !== undefined
+        ? [...givenData[0].color.map((item) => item.image)]
+        : [],
     description: `${givenData !== undefined ? givenData[0].description : ''}`,
   });
   return (
@@ -432,10 +455,12 @@ const Modal = ({ givenData, setModalOpen, setModifying }) => {
               <input
                 onChange={(e) => {
                   //   ReadImageUrl(e.target.files[0], imageArea, data, setData);
-                  setData({
-                    ...data,
-                    image: [...data.image, e.target.files[0]],
-                  });
+                  console.log(e.target.files[0]); // 이미지 확인용
+                  //   setData({
+                  //     ...data,
+                  //     image: [...data.image, e.target.files[0]],
+                  //   });
+                  ReadAndSaveImageUrl(e.target.files[0], data, setData);
                   //   ReadImageUrl(e.target.files[0], urlList, setUrlList);
                 }}
                 id="chooseFile"
@@ -467,7 +492,7 @@ const Modal = ({ givenData, setModalOpen, setModifying }) => {
           <Button
             style={{ position: 'absolute', right: 0 }}
             onClick={() => {
-              SubmitFormData(data);
+              SubmitFormData(data, GetItemData);
               setModalOpen(false);
             }}
           >

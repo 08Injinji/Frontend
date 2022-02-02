@@ -3,13 +3,17 @@ import styled from 'styled-components';
 import { MdClose } from 'react-icons/md';
 
 const ImageContainer = styled.div`
-  width: 100%;
-  display: flex;
-  align-items: center;
+  //   display: flex;
+  //   align-items: center;
+  position: relative;
+  white-space: nowrap;
+  height: 210px;
+  overflow: auto;
 `;
 
 const ImageItemStyle = styled.div`
   position: relative;
+  display: inline-block;
   width: 200px;
   height: 200px;
   padding: 5px;
@@ -31,34 +35,17 @@ const ImageItemStyle = styled.div`
   }
 `;
 
-const ReadImageUrl = (file, url, setUrl) => {
-  if (!file) return false;
-  const reader = new FileReader();
-
-  reader.onload = () => {
-    setUrl(reader.result);
-    console.log(reader.result);
-  };
-
-  reader.readAsDataURL(file);
-};
-
 const ImageItem = ({ file, name, link, data, setData }) => {
+  // 이미지 아이템의 핵심은 dataUrl과 서버에서 받아온 url을 구분해서 표현해줘야함.
   const ref = React.useRef();
   const [hover, setHover] = React.useState(false);
-  const [url, setUrl] = React.useState(file ? '' : link);
+  //   const [url, setUrl] = React.useState(file ? '' : link);
   const handleMouseHover = () => {
     setHover(true);
   };
   const handleMouseOut = () => {
     setHover(false);
   };
-
-  React.useLayoutEffect(() => {
-    if (!file) {
-      ReadImageUrl(file, url, setUrl);
-    }
-  }, [file, url]);
 
   React.useEffect(() => {
     ref.current.addEventListener('mouseover', handleMouseHover);
@@ -71,7 +58,7 @@ const ImageItem = ({ file, name, link, data, setData }) => {
   }, []);
 
   return (
-    <ImageItemStyle ref={ref} url={url}>
+    <ImageItemStyle ref={ref} url={link}>
       <MdClose
         onClick={() => {
           setData({
@@ -85,7 +72,7 @@ const ImageItem = ({ file, name, link, data, setData }) => {
           top: '10px',
           right: '10px',
           cursor: 'pointer',
-          color: '#333',
+          color: '#999',
         }}
       />
     </ImageItemStyle>
@@ -95,25 +82,18 @@ const ImageItem = ({ file, name, link, data, setData }) => {
 const Image = ({ data, setData }) => {
   return (
     <ImageContainer>
-      {data.color?.map((item, index) =>
-        item.image ? (
+      <div style={{ height: '100%' }}>
+        {data.preview.map((item, index) => (
           <ImageItem
             key={index}
-            link={item.image}
-            name={item.name}
+            //   link={item.image}
+            //   name={item.name}
+            link={item}
             data={data}
             setData={setData}
           />
-        ) : (
-          <ImageItem
-            key={index}
-            file={item}
-            name={item.name}
-            data={data}
-            setData={setData}
-          />
-        ),
-      )}
+        ))}
+      </div>
     </ImageContainer>
   );
 };
