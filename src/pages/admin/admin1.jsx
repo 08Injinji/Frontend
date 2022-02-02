@@ -122,6 +122,18 @@ const Admin1 = () => {
       .then((res) => res.json())
       .then((json) => setData(json));
   }
+
+  function RemoveItems() {
+    fetch('https://3.36.96.63/fetchtest/deleteArray', {
+      method: 'DELETE',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify({
+        deleteList: [...checkedList],
+      }),
+    }).then((res) => GetItemData());
+  }
   // 서버에서 데이터 받아오기
   React.useLayoutEffect(() => {
     fetch('https://3.36.96.63/fetchtest/fetchAll', {
@@ -153,9 +165,10 @@ const Admin1 = () => {
             color="#686868"
           />
           <MdDelete
-            onClick={() =>
-              removeItem(checkedList, setCheckedList, data, setData)
-            }
+            onClick={() => {
+              // removeItem(checkedList, setCheckedList, data, setData)
+              RemoveItems();
+            }}
             style={{ marginLeft: '10px', cursor: 'pointer' }}
             size={20}
             color="#686868"
