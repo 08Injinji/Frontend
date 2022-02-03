@@ -14,6 +14,7 @@ import Admin1 from './pages/admin/admin1';
 import Admin2 from './pages/admin/admin2';
 import { AuthContext, AuthProvider } from './components/authContext';
 import AuthRoute from './components/authroute';
+import AdminMain from './pages/admin/index';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -34,6 +35,7 @@ ReactDOM.render(
               </AuthRoute>
             }
           >
+            <Route index element={<AdminMain />} />
             <Route path="1" element={<Admin1 />} />
             <Route path="2" element={<Admin2 />} />
             <Route path="3" />
