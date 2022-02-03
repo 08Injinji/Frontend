@@ -12,30 +12,40 @@ import NotFound from './pages/notFound';
 import Admin from './pages/admin/admin';
 import Admin1 from './pages/admin/admin1';
 import Admin2 from './pages/admin/admin2';
-import AdminLogin from './pages/admin/login';
+import { AuthContext, AuthProvider } from './components/authContext';
+import AuthRoute from './components/authroute';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <Routes>
-        <Route path="/" element={<Gnb />}>
-          <Route index element={<Main />} />
-          <Route path="product" element={<Product />} />
-          <Route path="about" element={<About />} />
-        </Route>
-        <Route path="/login" element={<Login />} />
-        <Route path="/admin" element={<Admin />}>
-          <Route path="1" element={<Admin1 />} />
-          <Route path="2" element={<Admin2 />} />
-          <Route path="3" />
-          <Route path="4" />
-          <Route path="5" />
-        </Route>
-        <Route path="/admin/login" element={<AdminLogin />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </Router>
-    <Footer />
+    <AuthProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Gnb />}>
+            <Route index element={<Main />} />
+            <Route path="product/:item" element={<Product />} />
+            <Route path="about" element={<About />} />
+          </Route>
+          <Route path="/login" element={<Login />} />
+          <Route
+            path="/admin"
+            element={
+              <AuthRoute>
+                <Admin />
+              </AuthRoute>
+            }
+          >
+            <Route path="1" element={<Admin1 />} />
+            <Route path="2" element={<Admin2 />} />
+            <Route path="3" />
+            <Route path="4" />
+            <Route path="5" />
+          </Route>
+          <Route path="/auth" element={<AuthRoute element={<Admin />} />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Router>
+      <Footer />
+    </AuthProvider>
   </React.StrictMode>,
   document.getElementById('root'),
 );
