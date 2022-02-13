@@ -21,4 +21,16 @@ const TextArea = styled.textarea`
   padding: 10px;
 `;
 
-export { Input, TextArea };
+const Button = styled.div`
+  width: 100px;
+  height: 40px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: ${(props) =>
+    props.type === 'alert' ? '#EF4242' : '#93756E'};
+  cursor: pointer;
+`;
+
+export { Input, TextArea, Button };

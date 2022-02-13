@@ -12,7 +12,7 @@ import NotFound from './pages/notFound';
 import Admin from './pages/admin/admin';
 import Admin1 from './pages/admin/admin1';
 import Admin2 from './pages/admin/admin2';
-import { AuthContext, AuthProvider } from './components/authContext';
+import { AuthProvider } from './components/authContext';
 import AuthRoute from './components/authroute';
 import AdminMain from './pages/admin/index';
 

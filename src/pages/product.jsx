@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import mainliner from '../components/linerwhite.webp';
 import grayBox from '../components/Rectangle.png';
+import { useParams } from 'react-router-dom';
 
 const ProductMenu = styled.div`
   display: flex;
@@ -19,6 +20,7 @@ const ProductName = styled.h5`
   color: #666666;
   transition: color 0.2s ease-in-out;
   z-index: 10;
+  color: ${(props) => (props.name === props.params ? '#000' : '#666')};
   &:hover {
     cursor: pointer;
     color: #000;
@@ -71,16 +73,29 @@ const SubSocks = styled.img`
 `;
 
 const Product = () => {
+  let { item } = useParams();
+
   return (
     <>
       <ProductMenu>
-        <ProductName>라이너</ProductName>
-        <ProductName>미니크루</ProductName>
-        <ProductName>크루</ProductName>
-        <ProductName>트레일러</ProductName>
-        <ProductName>에코울</ProductName>
+        <ProductName name="liner" params={item}>
+          라이너
+        </ProductName>
+        <ProductName name="minicrew" params={item}>
+          미니크루
+        </ProductName>
+        <ProductName name="crew" params={item}>
+          크루
+        </ProductName>
+        <ProductName name="trailer" params={item}>
+          트레일러
+        </ProductName>
+        <ProductName name="ecowool" params={item}>
+          에코울
+        </ProductName>
       </ProductMenu>
       <SocksContainer>
+        <div>{item}</div>
         <ul
           style={{
             listStyle: 'none',

@@ -1,7 +1,9 @@
+import React from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import Injinji from '../../components/icon';
 import { MdLogout } from 'react-icons/md';
+import { InfoModal } from '../../components/infoModal';
 
 const Container = styled.div`
   display: flex;
@@ -79,6 +81,7 @@ const InfoCircle = styled.div`
 
 const Admin = () => {
   let location = useLocation();
+  const [isLoginInfoModalOpen, setLoginInfoModalOpen] = React.useState(false);
 
   return (
     <Container>
@@ -140,13 +143,25 @@ const Admin = () => {
             </div>
           </div>
           <div style={{ marginLeft: '20px' }}>
-            <MdLogout size={20} color="#686868" />
+            <MdLogout
+              style={{ cursor: 'pointer' }}
+              onClick={() => setLoginInfoModalOpen(true)}
+              size={20}
+              color="#686868"
+            />
           </div>
         </Account>
       </Left>
       <div style={{ width: '100%', height: '100%', padding: '30px' }}>
-        <Outlet />
+        <Outlet context={[isLoginInfoModalOpen, setLoginInfoModalOpen]} />
       </div>
+      {isLoginInfoModalOpen ? (
+        <InfoModal
+          close={() => setLoginInfoModalOpen(false)}
+          title="로그아웃"
+          message="정말 로그아웃 하시겠습니까?"
+        />
+      ) : null}
     </Container>
   );
 };

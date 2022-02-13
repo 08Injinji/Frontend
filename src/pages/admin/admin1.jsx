@@ -8,7 +8,9 @@ import {
   MdOutlineEdit,
   MdCheck,
 } from 'react-icons/md';
+import Skeleton from '@mui/material/Skeleton';
 import Modal from '../../components/modal';
+import { InfoModal } from '../../components/infoModal';
 
 const Container = styled.div`
   width: 100%;
@@ -120,7 +122,9 @@ const Admin1 = () => {
       method: 'GET',
     })
       .then((res) => res.json())
-      .then((json) => setData(json));
+      .then((json) => {
+        setData(json);
+      });
   }
 
   function RemoveItems() {
@@ -206,23 +210,47 @@ const Admin1 = () => {
           <div style={{ width: '200px' }}>상세설명</div>
           <div style={{ width: '100px' }}>사이즈</div>
         </Header>
-        {!isDataLoading
-          ? data.map((item, index) => {
-              return (
-                <Item
-                  key={index}
-                  number={index + 1}
-                  name={item.name}
-                  price={item.price}
-                  image={item.image}
-                  description={item.description}
-                  size={item.size}
-                  checkedList={checkedList}
-                  setCheckedList={setCheckedList}
-                />
-              );
-            })
-          : 'loading'}
+        {!isDataLoading ? (
+          data.map((item, index) => {
+            return (
+              <Item
+                key={index}
+                number={index + 1}
+                name={item.name}
+                price={item.price}
+                image={item.image}
+                description={item.description}
+                size={item.size}
+                checkedList={checkedList}
+                setCheckedList={setCheckedList}
+              />
+            );
+          })
+        ) : (
+          <div>
+            <Skeleton
+              animation="wave"
+              variant="rectangular"
+              width="100%"
+              height={50}
+              style={{ marginBottom: '10px', borderRadius: '5px' }}
+            />
+            <Skeleton
+              animation="wave"
+              variant="rectangular"
+              width="100%"
+              height={50}
+              style={{ marginBottom: '10px', borderRadius: '5px' }}
+            />
+            <Skeleton
+              animation="wave"
+              variant="rectangular"
+              width="100%"
+              height={50}
+              style={{ borderRadius: '5px' }}
+            />
+          </div>
+        )}
       </Table>
       {isModalOpen ? (
         <Modal

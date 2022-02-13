@@ -10,7 +10,7 @@ const DropdownContainer = styled.div`
   display: flex;
   align-items: center;
   box-shadow: 0 0 2px #a4c9f5;
-  background: #f9fcff;
+  background: #fff;
   cursor: pointer;
   color: #333;
   &:hover {
@@ -38,7 +38,7 @@ const DropdownList = styled.div`
   width: 110px;
   border-radius: 5px;
   box-shadow: 0px 0px 2px #a4c9f5;
-  background: #fcfcfc;
+  background: #fff;
   font-size: 12px;
   font-family: 'Noto Sans KR', serif;
   font-weight: 400;
@@ -64,7 +64,6 @@ const Dropdown = ({ value, list }) => {
   const ref = React.useRef();
   React.useEffect(() => {
     function handleClick() {
-      console.log(ref.current);
       if (isOpen) {
         setOpen(false);
       }
