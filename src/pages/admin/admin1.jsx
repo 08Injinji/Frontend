@@ -149,6 +149,10 @@ const Admin1 = () => {
         setData(json);
         setDataLoading(false);
       });
+    return () => {
+      setData();
+      setDataLoading(false);
+    };
   }, []);
   return (
     <Container>

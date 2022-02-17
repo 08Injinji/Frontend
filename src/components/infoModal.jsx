@@ -16,7 +16,7 @@ const InfoModalContainer = styled.div`
   box-shadow: 0 0 4px #000;
 `;
 
-const InfoModal = ({ title, message, close }) => {
+const InfoModal = ({ title, message, close, okFunction }) => {
   return (
     <InfoModalContainer>
       <div style={{ fontSize: '24px', fontWeight: 600, marginBottom: '20px' }}>
@@ -34,7 +34,15 @@ const InfoModal = ({ title, message, close }) => {
           gap: '10px',
         }}
       >
-        <Button type="alert">확인</Button>
+        <Button
+          type="alert"
+          onClick={() => {
+            okFunction();
+            close();
+          }}
+        >
+          확인
+        </Button>
         <Button onClick={close}>취소</Button>
       </div>
     </InfoModalContainer>

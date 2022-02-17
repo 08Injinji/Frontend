@@ -1,9 +1,10 @@
-import React from 'react';
-import { Link, Outlet, useLocation } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import Injinji from '../../components/icon';
 import { MdLogout } from 'react-icons/md';
 import { InfoModal } from '../../components/infoModal';
+import { AuthContext } from '../../components/authContext';
 
 const Container = styled.div`
   display: flex;
@@ -81,7 +82,24 @@ const InfoCircle = styled.div`
 
 const Admin = () => {
   let location = useLocation();
+  let navigate = useNavigate();
+  const { isAuth, setAuth, setLevel } = useContext(AuthContext);
   const [isLoginInfoModalOpen, setLoginInfoModalOpen] = React.useState(false);
+
+  function Logout() {
+    fetch('https://3.36.96.63/login/logout', {
+      method: 'DELETE',
+      credentials: 'include',
+    })
+      .then((res) => res.json())
+      .then((json) => {
+        console.log(json);
+        if (json.msg === '로그아웃 되었습니다') {
+          setAuth(false);
+          navigate('/login', { replace: true });
+        }
+      });
+  }
 
   return (
     <Container>
@@ -93,27 +111,27 @@ const Admin = () => {
           <div>Admin Page</div>
         </Logo>
         <List>
-          <Link to="1">
+          <Link to="1" replace>
             <ListItem isActive={location.pathname.split('/')[2] === '1'}>
               상품 관리
             </ListItem>
           </Link>
-          <Link to="2">
+          <Link to="2" replace>
             <ListItem isActive={location.pathname.split('/')[2] === '2'}>
               계정 관리
             </ListItem>
           </Link>
-          <Link to="3">
+          <Link to="3" replace>
             <ListItem isActive={location.pathname.split('/')[2] === '3'}>
               메뉴 추가
             </ListItem>
           </Link>
-          <Link to="4">
+          <Link to="4" replace>
             <ListItem isActive={location.pathname.split('/')[2] === '4'}>
               메뉴 추가
             </ListItem>
           </Link>
-          <Link to="5">
+          <Link to="5" replace>
             <ListItem isActive={location.pathname.split('/')[2] === '5'}>
               메뉴 추가
             </ListItem>
@@ -160,6 +178,7 @@ const Admin = () => {
           close={() => setLoginInfoModalOpen(false)}
           title="로그아웃"
           message="정말 로그아웃 하시겠습니까?"
+          okFunction={Logout}
         />
       ) : null}
     </Container>

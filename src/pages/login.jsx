@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import Icon from '../components/icon';
@@ -72,8 +72,8 @@ function SubmitLoginData({ id, pw }, setAlertMsg, navigate, ChangeAuthState) {
       } else if (json.msg === '패스워드 불일치') {
         setAlertMsg('비밀번호가 일치하지 않습니다.');
       } else if (json.id !== undefined && json.id === id) {
-        ChangeAuthState();
         navigate('/admin', { replace: true });
+        ChangeAuthState();
       }
     })
     .catch((e) => console.error(e));
@@ -93,7 +93,11 @@ const AdminLogin = () => {
     setLevel(1);
   }
 
-  if (isAuth) return <Navigate to={-1} replace={true} />;
+  useEffect(() => {
+    console.log(isAuth);
+  }, [isAuth]);
+
+  if (isAuth) return <Navigate to="/" replace={true} />;
   return (
     <Container>
       <div
