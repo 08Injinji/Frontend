@@ -50,7 +50,6 @@ ReactDOM.render(
           </Routes>
         </ThemeProvider>
       </Router>
-      <Footer />
     </AuthProvider>
   </React.StrictMode>,
   document.getElementById('root'),
