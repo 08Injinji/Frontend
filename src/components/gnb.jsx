@@ -3,14 +3,16 @@ import { Outlet } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import Injinji from './Injinji.svg';
+import Footer from './footer';
 
 const Navbar = styled.div`
-  padding-top: 10px;
   height: 55px;
   width: 100vw;
   box-sizing: border-box;
   z-index: 90;
   display: flex;
+  position: fixed;
+  background-color: #fff;
   align-items: center;
   justify-content: space-between;
 `;
@@ -89,6 +91,7 @@ const Gnb = () => {
         </div>
       </Navbar>
       <Outlet />
+      <Footer />
     </>
   );
 };
