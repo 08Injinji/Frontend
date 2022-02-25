@@ -1,21 +1,8 @@
-import React, {
-  useState,
-  useEffect,
-  useRef,
-  useLayoutEffect,
-  useCallback,
-} from 'react';
+import React from 'react';
 import styled from 'styled-components';
-// import {GlobalStyle, Container, VideoContainer, Comment, Comment2, Comment3, ImageContainer, Capabilities, Snip} from "./style";
-// import { Crd, CrdHeading, CrdImg, CrdInfo, CrdText} from "./style";
 import video1 from '../components/surfing.mp4';
 import B1 from '../components/B1.webp';
 import ceoimage from '../components/ceoimage.webp';
-// import { gsap } from "gsap";
-// import { ScrollTrigger } from "gsap/ScrollTrigger";
-// import { ExpoScaleEase, RoughEase, SlowMo } from "gsap/EasePack";
-// import { motion } from "framer-motion";
-
 //style.js
 
 const Container = styled.div`
@@ -24,9 +11,12 @@ const Container = styled.div`
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  /* overflow: hidden; */
   padding: 0;
   box-sizing: border-box;
+
+  @media ${({ theme }) => theme.device.mobile} {
+    min-height: 85vh;
+  }
 `;
 
 const VideoContainer = styled.div`
@@ -37,6 +27,24 @@ const VideoContainer = styled.div`
   height: 100%;
   object-fit: cover;
   pointer-events: none;
+  overflow: hidden;
+
+  @media ${({ theme }) => theme.device.mobile} {
+    position: relative;
+    width: 100vw;
+    top: 0;
+  }
+`;
+
+const Video = styled.video`
+  height: 100%;
+  @media ${({ theme }) => theme.device.mobile} {
+    width: auto;
+    height: 75%;
+  }
+  @media ${({ theme }) => theme.device.desktop} {
+    width: 100%;
+  }
 `;
 
 const Comment = styled.h2`
@@ -67,6 +75,23 @@ const Comment = styled.h2`
     z-index: -1;
     transition: transform 0.3s ease;
   }
+  @media ${({ theme }) => theme.device.mobile} {
+    font-size: 5.5em;
+    justify-content: start;
+    padding-left: 5vw;
+  }
+`;
+
+const CommentDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  @media ${({ theme }) => theme.device.mobile} {
+    flex-wrap: nowrap;
+    gap: 25px;
+    padding: 0 5vw;
+  }
 `;
 
 const Comment2 = styled.h2`
@@ -76,26 +101,12 @@ const Comment2 = styled.h2`
   font-size: 2em;
   font-family: 'Pretendard';
   font-weight: bolder;
+  text-align: center;
   color: #fff;
   margin-top: 0;
-  &:before {
-    transform: scaleX(0);
-    transform-origin: bottom right;
-  }
-  &:hover {
-    &::before {
-      transform: scaleX(1);
-      transform-origin: bottom left;
-    }
-  }
-  &:before {
-    content: ' ';
-    display: block;
-    position: absolute;
-    inset: 158px 30% 6px 30%;
-    background: #11a53e;
-    z-index: -1;
-    transition: transform 0.3s ease;
+  @media ${({ theme }) => theme.device.mobile} {
+    font-size: 1.2em;
+    text-align: left;
   }
 `;
 
@@ -107,6 +118,12 @@ const Comment3 = styled.p`
   line-height: 36px;
   text-align: center;
   color: #fff;
+  @media ${({ theme }) => theme.device.mobile} {
+    font-size: 0.8em;
+    line-height: 18px;
+    text-align: left;
+    padding: 0;
+  }
 `;
 
 const ImageContainer = styled.img`
@@ -114,6 +131,9 @@ const ImageContainer = styled.img`
   width: ${(props) => props.width};
   height: ${(props) => props.height};
   object-fit: cover;
+  @media ${({ theme }) => theme.device.mobile} {
+    /* display: none; */
+  }
 `;
 
 const Capabilities = styled.div`
@@ -133,6 +153,9 @@ const CrdImg = styled.div`
   bottom: 0;
   margin: 0 auto;
   background-size: cover;
+  @media ${({ theme }) => theme.device.mobile} {
+    background-position: 48% 0px;
+  }
 `;
 
 const CrdInfo = styled.div`
@@ -145,7 +168,7 @@ const CrdInfo = styled.div`
 `;
 
 const CrdHeading = styled.h2`
-  font-size: 5rem;
+  font-size: 3rem;
   letter-spacing: 2px;
   text-transform: uppercase;
   font-family: 'Pretendard';
@@ -155,9 +178,12 @@ const CrdHeading = styled.h2`
 
 const CrdText = styled.p`
   font-family: 'Pretendard';
-  font-size: 1.5rem;
+  font-size: 1rem;
   line-height: 1.5;
   margin: 8% 10% 0 10%;
+  @media ${({ theme }) => theme.device.mobile} {
+    font-size: 0.8rem;
+  }
 `;
 
 const Crd = styled.div`
@@ -179,33 +205,30 @@ const About = () => {
     >
       <Container>
         <VideoContainer>
-          <video autoPlay muted loop style={{ width: '100%', height: '100%' }}>
+          <Video autoPlay muted loop>
             <source src={video1} type="video/mp4" />
-          </video>
+          </Video>
         </VideoContainer>
       </Container>
       <Container>
         <div style={{ padding: '0', margin: '0', boxSizing: 'border-box' }}>
           <div
-            style={{ position: 'relative', transform: 'translate(0%,-150%)' }}
+            style={{
+              position: 'relative',
+              transform: 'translate(0%,-150%)',
+              marginBottom: '-30%',
+            }}
           >
             <Comment style={{ margin: '0 auto 3%' }}>INJINJI</Comment>
-            <div
-              style={{
-                display: 'flex',
-                justifyContent: 'center',
-                flexWrap: 'wrap',
-                gap: '20px',
-              }}
-            >
+            <CommentDiv>
               <Comment2>아메리칸 인디언 말로 "우주"를 뜻합니다.</Comment2>
               <Comment3>
-                첨단 기능성 소재를 적용하여, 또 하나의 우주인 우리 몸에 최상의
-                컨디션을 유지시키기 위한 최적의 브랜드입니다. injinji® korea는
-                첨단 기능성 소재를 바탕으로 신체의 건강과 기능을 개선하기 위한
-                의류를 개발합니다.
+                첨단 기능성 소재를 적용하여,<br></br>또 하나의 우주인 우리 몸에
+                최상의 컨디션을 유지시키기 위한 최적의 브랜드입니다.<br></br>
+                injinji® korea는 첨단 기능성 소재를 바탕으로 신체의 건강과
+                기능을 개선하기 위한 의류를 개발합니다.
               </Comment3>
-            </div>
+            </CommentDiv>
           </div>
           <div
             style={{
