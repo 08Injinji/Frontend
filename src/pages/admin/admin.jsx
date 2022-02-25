@@ -5,6 +5,7 @@ import Injinji from '../../components/icon';
 import { MdLogout } from 'react-icons/md';
 import { InfoModal } from '../../components/infoModal';
 import { AuthContext } from '../../components/authContext';
+import { HTTP_URL } from '../../const';
 
 const Container = styled.div`
   display: flex;
@@ -87,7 +88,7 @@ const Admin = () => {
   const [isLoginInfoModalOpen, setLoginInfoModalOpen] = React.useState(false);
 
   function Logout() {
-    fetch('https://3.36.96.63/login/logout', {
+    fetch(`${HTTP_URL}/login/logout`, {
       method: 'DELETE',
       credentials: 'include',
     })

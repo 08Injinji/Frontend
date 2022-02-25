@@ -11,6 +11,7 @@ import {
 import Skeleton from '@mui/material/Skeleton';
 import Modal from '../../components/modal';
 import { InfoModal } from '../../components/infoModal';
+import { HTTP_URL } from '../../const';
 
 const Container = styled.div`
   width: 100%;
@@ -128,7 +129,7 @@ const Admin1 = () => {
   }
 
   function RemoveItems() {
-    fetch('https://3.36.96.63/fetchtest/deleteArray', {
+    fetch(`${HTTP_URL}/fetchtest/deleteArray`, {
       method: 'DELETE',
       headers: {
         'Content-type': 'application/json',
@@ -140,7 +141,7 @@ const Admin1 = () => {
   }
   // 서버에서 데이터 받아오기
   React.useLayoutEffect(() => {
-    fetch('https://3.36.96.63/fetchtest/fetchAll', {
+    fetch(`${HTTP_URL}/fetchtest/fetchAll`, {
       method: 'GET',
     })
       .then((res) => res.json())

@@ -15,7 +15,11 @@ function VerifyLoginToken(setAuth, setLevel, setLoading) {
     .then((json) => {
       if (
         json.msg ===
-        '리프레시 토큰은 문제가 없는 상황이므로 정상적으로 사용을 권장한다'
+          '리프레시 토큰은 문제가 없는 상황이므로 정상적으로 사용을 권장한다' ||
+        json.msg === '리프레시 토큰 발급 완료 2' ||
+        json.msg === '리프레시 토큰 재발급 완료 2-1' ||
+        json.msg ===
+          '리프레시 토큰은 문제가 없는 상황이므로 accessToken만 재발급해준다'
       ) {
         setAuth(true);
       } else {
