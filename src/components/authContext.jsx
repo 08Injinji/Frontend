@@ -1,4 +1,5 @@
 import React from 'react';
+import { HTTP_URL } from '../const';
 
 const AuthContext = React.createContext({
   isAuth: false,
@@ -7,7 +8,7 @@ const AuthContext = React.createContext({
 });
 
 function VerifyLoginToken(setAuth, setLevel, setLoading) {
-  fetch('https://3.36.96.63/login/check', {
+  fetch(`${HTTP_URL}/login/check`, {
     method: 'POST',
     credentials: 'include',
   })
