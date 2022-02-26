@@ -258,7 +258,7 @@ const About = () => {
     >
       <Container>
         <VideoContainer>
-          <Video autoPlay muted loop>
+          <Video autoPlay muted loop playsinline>
             <source src={video1} type="video/mp4" />
           </Video>
         </VideoContainer>
