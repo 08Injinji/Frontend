@@ -3,6 +3,7 @@ import { Navigate, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import Icon from '../components/icon';
 import { AuthContext } from '../components/authContext';
+import { HTTP_URL } from '../const';
 
 const Container = styled.div`
   width: 100vw;
@@ -52,8 +53,7 @@ const AlertDiv = styled.div`
 `;
 
 function SubmitLoginData({ id, pw }, setAlertMsg, navigate, ChangeAuthState) {
-  console.log(id + ' ' + pw);
-  fetch('https://3.36.96.63/login/', {
+  fetch(`${HTTP_URL}/login/`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -98,6 +98,7 @@ const AdminLogin = () => {
   }, [isAuth]);
 
   if (isAuth) return <Navigate to="/" replace={true} />;
+  if (isAuth === undefined) return <div>now loading...</div>;
   return (
     <Container>
       <div
