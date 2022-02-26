@@ -288,7 +288,8 @@ const Price = styled.p`
   left: ${(props) => props.left};
   font-size: 22px;
   z-index: 1;
-  > p {
+  > span {
+    display: inline-block;
     font-weight: bolder;
     margin-top: 15px;
   }
@@ -357,7 +358,7 @@ const Main = () => {
               <MainSocks1 src={imgUrl} alt="socks" />
               <Price bottom="50px" right="100px" mright="10vw">
                 Liner.<br></br>
-                <p>8,500 &#8361;</p>
+                <span>8,500 &#8361;</span>
               </Price>
             </MainsocksDiv>
           </GrayContainer>
@@ -367,7 +368,7 @@ const Main = () => {
             <MainsocksDiv height="100vh">
               <Price bottom="50px" left="100px" mleft="inherit" mright="10vw">
                 Runner<br></br>Crew. <br></br>
-                <p>14,900 &#8361;</p>
+                <span>14,900 &#8361;</span>
               </Price>
               <MainSocks2 src={crew} />
             </MainsocksDiv>
@@ -405,7 +406,7 @@ const Main = () => {
               />
               <Price bottom="50px" right="200px" mright="inherit" mleft="10vw">
                 Trailer + Liner<br></br>
-                <p>16,900 &#8361;</p>
+                <span>16,900 &#8361;</span>
               </Price>
             </MainsocksDiv>
             <BuyMent2 top="49%">
@@ -432,7 +433,7 @@ const Main = () => {
               />
               <Price bottom="50px" right="200px" mright="inherit" mleft="10vw">
                 Eco-Wool + Liner<br></br>
-                <p>16,900 &#8361;</p>
+                <span>16,900 &#8361;</span>
               </Price>
             </MainsocksDiv>
             <BuyMent2 top="49%">
