@@ -10,7 +10,6 @@ import {
 } from 'react-icons/md';
 import Skeleton from '@mui/material/Skeleton';
 import Modal from '../../components/modal';
-import { InfoModal } from '../../components/infoModal';
 import { HTTP_URL } from '../../const';
 
 const Container = styled.div`
@@ -103,12 +102,6 @@ const Item = ({
     </ItemStyle>
   );
 };
-
-// 상품 리스트에서 제거
-function removeItem(checkedList, setCheckedList, data, setData) {
-  setData(data.filter((item) => checkedList.indexOf(item.name) === -1));
-  setCheckedList([]);
-}
 
 // 상품 관리 전체 페이지 컴포넌트
 const Admin1 = () => {

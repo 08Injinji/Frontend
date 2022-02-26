@@ -84,7 +84,7 @@ const InfoCircle = styled.div`
 const Admin = () => {
   let location = useLocation();
   let navigate = useNavigate();
-  const { isAuth, setAuth, setLevel } = useContext(AuthContext);
+  const { setAuth } = useContext(AuthContext);
   const [isLoginInfoModalOpen, setLoginInfoModalOpen] = React.useState(false);
 
   function Logout() {
