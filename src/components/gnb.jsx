@@ -128,7 +128,9 @@ const Gnb = () => {
     var lastScrollTop;
     window.addEventListener('scroll', function () {
       var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      if (scrollTop > lastScrollTop) {
+      if (scrollTop < 80) {
+        navbar.current.style.top = '0';
+      } else if (scrollTop > lastScrollTop) {
         navbar.current.style.top = '-80px';
       } else {
         navbar.current.style.top = '0';
