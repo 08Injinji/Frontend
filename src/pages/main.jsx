@@ -1,31 +1,29 @@
 import React from 'react';
 import styled from 'styled-components';
-import mainwebp from '../components/main.webp';
-import mainwebp2 from '../components/main2.webp';
-import softSocks from '../components/Mask Group.png';
-import grayBox from '../components/Rectangle.png';
+// import mainwebp from '../components/main.webp';
+// import mainwebp2 from '../components/main2.webp';
 import socksList from './admin/socksList';
 import ecowool from '../components/에코울.webp';
 import crew from '../components/크루.webp';
 import trailer1 from '../components/트레일러1.webp';
 import trailer2 from '../components/트레일러2.webp';
 
-const VideoContainer = styled.div`
-  width: 100vw;
-  position: sticky;
-  top: 0;
-`;
+// const VideoContainer = styled.div`
+//   width: 100vw;
+//   position: sticky;
+//   top: 0;
+// `;
 
-const Mainimg = styled.div`
-  position: relative;
-  display: inline-block;
-  width: 100%;
-  height: 100vh;
-  background-image: url(${mainwebp});
-  @media ${({ theme }) => theme.device.mobile} {
-    background-image: url(${mainwebp2});
-  }
-`;
+// const Mainimg = styled.div`
+//   position: relative;
+//   display: inline-block;
+//   width: 100%;
+//   height: 100vh;
+//   background-image: url(${mainwebp});
+//   @media ${({ theme }) => theme.device.mobile} {
+//     background-image: url(${mainwebp2});
+//   }
+// `;
 
 const SocksContainer = styled.div`
   display: flex;
@@ -37,22 +35,9 @@ const SocksContainer = styled.div`
   margin: 0;
   box-sizing: border-box;
   background-color: #fff;
-  /* &:after {
-    content: '';
-    position: absolute;
-    left: 8.54vw;
-    bottom: -5vh;
-    height: 1px;
-    width: 82.91vw;
-    border-bottom: 1px solid #bcbcbc;
-    z-index: 1;
-  } */
   @media ${({ theme }) => theme.device.mobile} {
     height: ${(props) => props.mheight};
     padding-bottom: ${(props) => props.paddingbottom};
-    /* &:after {
-      bottom: 0;
-    } */
   }
 `;
 
@@ -91,10 +76,7 @@ const BuyMent2 = styled.div`
   top: 65%;
   left: 50%;
   transform: translate(-50%, -50%);
-
-  /* margin: 20vh 0 0 8.54vw; */
   @media ${({ theme }) => theme.device.mobile} {
-    /* margin: 48px auto 0 auto; */
     align-items: center;
     top: ${(props) => props.top};
   }
@@ -136,73 +118,11 @@ const MentA = styled.a`
   font-size: 1rem;
   font-weight: bolder;
   margin-top: 20px;
-  z-index: 99;
   @media ${({ theme }) => theme.device.mobile} {
     width: 320px;
     font-size: 0.8rem;
     text-align: center;
   }
-`;
-
-const Description = styled.div`
-  display: flex;
-  position: relative;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  padding: 25vh 8.54vw 0;
-  gap: 100px;
-  background-color: #fff;
-  @media ${({ theme }) => theme.device.mobile} {
-    padding: 40px 0 0;
-  }
-`;
-
-const DescriptionDiv = styled.div`
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  align-items: center;
-  @media ${({ theme }) => theme.device.mobile} {
-    flex-wrap: wrap;
-    gap: 40px;
-  }
-`;
-
-const DescriptionDiv2 = styled.div`
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  align-items: center;
-  @media ${({ theme }) => theme.device.mobile} {
-    flex-wrap: wrap;
-    flex-direction: column-reverse;
-    align-items: normal;
-    gap: 40px;
-  }
-`;
-
-const DescUL = styled.ul`
-  list-style: none;
-  @media ${({ theme }) => theme.device.mobile} {
-    margin-left: 20px;
-  }
-`;
-
-const DescLI = styled.li`
-  font-size: 1.5rem;
-  font-weight: bolder;
-  border-left: 8px solid #d6ece9;
-`;
-
-const DescLI2 = styled.li`
-  font-size: 0.8rem;
-  line-height: 1.5;
-  font-weight: 600;
-  color: #6e6e73;
-  letter-spacing: -0.022em;
-  width: 250px;
-  margin-top: 3vh;
 `;
 
 const MainsocksDiv = styled.div`
@@ -288,7 +208,8 @@ const Price = styled.p`
   left: ${(props) => props.left};
   font-size: 22px;
   z-index: 1;
-  > p {
+  > span {
+    display: inline-block;
     font-weight: bolder;
     margin-top: 15px;
   }
@@ -297,17 +218,6 @@ const Price = styled.p`
     transform: translateX(${(props) => props.x});
     right: ${(props) => props.mright};
     left: ${(props) => props.mleft};
-  }
-`;
-
-const SubSocks = styled.img`
-  alt: 'socks';
-  width: 30vw;
-  height: 30vw;
-  overflow: hidden;
-  @media ${({ theme }) => theme.device.mobile} {
-    width: 100%;
-    height: 100%;
   }
 `;
 
@@ -320,12 +230,6 @@ const Main = () => {
     `${socksList[getRandomIndex(socksList.length)][0].url}` +
     '.webp');
 
-  React.useEffect(() => {
-    console.log(socksList);
-    console.log(socksList[1][0].url);
-    console.log(imgUrl);
-  });
-
   return (
     <>
       <div
@@ -336,9 +240,9 @@ const Main = () => {
           display: 'block',
         }}
       >
-        <VideoContainer>
+        {/* <VideoContainer>
           <Mainimg />
-        </VideoContainer>
+        </VideoContainer> */}
         <SocksContainer height="100vh" mheight="700px" paddingbottom="10px">
           <GrayContainer height="70%" mheight="90%" fd="column">
             <BuyMent>
@@ -357,7 +261,7 @@ const Main = () => {
               <MainSocks1 src={imgUrl} alt="socks" />
               <Price bottom="50px" right="100px" mright="10vw">
                 Liner.<br></br>
-                <p>8,500 &#8361;</p>
+                <span>8,500 &#8361;</span>
               </Price>
             </MainsocksDiv>
           </GrayContainer>
@@ -367,7 +271,7 @@ const Main = () => {
             <MainsocksDiv height="100vh">
               <Price bottom="50px" left="100px" mleft="inherit" mright="10vw">
                 Runner<br></br>Crew. <br></br>
-                <p>14,900 &#8361;</p>
+                <span>14,900 &#8361;</span>
               </Price>
               <MainSocks2 src={crew} />
             </MainsocksDiv>
@@ -405,7 +309,7 @@ const Main = () => {
               />
               <Price bottom="50px" right="200px" mright="inherit" mleft="10vw">
                 Trailer + Liner<br></br>
-                <p>16,900 &#8361;</p>
+                <span>16,900 &#8361;</span>
               </Price>
             </MainsocksDiv>
             <BuyMent2 top="49%">
@@ -432,7 +336,7 @@ const Main = () => {
               />
               <Price bottom="50px" right="200px" mright="inherit" mleft="10vw">
                 Eco-Wool + Liner<br></br>
-                <p>16,900 &#8361;</p>
+                <span>16,900 &#8361;</span>
               </Price>
             </MainsocksDiv>
             <BuyMent2 top="49%">

@@ -82,7 +82,7 @@ const Comment = styled.h2`
   }
 `;
 
-const CommentDiv = styled.div`
+const CommentDiv2 = styled.div`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -90,7 +90,19 @@ const CommentDiv = styled.div`
   @media ${({ theme }) => theme.device.mobile} {
     flex-wrap: nowrap;
     gap: 25px;
-    padding: 0 5vw;
+    padding: 10px 5vw;
+  }
+  @media ${({ theme }) => theme.device.desktop} {
+    flex-direction: column;
+  }
+`;
+
+const CommentDiv = styled.div`
+  position: relative;
+  transform: translate(0%, -150%);
+  margin-bottom: -20%;
+  @media ${({ theme }) => theme.device.mobile} {
+    margin-bottom: -65%;
   }
 `;
 
@@ -132,17 +144,53 @@ const ImageContainer = styled.img`
   height: ${(props) => props.height};
   object-fit: cover;
   @media ${({ theme }) => theme.device.mobile} {
-    /* display: none; */
+    height: 80%;
+  }
+`;
+const CapaDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 75px;
+  width: 100%;
+  @media ${({ theme }) => theme.device.mobile} {
+    position: absolute;
+    width: 100%;
+    top: 38px;
+    left: 50%;
+    transform: translate(-50%, 0%);
+  }
+  @media ${({ theme }) => theme.device.desktop} {
+    gap: 60px;
   }
 `;
 
 const Capabilities = styled.div`
   display: flex;
   justify-content: space-evenly;
-  font-family: 'Pretendard';
   font-size: 1.2em;
+  @media ${({ theme }) => theme.device.mobile} {
+    margin-left: 5vw;
+    margin-top: ${(props) => props.marginTop};
+    position: relative;
+    color: white;
+    font-weight: bolder;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
 `;
 
+const Ch3 = styled.h3`
+  text-align: center;
+  color: rgb(120 120 120);
+  font-size: 1.7em;
+  @media ${({ theme }) => theme.device.mobile} {
+    color: #fff;
+    font-size: 2.7em;
+    margin: 43px 0 0 20px;
+    text-align: start;
+  }
+`;
 const CrdImg = styled.div`
   position: absolute;
   display: flex;
@@ -191,6 +239,12 @@ const Crd = styled.div`
   position: relative;
   width: 88%;
   height: 80vh;
+  @media ${({ theme }) => theme.device.desktop} {
+    margin-top: 75px;
+  }
+  @media ${({ theme }) => theme.device.mobile} {
+    margin: 30px auto;
+  }
 `;
 
 const About = () => {
@@ -200,7 +254,6 @@ const About = () => {
         padding: '0',
         margin: '0',
         boxSizing: 'border-box',
-        marginBottom: '200px',
       }}
     >
       <Container>
@@ -212,15 +265,9 @@ const About = () => {
       </Container>
       <Container>
         <div style={{ padding: '0', margin: '0', boxSizing: 'border-box' }}>
-          <div
-            style={{
-              position: 'relative',
-              transform: 'translate(0%,-150%)',
-              marginBottom: '-30%',
-            }}
-          >
+          <CommentDiv>
             <Comment style={{ margin: '0 auto 3%' }}>INJINJI</Comment>
-            <CommentDiv>
+            <CommentDiv2>
               <Comment2>아메리칸 인디언 말로 "우주"를 뜻합니다.</Comment2>
               <Comment3>
                 첨단 기능성 소재를 적용하여,<br></br>또 하나의 우주인 우리 몸에
@@ -228,8 +275,8 @@ const About = () => {
                 injinji® korea는 첨단 기능성 소재를 바탕으로 신체의 건강과
                 기능을 개선하기 위한 의류를 개발합니다.
               </Comment3>
-            </CommentDiv>
-          </div>
+            </CommentDiv2>
+          </CommentDiv>
           <div
             style={{
               background: '#fff',
@@ -237,47 +284,33 @@ const About = () => {
               flexDirection: 'column',
               justifyContent: 'center',
               alignItems: 'center',
-              height: '80vh',
+              height: '110vh',
               width: '100%',
               position: 'relative',
             }}
           >
-            <div style={{ position: 'relative', width: '88%', height: '80%' }}>
-              <ImageContainer
-                src={B1}
-                style={{ objectFit: 'cover' }}
-                width="100%"
-                height="100%"
-              />
-            </div>
+            <ImageContainer
+              src={B1}
+              style={{ objectFit: 'cover' }}
+              width="100%"
+              height="60%"
+            />
+            <CapaDiv>
+              <Ch3>injinji® Korea's CAPABILITIES</Ch3>
+              <Capabilities marginTop="60%">
+                <p>독보적인 위치</p>
+                <p>뛰어난 기능성</p>
+                <p>브랜드 가치</p>
+              </Capabilities>
+              <Capabilities marginTop="20px">
+                <p>지속적 발전</p>
+                <p>5-toes design</p>
+                <p>최적의 능력</p>
+              </Capabilities>
+            </CapaDiv>
           </div>
-          <div
-            style={{ display: 'flex', gap: '30px', flexDirection: 'column' }}
-          >
-            <div>
-              <h3
-                style={{
-                  textAlign: 'center',
-                  color: '#4A5361',
-                  fontFamily: 'Pretendard',
-                  fontSize: '1.5em',
-                }}
-              >
-                injinji® Korea's CAPABILITIES
-              </h3>
-            </div>
-            <Capabilities>
-              <p>독보적인 위치</p>
-              <p>뛰어난 기능성</p>
-              <p>브랜드 가치</p>
-            </Capabilities>
-            <Capabilities>
-              <p>지속적 발전</p>
-              <p>5-toes design</p>
-              <p>최적의 능력</p>
-            </Capabilities>
-          </div>
-          <Crd style={{ marginTop: '75px' }}>
+
+          <Crd>
             <CrdImg style={{ backgroundImage: `url(${ceoimage})` }}></CrdImg>
             <CrdInfo>
               <CrdHeading>INJINJI's History</CrdHeading>

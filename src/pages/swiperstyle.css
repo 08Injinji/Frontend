@@ -28,7 +28,6 @@
   display: block;
   width: 100%;
   transform: translateX(10vw);
-  /* height: 50%; */
   object-fit: cover;
 }
 
@@ -36,4 +35,13 @@ img.crew,
 img.trailer,
 img.ecowool {
   width: 80%;
+}
+
+.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal,
+.swiper-pagination-custom,
+.swiper-pagination-fraction {
+  bottom: 20px;
+  left: 0;
+  width: 100%;
 }

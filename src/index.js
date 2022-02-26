@@ -16,19 +16,10 @@ import { AuthProvider } from './components/authContext';
 import AuthRoute from './components/authroute';
 import AdminMain from './pages/admin/index';
 import theme from './pages/theme';
-import styled, { createGlobalStyle } from 'styled-components';
 import { ThemeProvider } from 'styled-components';
-
-const GlobalStyle = createGlobalStyle`
-      body {
-        @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
-        font-family: "Pretendard" !important;
-      }
-    `;
 
 ReactDOM.render(
   <React.StrictMode>
-    <GlobalStyle />
     <AuthProvider>
       <Router>
         <ThemeProvider theme={theme}>

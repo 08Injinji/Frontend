@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Media from 'react-media';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router';
@@ -129,7 +129,7 @@ const UL1 = styled.ul`
   margin: 20vh 0 0 8.54vw;
 
   @media ${({ theme }) => theme.device.mobile} {
-    margin: 5vh 0 0 0;
+    margin: 10px 0 0 0;
     text-align: center;
   }
 `;
@@ -140,38 +140,9 @@ const LI1 = styled.li`
 
   @media ${({ theme }) => theme.device.mobile} {
     font-size: 3.2rem;
+    padding-bottom: 15px;
   }
 `;
-
-const LI2 = styled.li`
-  width: 25vw;
-  font-size: 0.8vw;
-  color: rgb(102, 102, 102);
-  margin-top: 2vw;
-
-  @media ${({ theme }) => theme.device.mobile} {
-    width: 100%;
-    font-size: 0.8rem;
-    margin-top: 5vw;
-  }
-`;
-
-// const Description = styled.div`
-//   width: 82.92vw;
-//   display: flex;
-//   flex-wrap: wrap;
-//   justify-content: space-between;
-//   align-items: center;
-//   margin: 50vh auto;
-//   gap: 25vh;
-// `;
-
-// const SubSocks = styled.img`
-//   alt: 'socks';
-//   width: 30vw;
-//   height: 30vw;
-//   overflow: hidden;
-// `;
 
 const Description = styled.div`
   display: flex;
@@ -245,13 +216,14 @@ const SubSocks = styled.img`
 
 const Product = () => {
   let { item } = useParams();
-  const [title, setTitle] = React.useState('liner');
   const navigate = useNavigate();
   const { pathname } = useLocation();
-  const [active, setActive] = React.useState('WhiteSocks');
+  const [title, setTitle] = useState('liner');
+  const [active, setActive] = useState('WhiteSocks');
 
-  React.useEffect(() => {
+  useEffect(() => {
     setActive('WhiteSocks');
+    setTitle(pathname.split('/')[2]);
   }, [pathname]);
 
   const Product = ({ title, name }) => {
