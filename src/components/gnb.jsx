@@ -230,12 +230,12 @@ const Gnb = () => {
             >
               {extendNavbar ? (
                 <>
-                  <BsXLg />
+                  <BsXLg color="#666666" />
                 </>
               ) : (
                 <>
                   {' '}
-                  <FaStream />
+                  <FaStream color="#666666" />
                 </>
               )}
             </OpenLinksButton>
