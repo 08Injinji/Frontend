@@ -138,13 +138,27 @@ const Comment3 = styled.p`
   }
 `;
 
+const ImageContainerDiv = styled.div`
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 110vh;
+  width: 100%;
+  position: relative;
+  @media ${({ theme }) => theme.device.mobile} {
+    height: 100vh;
+  }
+`;
+
 const ImageContainer = styled.img`
   src: ${(props) => props.src};
   width: ${(props) => props.width};
   height: ${(props) => props.height};
   object-fit: cover;
   @media ${({ theme }) => theme.device.mobile} {
-    height: 80%;
+    height: 100%;
   }
 `;
 const CapaDiv = styled.div`
@@ -155,9 +169,8 @@ const CapaDiv = styled.div`
   @media ${({ theme }) => theme.device.mobile} {
     position: absolute;
     width: 100%;
-    top: 38px;
-    left: 50%;
-    transform: translate(-50%, 0%);
+    bottom: 15%;
+    /* transform: translate(-50%, 0%); */
   }
   @media ${({ theme }) => theme.device.desktop} {
     gap: 60px;
@@ -240,7 +253,7 @@ const Crd = styled.div`
   width: 88%;
   height: 80vh;
   @media ${({ theme }) => theme.device.desktop} {
-    margin-top: 75px;
+    margin-top: 25px;
   }
   @media ${({ theme }) => theme.device.mobile} {
     margin: 30px auto;
@@ -277,18 +290,7 @@ const About = () => {
               </Comment3>
             </CommentDiv2>
           </CommentDiv>
-          <div
-            style={{
-              background: '#fff',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              alignItems: 'center',
-              height: '110vh',
-              width: '100%',
-              position: 'relative',
-            }}
-          >
+          <ImageContainerDiv>
             <ImageContainer
               src={B1}
               style={{ objectFit: 'cover' }}
@@ -308,7 +310,7 @@ const About = () => {
                 <p>최적의 능력</p>
               </Capabilities>
             </CapaDiv>
-          </div>
+          </ImageContainerDiv>
 
           <Crd>
             <CrdImg style={{ backgroundImage: `url(${ceoimage})` }}></CrdImg>
