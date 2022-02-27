@@ -164,7 +164,7 @@ const DescriptionDiv = styled.div`
   align-items: center;
   @media ${({ theme }) => theme.device.mobile} {
     flex-wrap: wrap;
-    gap: 40px;
+    /* gap: 40px; */
   }
 `;
 
@@ -177,7 +177,6 @@ const DescriptionDiv2 = styled.div`
     flex-wrap: wrap;
     flex-direction: column-reverse;
     align-items: normal;
-    gap: 40px;
   }
 `;
 
@@ -211,6 +210,7 @@ const SubSocks = styled.img`
   @media ${({ theme }) => theme.device.mobile} {
     width: 100%;
     height: 100%;
+    margin-bottom: 40px;
   }
 `;
 
