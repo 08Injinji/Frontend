@@ -5,7 +5,7 @@ import { FaStream } from 'react-icons/fa';
 import { BsXLg } from 'react-icons/bs';
 import styled from 'styled-components';
 import { links } from './menudata';
-import Injinji from './Injinji.svg';
+// import Injinji from './Injinji.svg';
 import Footer from './footer';
 import Icon from './icon';
 
@@ -95,12 +95,12 @@ const MenuLi = styled.li`
   }
 `;
 
-const InjinjiLogo = styled.img`
-  height: 25px;
-  &:hover {
-    cursor: pointer;
-  }
-`;
+// const InjinjiLogo = styled.img`
+//   height: 25px;
+//   &:hover {
+//     cursor: pointer;
+//   }
+// `;
 
 const NavbarLeft = styled.div`
   flex: 70%;
@@ -232,7 +232,8 @@ const Gnb = () => {
             {/* <Btn pagenumber="1" title="about" text="about"></Btn>
               <Btn pagenumber="2" title="product/liner" text="product"></Btn> */}
           </NavbarLeft>
-          <NavbarRight>
+          {/* NavbarRight 영역은 컨텐츠가 다 완성되면 다시 오픈 */}
+          {/* <NavbarRight>
             <OpenLinksButton
               onClick={() => {
                 setExtendNavbar((curr) => !curr);
@@ -250,7 +251,7 @@ const Gnb = () => {
               )}
             </OpenLinksButton>
             <Btn />
-          </NavbarRight>
+          </NavbarRight> */}
         </NavbarInnerContainer>
         {extendNavbar && (
           <NavbarExtendedContainer>
