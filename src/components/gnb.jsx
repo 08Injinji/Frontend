@@ -7,6 +7,7 @@ import styled from 'styled-components';
 import { links } from './menudata';
 import Injinji from './Injinji.svg';
 import Footer from './footer';
+import Icon from './icon';
 
 const Navbar = styled.nav`
   height: ${(props) => (props.extendNavbar ? '100vh' : '55px')};
@@ -207,9 +208,18 @@ const Gnb = () => {
     };
 
     return (
-      <>
-        <InjinjiLogo src={Injinji} onClick={handleLogo}></InjinjiLogo>
-      </>
+      <div
+        style={{
+          cursor: 'pointer',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+        onClick={handleLogo}
+      >
+        {/* <InjinjiLogo src={Injinji} onClick={handleLogo}></InjinjiLogo> */}
+        <Icon />
+      </div>
     );
   };
 
