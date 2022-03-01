@@ -1,8 +1,8 @@
 import React, { useState, useRef, useLayoutEffect, useEffect } from 'react';
 import { useLocation } from 'react-router';
 import { Outlet, useNavigate } from 'react-router-dom';
-import { FaStream } from 'react-icons/fa';
-import { BsXLg } from 'react-icons/bs';
+// import { FaStream } from 'react-icons/fa'; (!)
+// import { BsXLg } from 'react-icons/bs'; (!)
 import styled from 'styled-components';
 import { links } from './menudata';
 // import Injinji from './Injinji.svg';
@@ -25,18 +25,18 @@ const Navbar = styled.nav`
   }
 `;
 
-const Menubtn = styled.div`
-  display: inline-block;
-  position: relative;
-  display: flex;
-  align-items: center;
-  width: 250px;
-  text-align: center;
-  box-sizing: border-box;
-  @media ${({ theme }) => theme.device.mobile} {
-    display: none;
-  }
-`;
+// const Menubtn = styled.div` (!)
+//   display: inline-block;
+//   position: relative;
+//   display: flex;
+//   align-items: center;
+//   width: 250px;
+//   text-align: center;
+//   box-sizing: border-box;
+//   @media ${({ theme }) => theme.device.mobile} {
+//     display: none;
+//   }
+// `;
 
 const MenubtnExtended = styled.div`
   font-size: x-large;
@@ -44,17 +44,17 @@ const MenubtnExtended = styled.div`
   margin: 10px;
 `;
 
-const OpenLinksButton = styled.button`
-  background: none;
-  border: none;
-  /* color: white; */
-  font-size: 28px;
-  cursor: pointer;
+// const OpenLinksButton = styled.button` (!)
+//   background: none;
+//   border: none;
+//   /* color: white; */
+//   font-size: 28px;
+//   cursor: pointer;
 
-  @media ${({ theme }) => theme.device.desktop} {
-    display: none;
-  }
-`;
+//   @media ${({ theme }) => theme.device.desktop} {
+//     display: none;
+//   }
+// `;
 
 const NavbarInnerContainer = styled.div`
   width: 100%;
@@ -109,14 +109,14 @@ const NavbarLeft = styled.div`
   padding-left: 5%;
 `;
 
-const NavbarRight = styled.div`
-  flex: 30%;
-  display: flex;
-  justify-content: flex-end;
-  @media ${({ theme }) => theme.device.mobile} {
-    padding: 2% 5% 0 0;
-  }
-`;
+// const NavbarRight = styled.div` (!)
+//   flex: 30%;
+//   display: flex;
+//   justify-content: flex-end;
+//   @media ${({ theme }) => theme.device.mobile} {
+//     padding: 2% 5% 0 0;
+//   }
+// `;
 
 const Gnb = () => {
   let navigate = useNavigate();
@@ -144,33 +144,33 @@ const Gnb = () => {
     setExtendNavbar(false);
   }, [pathname]);
 
-  const Btn = () => {
-    return (
-      <Menubtn>
-        <MenuUl>
-          {links.map((link) => {
-            const { pagenumber, title, text, id } = link;
-            const handleBtn = () => {
-              setPages(pagenumber);
-              navigate(`/${title}`);
-            };
-            return (
-              <MenuLi
-                onClick={handleBtn}
-                pagenumber={pagenumber}
-                pages={pages}
-                title={title}
-                text={text}
-                key={id}
-              >
-                {text}
-              </MenuLi>
-            );
-          })}
-        </MenuUl>
-      </Menubtn>
-    );
-  };
+  // const Btn = () => { (!)
+  //   return (
+  //     <Menubtn>
+  //       <MenuUl>
+  //         {links.map((link) => {
+  //           const { pagenumber, title, text, id } = link;
+  //           const handleBtn = () => {
+  //             setPages(pagenumber);
+  //             navigate(`/${title}`);
+  //           };
+  //           return (
+  //             <MenuLi
+  //               onClick={handleBtn}
+  //               pagenumber={pagenumber}
+  //               pages={pages}
+  //               title={title}
+  //               text={text}
+  //               key={id}
+  //             >
+  //               {text}
+  //             </MenuLi>
+  //           );
+  //         })}
+  //       </MenuUl>
+  //     </Menubtn>
+  //   );
+  // };
 
   const BtnExtended = () => {
     return (
