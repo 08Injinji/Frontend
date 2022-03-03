@@ -71,9 +71,9 @@ const BuyMent = styled.div`
     margin: 48px auto 0 auto;
     align-items: center;
   }
-  /* @media ${({ theme }) => theme.device.tablet} {
-    margin: 200px 0 0 100px;
-  } */
+  @media ${({ theme }) => theme.device.desktop} {
+    flex: 50%;
+  }
 `;
 
 const BuyMent2 = styled.div`
@@ -82,6 +82,7 @@ const BuyMent2 = styled.div`
   text-align: center;
   flex-direction: column;
   position: absolute;
+  width: 100%;
   top: 65%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -110,7 +111,6 @@ const MentLI = styled.li`
 `;
 
 const MentLI2 = styled.li`
-  width: 25vw;
   font-size: 1.2rem;
   color: #666666;
   margin-top: 20px;
@@ -124,7 +124,6 @@ const MentLI2 = styled.li`
 
 const MentA = styled.a`
   display: inline-block;
-  width: 25vw;
   font-size: 1.2rem;
   font-weight: bolder;
   margin-top: 20px;
@@ -148,6 +147,9 @@ const MainsocksDiv = styled.div`
     width: 100%;
     height: 100%;
     overflow: hidden;
+  }
+  @media ${({ theme }) => theme.device.desktop} {
+    flex: 50%;
   }
 `;
 
