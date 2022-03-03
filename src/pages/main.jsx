@@ -154,7 +154,7 @@ const MainsocksDiv = styled.div`
 const MainSocks1 = styled.img`
   alt: 'socks';
   position: absolute;
-  bottom: 25px;
+  bottom: 20px;
   right: -173px;
   width: 750px;
   overflow: hidden;
@@ -170,7 +170,7 @@ const MainSocks1 = styled.img`
 const MainSocks2 = styled.img`
   alt: 'socks';
   position: absolute;
-  bottom: 50px;
+  bottom: 0;
   left: -258px;
   object-fit: cover;
   @media ${({ theme }) => theme.device.mobile} {
