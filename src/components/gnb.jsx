@@ -126,6 +126,9 @@ const OutletDiv = styled.div`
   @media ${({ theme }) => theme.device.desktop} {
     padding: 55px 20px 0;
   }
+  @media ${({ theme }) => theme.device.mobile} {
+    padding-top: 55px;
+  }
 `;
 
 const Gnb = () => {
