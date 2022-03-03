@@ -28,31 +28,37 @@ import trailer2 from '../components/트레일러2.webp';
 const SocksContainer = styled.div`
   display: flex;
   position: relative;
-  width: 100vw;
+  width: 100%;
   height: ${(props) => props.height};
   align-items: center;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  background-color: #fff;
+  /* background-color: #fff; */
   @media ${({ theme }) => theme.device.mobile} {
     height: ${(props) => props.mheight};
     padding-bottom: ${(props) => props.paddingbottom};
+    flex-direction: ${(props) => props.mflexDirection};
   }
 `;
 
 const GrayContainer = styled.div`
   display: flex;
+  position: absolute;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
   flex-wrap: ${(props) => props.flexwrap};
   height: ${(props) => props.height};
-  position: relative;
   background-color: #efefef;
+  z-index: -1;
   @media ${({ theme }) => theme.device.mobile} {
+    width: 100%;
     height: ${(props) => props.mheight};
     flex-direction: ${(props) => props.fd};
+    margin-left: 0;
+    transform: ${(props) => props.transform};
   }
 `;
 
@@ -60,11 +66,14 @@ const BuyMent = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  margin: 20vh 0 0 8.54vw;
+  margin: 200px 0 0 0;
   @media ${({ theme }) => theme.device.mobile} {
     margin: 48px auto 0 auto;
     align-items: center;
   }
+  /* @media ${({ theme }) => theme.device.tablet} {
+    margin: 200px 0 0 100px;
+  } */
 `;
 
 const BuyMent2 = styled.div`
@@ -78,7 +87,7 @@ const BuyMent2 = styled.div`
   transform: translate(-50%, -50%);
   @media ${({ theme }) => theme.device.mobile} {
     align-items: center;
-    top: ${(props) => props.top};
+    top: ${(props) => props.mtop};
   }
 `;
 
@@ -86,6 +95,7 @@ const MentUL = styled.ul`
   list-style: none;
   margin: 0;
   padding: 0;
+  text-align: ${(props) => props.textAlign};
   @media ${({ theme }) => theme.device.mobile} {
     text-align: center;
   }
@@ -118,6 +128,7 @@ const MentA = styled.a`
   font-size: 1rem;
   font-weight: bolder;
   margin-top: 20px;
+  text-align: ${(props) => props.textAlign};
   @media ${({ theme }) => theme.device.mobile} {
     width: 320px;
     font-size: 0.8rem;
@@ -128,7 +139,7 @@ const MentA = styled.a`
 const MainsocksDiv = styled.div`
   width: 100%;
   height: ${(props) => props.height};
-  overflow: hidden;
+  /* overflow: hidden; */
   display: ${(props) => props.display};
   justify-content: space-between;
   align-items: center;
@@ -136,28 +147,31 @@ const MainsocksDiv = styled.div`
     position: relative;
     width: 100%;
     height: 100%;
+    overflow: hidden;
   }
 `;
 
 const MainSocks1 = styled.img`
   alt: 'socks';
   position: absolute;
-  bottom: -70px;
-  right: 0;
+  bottom: 25px;
+  right: -173px;
   width: 750px;
   overflow: hidden;
   object-fit: cover;
   @media ${({ theme }) => theme.device.mobile} {
     position: relative;
     width: 100%;
-    right: -10vw;
+    left: 29px;
+    bottom: -50px;
   }
 `;
 
 const MainSocks2 = styled.img`
   alt: 'socks';
   position: absolute;
-  bottom: -20%;
+  bottom: 50px;
+  left: -258px;
   object-fit: cover;
   @media ${({ theme }) => theme.device.mobile} {
     position: relative;
@@ -189,6 +203,7 @@ const MainSocks4 = styled.img`
   position: relative;
   object-fit: cover;
   width: ${(props) => props.width};
+  height: ${(props) => props.height};
   @media ${({ theme }) => theme.device.mobile} {
     width: ${(props) => props.mwidth};
     height: ${(props) => props.mheight};
@@ -218,6 +233,7 @@ const Price = styled.p`
     transform: translateX(${(props) => props.x});
     right: ${(props) => props.mright};
     left: ${(props) => props.mleft};
+    bottom: ${(props) => props.mbottom};
   }
 `;
 
@@ -232,132 +248,153 @@ const Main = () => {
 
   return (
     <>
-      <div
-        style={{
-          width: '100vw',
-          padding: '0',
-          margin: '0',
-          display: 'block',
-        }}
-      >
-        {/* <VideoContainer>
+      {/* <VideoContainer>
           <Mainimg />
         </VideoContainer> */}
-        <SocksContainer height="100vh" mheight="700px" paddingbottom="10px">
-          <GrayContainer height="70%" mheight="90%" fd="column">
-            <BuyMent>
-              <MentUL>
-                <MentLI>발을 위한 양말.</MentLI>
-                <MentLI2>
-                  신발 속에 갇혀있는<br></br>당신의 발을 위한<br></br>최고의
-                  선택
-                </MentLI2>
-              </MentUL>
-              <MentA href="https://smartstore.naver.com/injinji?n_media=27758&n_query=%EC%9D%B8%EC%A7%84%EC%A7%80&n_rank=1&n_ad_group=grp-a001-01-000000023238471&n_ad=nad-a001-01-000000153475054&n_keyword_id=nkw-a001-01-000004018620719&n_keyword=%EC%9D%B8%EC%A7%84%EC%A7%80&n_campaign_type=1&n_ad_group_type=1&NaPm=ct%3Dkyvlg7jc%7Cci%3D0ze00009hZ5vMdQuM13b%7Ctr%3Dsa%7Chk%3De2fb33bf768da3ff4cad26734b9d81f9d1e1c5fae">
-                자세히 알아보기 &gt;
-              </MentA>
-            </BuyMent>
-            <MainsocksDiv height="100vh">
-              <MainSocks1 src={imgUrl} alt="socks" />
-              <Price bottom="50px" right="100px" mright="10vw">
-                Liner.<br></br>
-                <span>8,500 &#8361;</span>
-              </Price>
-            </MainsocksDiv>
-          </GrayContainer>
-        </SocksContainer>
-        <SocksContainer height="100vh" mheight="700px" paddingbottom="10px">
-          <GrayContainer height="70%" mheight="90%" fd="column-reverse">
-            <MainsocksDiv height="100vh">
-              <Price bottom="50px" left="100px" mleft="inherit" mright="10vw">
-                Runner<br></br>Crew. <br></br>
-                <span>14,900 &#8361;</span>
-              </Price>
-              <MainSocks2 src={crew} />
-            </MainsocksDiv>
-            <BuyMent>
-              <MentUL>
-                <MentLI>당신의 페이스 메이커.</MentLI>
-                <MentLI2>
-                  자연스러운 움직임과<br></br>빠른 수분배출.<br></br>오랜 시간
-                  유지되는 최상의 컨디션.
-                </MentLI2>
-              </MentUL>
-              <MentA href="https://smartstore.naver.com/injinji?n_media=27758&n_query=%EC%9D%B8%EC%A7%84%EC%A7%80&n_rank=1&n_ad_group=grp-a001-01-000000023238471&n_ad=nad-a001-01-000000153475054&n_keyword_id=nkw-a001-01-000004018620719&n_keyword=%EC%9D%B8%EC%A7%84%EC%A7%80&n_campaign_type=1&n_ad_group_type=1&NaPm=ct%3Dkyvlg7jc%7Cci%3D0ze00009hZ5vMdQuM13b%7Ctr%3Dsa%7Chk%3De2fb33bf768da3ff4cad26734b9d81f9d1e1c5fae">
-                자세히 알아보기 &gt;
-              </MentA>
-            </BuyMent>
-          </GrayContainer>
-        </SocksContainer>
-        <SocksContainer height="100vh" mheight="700px">
-          <GrayContainer height="80%" mheight="90%" flexwrap="wrap">
-            <MainsocksDiv display="flex">
-              <MainSocks3
-                width="30vw"
-                mwidth="55vw"
-                mtop="2vh"
-                mleft="-45px"
-                rotate="-26deg"
-                src={trailer1}
-              />
-              <MainSocks3
-                width="40vw"
-                mwidth="70vw"
-                mbottom="0"
-                mright="0"
-                src={trailer2}
-              />
-              <Price bottom="50px" right="200px" mright="inherit" mleft="10vw">
-                Trailer + Liner<br></br>
-                <span>16,900 &#8361;</span>
-              </Price>
-            </MainsocksDiv>
-            <BuyMent2 top="49%">
-              <MentUL>
-                <MentLI>눈앞의 장애물에만 집중.</MentLI>
-                <MentLI2>
-                  쾌적한 착용감으로<br></br>발이 신경쓰이지 않도록.
-                </MentLI2>
-              </MentUL>
-              <MentA href="https://smartstore.naver.com/injinji?n_media=27758&n_query=%EC%9D%B8%EC%A7%84%EC%A7%80&n_rank=1&n_ad_group=grp-a001-01-000000023238471&n_ad=nad-a001-01-000000153475054&n_keyword_id=nkw-a001-01-000004018620719&n_keyword=%EC%9D%B8%EC%A7%84%EC%A7%80&n_campaign_type=1&n_ad_group_type=1&NaPm=ct%3Dkyvlg7jc%7Cci%3D0ze00009hZ5vMdQuM13b%7Ctr%3Dsa%7Chk%3De2fb33bf768da3ff4cad26734b9d81f9d1e1c5fae">
-                자세히 알아보기 &gt;
-              </MentA>
-            </BuyMent2>
-          </GrayContainer>
-        </SocksContainer>
-        <SocksContainer height="100vh">
-          <GrayContainer height="70%" flexwrap="wrap">
-            <MainsocksDiv height="100%" display="flex">
-              <MainSocks4
-                width="100%"
-                mwidth="100%"
-                mheight="100%"
-                src={ecowool}
-              />
-              <Price bottom="50px" right="200px" mright="inherit" mleft="10vw">
-                Eco-Wool + Liner<br></br>
-                <span>16,900 &#8361;</span>
-              </Price>
-            </MainsocksDiv>
-            <BuyMent2 top="49%">
-              <MentUL>
-                <MentLI>겨울을 더 따뜻하게.</MentLI>
-                <MentLI2>
-                  발가락은 부드럽고<br></br>
-                  발은 포근하게 감싸는<br></br>
-                  따뜻한 양말
-                </MentLI2>
-              </MentUL>
-              <MentA
-                href="https://smartstore.naver.com/injinji?n_media=27758&n_query=%EC%9D%B8%EC%A7%84%EC%A7%80&n_rank=1&n_ad_group=grp-a001-01-000000023238471&n_ad=nad-a001-01-000000153475054&n_keyword_id=nkw-a001-01-000004018620719&n_keyword=%EC%9D%B8%EC%A7%84%EC%A7%80&n_campaign_type=1&n_ad_group_type=1&NaPm=ct%3Dkyvlg7jc%7Cci%3D0ze00009hZ5vMdQuM13b%7Ctr%3Dsa%7Chk%3De2fb33bf768da3ff4cad26734b9d81f9d1e1c5fae"
-                target="_blank"
-              >
-                자세히 알아보기 &gt;
-              </MentA>
-            </BuyMent2>
-          </GrayContainer>
-        </SocksContainer>
-        {/* <Description>
+      <SocksContainer height="850px" mheight="700px" mflexDirection="column">
+        <GrayContainer height="700px" mheight="90%" fd="column"></GrayContainer>
+        <BuyMent>
+          <MentUL>
+            <MentLI>발을 위한 양말.</MentLI>
+            <MentLI2>
+              신발 속에 갇혀있는<br></br>당신의 발을 위한<br></br>최고의 선택
+            </MentLI2>
+          </MentUL>
+          <MentA href="https://smartstore.naver.com/injinji?n_media=27758&n_query=%EC%9D%B8%EC%A7%84%EC%A7%80&n_rank=1&n_ad_group=grp-a001-01-000000023238471&n_ad=nad-a001-01-000000153475054&n_keyword_id=nkw-a001-01-000004018620719&n_keyword=%EC%9D%B8%EC%A7%84%EC%A7%80&n_campaign_type=1&n_ad_group_type=1&NaPm=ct%3Dkyvlg7jc%7Cci%3D0ze00009hZ5vMdQuM13b%7Ctr%3Dsa%7Chk%3De2fb33bf768da3ff4cad26734b9d81f9d1e1c5fae">
+            자세히 알아보기 &gt;
+          </MentA>
+        </BuyMent>
+        <MainsocksDiv height="1000px">
+          <MainSocks1 src={imgUrl} alt="socks" />
+          <Price bottom="95px" mbottom="170px" right="0" mright="10vw">
+            Liner<br></br>
+            <span>8,500 &#8361;</span>
+          </Price>
+        </MainsocksDiv>
+      </SocksContainer>
+      <SocksContainer
+        height="1000px"
+        mheight="700px"
+        mflexDirection="column-reverse"
+      >
+        <GrayContainer
+          height="700px"
+          mheight="90%"
+          fd="column-reverse"
+          transform="translateY(-70px)"
+        ></GrayContainer>
+        <MainsocksDiv height="1000px">
+          <Price
+            bottom="95px"
+            mbottom="155px"
+            left="0"
+            mleft="inherit"
+            mright="10vw"
+          >
+            Runner<br></br>Crew <br></br>
+            <span>14,900 &#8361;</span>
+          </Price>
+          <MainSocks2 src={crew} />
+        </MainsocksDiv>
+        <BuyMent>
+          <MentUL textAlign="right">
+            <MentLI>당신의 페이스 메이커.</MentLI>
+            <MentLI2>
+              자연스러운 움직임과<br></br>빠른 수분배출.<br></br>오랜 시간
+              유지되는 최상의 컨디션.
+            </MentLI2>
+          </MentUL>
+          <MentA
+            textAlign="right"
+            href="https://smartstore.naver.com/injinji?n_media=27758&n_query=%EC%9D%B8%EC%A7%84%EC%A7%80&n_rank=1&n_ad_group=grp-a001-01-000000023238471&n_ad=nad-a001-01-000000153475054&n_keyword_id=nkw-a001-01-000004018620719&n_keyword=%EC%9D%B8%EC%A7%84%EC%A7%80&n_campaign_type=1&n_ad_group_type=1&NaPm=ct%3Dkyvlg7jc%7Cci%3D0ze00009hZ5vMdQuM13b%7Ctr%3Dsa%7Chk%3De2fb33bf768da3ff4cad26734b9d81f9d1e1c5fae"
+          >
+            자세히 알아보기 &gt;
+          </MentA>
+        </BuyMent>
+      </SocksContainer>
+      <SocksContainer height="1000px" mheight="700px" mflexDirection="column">
+        <GrayContainer height="700px" mheight="90%" flexwrap="wrap">
+          {' '}
+          <MainSocks3
+            width="30vw"
+            mwidth="55vw"
+            mtop="2vh"
+            mleft="-45px"
+            rotate="-26deg"
+            src={trailer1}
+          />
+          <MainSocks3
+            width="40vw"
+            mwidth="70vw"
+            mbottom="0"
+            mright="0"
+            src={trailer2}
+          />
+        </GrayContainer>
+        <MainsocksDiv display="flex">
+          <Price
+            bottom="166px"
+            mbottom="110px"
+            right="0"
+            mright="inherit"
+            mleft="10vw"
+          >
+            Trailer + Liner<br></br>
+            <span>16,900 &#8361;</span>
+          </Price>
+        </MainsocksDiv>
+        <BuyMent2 mtop="43%">
+          <MentUL>
+            <MentLI>눈앞의 장애물에만 집중.</MentLI>
+            <MentLI2>
+              쾌적한 착용감으로<br></br>발이 신경쓰이지 않도록.
+            </MentLI2>
+          </MentUL>
+          <MentA href="https://smartstore.naver.com/injinji?n_media=27758&n_query=%EC%9D%B8%EC%A7%84%EC%A7%80&n_rank=1&n_ad_group=grp-a001-01-000000023238471&n_ad=nad-a001-01-000000153475054&n_keyword_id=nkw-a001-01-000004018620719&n_keyword=%EC%9D%B8%EC%A7%84%EC%A7%80&n_campaign_type=1&n_ad_group_type=1&NaPm=ct%3Dkyvlg7jc%7Cci%3D0ze00009hZ5vMdQuM13b%7Ctr%3Dsa%7Chk%3De2fb33bf768da3ff4cad26734b9d81f9d1e1c5fae">
+            자세히 알아보기 &gt;
+          </MentA>
+        </BuyMent2>
+      </SocksContainer>
+      <SocksContainer height="1000px" mheight="700px" mflexDirection="column">
+        <GrayContainer height="700px" flexwrap="wrap">
+          <MainSocks4
+            width="100%"
+            height="700px"
+            mwidth="100%"
+            mheight="100%"
+            src={ecowool}
+          />
+        </GrayContainer>
+        <MainsocksDiv height="100%" display="flex">
+          <Price
+            bottom="166px"
+            mbottom="40px"
+            right="0"
+            mright="inherit"
+            mleft="10vw"
+          >
+            Eco-Wool + Liner<br></br>
+            <span>16,900 &#8361;</span>
+          </Price>
+        </MainsocksDiv>
+        <BuyMent2 mtop="58%">
+          <MentUL>
+            <MentLI>겨울을 더 따뜻하게.</MentLI>
+            <MentLI2>
+              발가락은 부드럽고<br></br>
+              발은 포근하게 감싸는<br></br>
+              따뜻한 양말
+            </MentLI2>
+          </MentUL>
+          <MentA
+            href="https://smartstore.naver.com/injinji?n_media=27758&n_query=%EC%9D%B8%EC%A7%84%EC%A7%80&n_rank=1&n_ad_group=grp-a001-01-000000023238471&n_ad=nad-a001-01-000000153475054&n_keyword_id=nkw-a001-01-000004018620719&n_keyword=%EC%9D%B8%EC%A7%84%EC%A7%80&n_campaign_type=1&n_ad_group_type=1&NaPm=ct%3Dkyvlg7jc%7Cci%3D0ze00009hZ5vMdQuM13b%7Ctr%3Dsa%7Chk%3De2fb33bf768da3ff4cad26734b9d81f9d1e1c5fae"
+            target="_blank"
+          >
+            자세히 알아보기 &gt;
+          </MentA>
+        </BuyMent2>
+      </SocksContainer>
+      {/* <Description>
           <DescriptionDiv>
             <SubSocks src={softSocks} />
             <DescUL>
@@ -392,7 +429,6 @@ const Main = () => {
             </DescUL>
           </DescriptionDiv>
         </Description> */}
-      </div>
     </>
   );
 };

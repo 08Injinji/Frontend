@@ -118,6 +118,16 @@ const NavbarLeft = styled.div`
 //   }
 // `;
 
+const OutletDiv = styled.div`
+  max-width: 1400px;
+  width: 100vw;
+  margin: 0 auto;
+
+  @media ${({ theme }) => theme.device.desktop} {
+    padding: 55px 20px 0;
+  }
+`;
+
 const Gnb = () => {
   let navigate = useNavigate();
   const [pages, setPages] = useState('');
@@ -259,7 +269,9 @@ const Gnb = () => {
           </NavbarExtendedContainer>
         )}
       </Navbar>
-      <Outlet />
+      <OutletDiv>
+        <Outlet />
+      </OutletDiv>
       <Footer />
     </>
   );
