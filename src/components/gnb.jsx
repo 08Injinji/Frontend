@@ -106,7 +106,9 @@ const NavbarLeft = styled.div`
   flex: 70%;
   display: flex;
   align-items: center;
-  padding-left: 5%;
+  @media ${({ theme }) => theme.device.desktop} {
+    padding-left: 5%;
+  }
 `;
 
 // const NavbarRight = styled.div` (!)

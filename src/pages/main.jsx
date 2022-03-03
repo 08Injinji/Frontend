@@ -103,7 +103,7 @@ const MentUL = styled.ul`
 
 const MentLI = styled.li`
   font-weight: bolder;
-  font-size: 1.5rem;
+  font-size: 2.7rem;
   @media ${({ theme }) => theme.device.mobile} {
     font-size: 1.3rem;
   }
@@ -111,7 +111,7 @@ const MentLI = styled.li`
 
 const MentLI2 = styled.li`
   width: 25vw;
-  font-size: 0.9rem;
+  font-size: 1.2rem;
   color: #666666;
   margin-top: 20px;
   line-height: 1.6;
@@ -125,7 +125,7 @@ const MentLI2 = styled.li`
 const MentA = styled.a`
   display: inline-block;
   width: 25vw;
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: bolder;
   margin-top: 20px;
   text-align: ${(props) => props.textAlign};
@@ -273,7 +273,7 @@ const Main = () => {
         </MainsocksDiv>
       </SocksContainer>
       <SocksContainer
-        height="1000px"
+        height="850px"
         mheight="700px"
         mflexDirection="column-reverse"
       >
@@ -312,7 +312,7 @@ const Main = () => {
           </MentA>
         </BuyMent>
       </SocksContainer>
-      <SocksContainer height="1000px" mheight="700px" mflexDirection="column">
+      <SocksContainer height="850px" mheight="700px" mflexDirection="column">
         <GrayContainer height="700px" mheight="90%" flexwrap="wrap">
           {' '}
           <MainSocks3
@@ -333,7 +333,7 @@ const Main = () => {
         </GrayContainer>
         <MainsocksDiv display="flex">
           <Price
-            bottom="166px"
+            bottom="95px"
             mbottom="110px"
             right="0"
             mright="inherit"
@@ -355,7 +355,7 @@ const Main = () => {
           </MentA>
         </BuyMent2>
       </SocksContainer>
-      <SocksContainer height="1000px" mheight="700px" mflexDirection="column">
+      <SocksContainer height="850px" mheight="700px" mflexDirection="column">
         <GrayContainer height="700px" flexwrap="wrap">
           <MainSocks4
             width="100%"
@@ -367,7 +367,7 @@ const Main = () => {
         </GrayContainer>
         <MainsocksDiv height="100%" display="flex">
           <Price
-            bottom="166px"
+            bottom="95px"
             mbottom="40px"
             right="0"
             mright="inherit"
