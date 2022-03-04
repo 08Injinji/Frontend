@@ -129,7 +129,6 @@ const MentA = styled.a`
   margin-top: 20px;
   text-align: ${(props) => props.textAlign};
   @media ${({ theme }) => theme.device.mobile} {
-    width: 320px;
     font-size: 0.8rem;
     text-align: center;
   }
