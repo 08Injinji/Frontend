@@ -256,9 +256,9 @@ const Main = () => {
         <GrayContainer height="700px" mheight="90%" fd="column"></GrayContainer>
         <BuyMent>
           <MentUL>
-            <MentLI>발을 위한 양말.</MentLI>
+            <MentLI>발을 위한 양말</MentLI>
             <MentLI2>
-              신발 속에 갇혀있는<br></br>당신의 발을 위한<br></br>최고의 선택
+              신발 속에 갇혀있는<br></br>당신의 발을 위한<br></br>최고의 선택.
             </MentLI2>
           </MentUL>
           <MentA href="https://smartstore.naver.com/injinji?n_media=27758&n_query=%EC%9D%B8%EC%A7%84%EC%A7%80&n_rank=1&n_ad_group=grp-a001-01-000000023238471&n_ad=nad-a001-01-000000153475054&n_keyword_id=nkw-a001-01-000004018620719&n_keyword=%EC%9D%B8%EC%A7%84%EC%A7%80&n_campaign_type=1&n_ad_group_type=1&NaPm=ct%3Dkyvlg7jc%7Cci%3D0ze00009hZ5vMdQuM13b%7Ctr%3Dsa%7Chk%3De2fb33bf768da3ff4cad26734b9d81f9d1e1c5fae">
@@ -299,7 +299,7 @@ const Main = () => {
         </MainsocksDiv>
         <BuyMent>
           <MentUL textAlign="right">
-            <MentLI>당신의 페이스 메이커.</MentLI>
+            <MentLI>당신의 페이스 메이커</MentLI>
             <MentLI2>
               자연스러운 움직임과<br></br>빠른 수분배출.<br></br>오랜 시간
               유지되는 최상의 컨디션.
@@ -346,7 +346,7 @@ const Main = () => {
         </MainsocksDiv>
         <BuyMent2 mtop="43%">
           <MentUL>
-            <MentLI>눈앞의 장애물에만 집중.</MentLI>
+            <MentLI>눈앞의 장애물에만 집중</MentLI>
             <MentLI2>
               쾌적한 착용감으로<br></br>발이 신경쓰이지 않도록.
             </MentLI2>
@@ -380,11 +380,11 @@ const Main = () => {
         </MainsocksDiv>
         <BuyMent2 mtop="58%">
           <MentUL>
-            <MentLI>겨울을 더 따뜻하게.</MentLI>
+            <MentLI>겨울을 더 따뜻하게</MentLI>
             <MentLI2>
               발가락은 부드럽고<br></br>
               발은 포근하게 감싸는<br></br>
-              따뜻한 양말
+              따뜻한 양말.
             </MentLI2>
           </MentUL>
           <MentA
