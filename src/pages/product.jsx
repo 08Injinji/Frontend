@@ -25,8 +25,8 @@ import ecowoolblack from '../components/에코울black.webp';
 
 const ProductMenu = styled.div`
   display: flex;
-  position: relative;
-  top: 55px;
+  position: absolute;
+  left: 0;
   width: 100vw;
   height: 55px;
   justify-content: center;
@@ -37,6 +37,9 @@ const ProductMenu = styled.div`
 
 const ProductName = styled.h5`
   color: #666666;
+  font-size: 18px;
+  font-weight: ${(props) =>
+    props.title === props.params ? 'bolder' : 'normal'};
   transition: color 0.2s ease-in-out;
   z-index: 10;
   color: ${(props) => (props.title === props.params ? '#000' : '#666')};
@@ -49,7 +52,7 @@ const ProductName = styled.h5`
 const SocksContainer = styled.div`
   display: flex;
   position: relative;
-  width: 100vw;
+  width: 100%;
   height: calc(100vh - 110px);
   align-items: center;
   /* overflow: auto; */
@@ -135,8 +138,9 @@ const UL1 = styled.ul`
 `;
 
 const LI1 = styled.li`
-  font-weight: bolder;
-  font-size: 3rem;
+  font-weight: regular;
+  font-size: 100px;
+  font-family: 'Arimo', sans-serif;
 
   @media ${({ theme }) => theme.device.mobile} {
     font-size: 3.2rem;
@@ -247,10 +251,10 @@ const Product = () => {
   return (
     <>
       <ProductMenu>
-        <Product title="liner" name="라이너"></Product>
-        <Product title="runner" name="러너"></Product>
-        <Product title="trailer" name="트레일러"></Product>
-        <Product title="ecowool" name="에코울"></Product>
+        <Product title="liner" name="Liner"></Product>
+        <Product title="runner" name="Runner"></Product>
+        <Product title="trailer" name="Trailer"></Product>
+        <Product title="ecowool" name="Ecowool"></Product>
       </ProductMenu>
       <div style={{ transform: 'translateY(55px)' }}>
         {
@@ -262,7 +266,7 @@ const Product = () => {
                     matches.small ? (
                       <>
                         <UL1>
-                          <LI1>라이너 Liner.</LI1>
+                          <LI1>Liner</LI1>
                           <a
                             href="https://smartstore.naver.com/injinji"
                             style={{
@@ -303,14 +307,14 @@ const Product = () => {
                     ) : (
                       <SocksContainer>
                         <UL1>
-                          <LI1>라이너 Liner.</LI1>
+                          <LI1>Liner</LI1>
                           <a
                             href="https://smartstore.naver.com/injinji"
                             style={{
                               display: 'inline-block',
                               width: '25vw',
-                              fontSize: '0.8rem',
-                              fontWeight: 'bolder',
+                              fontSize: '22px',
+                              fontWeight: 'normal',
                               marginTop: '2vw',
                             }}
                           >
@@ -428,7 +432,7 @@ const Product = () => {
                     matches.small ? (
                       <>
                         <UL1>
-                          <LI1>러너 Crew.</LI1>
+                          <LI1>Runner</LI1>
                           <a
                             href="https://smartstore.naver.com/injinji"
                             style={{
@@ -463,14 +467,14 @@ const Product = () => {
                     ) : (
                       <SocksContainer>
                         <UL1>
-                          <LI1>러너 Crew.</LI1>
+                          <LI1>Runner</LI1>
                           <a
                             href="https://smartstore.naver.com/injinji"
                             style={{
                               display: 'inline-block',
                               width: '25vw',
-                              fontSize: '0.8rem',
-                              fontWeight: 'bolder',
+                              fontSize: '22px',
+                              fontWeight: 'normal',
                               marginTop: '2vw',
                             }}
                           >
@@ -564,7 +568,7 @@ const Product = () => {
                     matches.small ? (
                       <>
                         <UL1>
-                          <LI1>트레일러 trailer.</LI1>
+                          <LI1>Trailer</LI1>
                           <a
                             href="https://smartstore.naver.com/injinji"
                             style={{
@@ -611,14 +615,14 @@ const Product = () => {
                     ) : (
                       <SocksContainer>
                         <UL1>
-                          <LI1>트레일러 trailer.</LI1>
+                          <LI1>Trailer</LI1>
                           <a
                             href="https://smartstore.naver.com/injinji"
                             style={{
                               display: 'inline-block',
                               width: '25vw',
-                              fontSize: '0.8rem',
-                              fontWeight: 'bolder',
+                              fontSize: '22px',
+                              fontWeight: 'normal',
                               marginTop: '2vw',
                             }}
                           >
@@ -712,7 +716,7 @@ const Product = () => {
                     matches.small ? (
                       <>
                         <UL1>
-                          <LI1>에코울 ecowool.</LI1>
+                          <LI1>Ecowool</LI1>
                           <a
                             href="https://smartstore.naver.com/injinji"
                             style={{
@@ -752,14 +756,14 @@ const Product = () => {
                     ) : (
                       <SocksContainer>
                         <UL1>
-                          <LI1>에코울 ecowool.</LI1>
+                          <LI1>Ecowool</LI1>
                           <a
                             href="https://smartstore.naver.com/injinji"
                             style={{
                               display: 'inline-block',
                               width: '25vw',
-                              fontSize: '0.8rem',
-                              fontWeight: 'bolder',
+                              fontSize: '22px',
+                              fontWeight: 'normal',
                               marginTop: '2vw',
                             }}
                           >
