@@ -266,7 +266,7 @@ const Main = () => {
           </MentA>
         </BuyMent>
         <MainsocksDiv height="1000px">
-          <MainSocks1 src={imgUrl} alt="socks" />
+          <MainSocks1 draggable="false" src={imgUrl} alt="socks" />
           <Price bottom="95px" mbottom="170px" right="0" mright="10vw">
             Liner<br></br>
             <span>8,500 &#8361;</span>
@@ -295,7 +295,7 @@ const Main = () => {
             Runner<br></br>Crew <br></br>
             <span>14,900 &#8361;</span>
           </Price>
-          <MainSocks2 src={crew} />
+          <MainSocks2 draggable="false" src={crew} />
         </MainsocksDiv>
         <BuyMent>
           <MentUL textAlign="right">
@@ -317,6 +317,7 @@ const Main = () => {
         <GrayContainer height="700px" mheight="90%" flexwrap="wrap">
           {' '}
           <MainSocks3
+            draggable="false"
             width="30vw"
             mwidth="55vw"
             mtop="2vh"
@@ -325,6 +326,7 @@ const Main = () => {
             src={trailer1}
           />
           <MainSocks3
+            draggable="false"
             width="40vw"
             mwidth="70vw"
             mbottom="0"
@@ -359,6 +361,7 @@ const Main = () => {
       <SocksContainer height="850px" mheight="700px" mflexDirection="column">
         <GrayContainer height="700px" flexwrap="wrap">
           <MainSocks4
+            draggable="false"
             width="100%"
             height="700px"
             mwidth="100%"
