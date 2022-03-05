@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Media from 'react-media';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router';
 import styled from 'styled-components';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper';
+import Rellax from 'rellax';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import './swiperstyle.css';
@@ -22,6 +23,7 @@ import trailerblack from '../components/트레일러black.webp';
 import trailersand from '../components/트레일러sand.webp';
 import ecowoolnavy from '../components/에코울navy.webp';
 import ecowoolblack from '../components/에코울black.webp';
+import strap from '../components/strap.png';
 
 const ProductMenu = styled.div`
   display: flex;
@@ -222,11 +224,23 @@ const Product = () => {
   const { pathname } = useLocation();
   const [title, setTitle] = useState('liner');
   const [active, setActive] = useState('WhiteSocks');
+  const rellaxRef = useRef();
 
   useEffect(() => {
     setActive('WhiteSocks');
     setTitle(pathname.split('/')[2]);
   }, [pathname]);
+
+  useEffect(() => {
+    new Rellax(rellaxRef.current, {
+      speed: 3,
+      center: true,
+      wrapper: null,
+      round: true,
+      vertical: true,
+      horizontal: false,
+    });
+  }, []);
 
   const Product = ({ title, name }) => {
     const handleProduct = () => {
@@ -406,6 +420,63 @@ const Product = () => {
                       발 속옷의 시작이자
                       <br />
                       발가락 양말을 널리 알리기 시작했습니다.
+                    </div>
+                  </DescriptionDiv>
+                  <DescriptionDiv
+                    style={{ height: '800px', overflow: 'hidden' }}
+                  >
+                    <div
+                      style={{
+                        display: 'flex',
+                        position: 'absolute',
+                        height: '800px',
+                        backgroundColor: 'orange',
+                        width: '100vw',
+                        marginLeft: 'calc(-50vw + 50%)',
+                        zIndex: '-1',
+                      }}
+                    ></div>
+                    <div
+                      style={{
+                        display: 'flex',
+                        flex: '50%',
+                        flexDirection: 'column',
+                      }}
+                    >
+                      <h1
+                        style={{
+                          fontSize: '2.7rem',
+                        }}
+                      >
+                        Liner가 얇은 이유
+                      </h1>
+                      <p style={{ width: '60%' }}>
+                        발가락 양말 제조 공정은 일반 양말과는 달리 특수 기계를
+                        사용해야 할 만큼 복잡합니다. 거기에 다루기가 까다롭기로
+                        유명한 COOLMAX 100% 원사 사용을 고집하다보니 수도 없이
+                        많은 불량이 나왔죠. 하지만, 지속적인 개선을 통해 COOLMAX
+                        원사 단 <span>두 올</span>을 이용한 발가락 양말 제조에
+                        성공하였습니다.
+                      </p>
+                    </div>
+                    <div
+                      ref={rellaxRef}
+                      style={{
+                        display: 'flex',
+                        flex: '50%',
+                        height: '800px',
+                        justifyContent: 'end',
+                      }}
+                    >
+                      <img
+                        src={strap}
+                        alt=""
+                        style={{
+                          width: 'auto',
+                          height: '1300px',
+                          transform: 'translateY(-300px)',
+                        }}
+                      />
                     </div>
                   </DescriptionDiv>
                 </Description>
