@@ -59,13 +59,11 @@ const SocksContainer = styled.div`
   padding-bottom: 10vh;
   margin: 0;
   box-sizing: border-box;
-  &:after {
+  &::after {
     content: '';
     position: absolute;
-    left: 8.54vw;
-    bottom: -10vh;
-    height: 1px;
-    width: 82.91vw;
+    bottom: 0;
+    width: 100%;
     border-bottom: 1px solid #bcbcbc;
   }
   @media ${({ theme }) => theme.device.mobile} {
@@ -154,7 +152,6 @@ const Description = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  padding: 25vh 8.54vw 0;
   gap: 100px;
   @media ${({ theme }) => theme.device.mobile} {
     padding: 5vh 0 15vh;
@@ -169,6 +166,7 @@ const DescriptionDiv = styled.div`
   @media ${({ theme }) => theme.device.mobile} {
     flex-wrap: wrap;
     /* gap: 40px; */
+    margin: 10vh 0;
   }
 `;
 
@@ -389,38 +387,26 @@ const Product = () => {
                 </Media>
 
                 <Description>
-                  <DescriptionDiv>
-                    <SubSocks src={grayBox} />
-                    <DescUL>
-                      <DescLI>&nbsp;부드러운 양말</DescLI>
-                      <DescLI2>
-                        바이며, 생명을 모래뿐일 불어 이 인생을 청춘 이상의 이상
-                        그리하였는가? 인생을 기관과 목숨을 있는 풀이 끓는다.
-                        따뜻한 대고, 같으며, 행복스럽고 가는 굳세게 것이다.
-                      </DescLI2>
-                    </DescUL>
-                  </DescriptionDiv>
-                  <DescriptionDiv2>
-                    <DescUL>
-                      <DescLI>&nbsp;다양한 색상</DescLI>
-                      <DescLI2>
-                        바이며, 생명을 모래뿐일 불어 이 인생을 청춘 이상의 이상
-                        그리하였는가? 인생을 기관과 목숨을 있는 풀이 끓는다.
-                        따뜻한 대고, 같으며, 행복스럽고 가는 굳세게 것이다.
-                      </DescLI2>
-                    </DescUL>
-                    <SubSocks src={grayBox} />
-                  </DescriptionDiv2>
-                  <DescriptionDiv>
-                    <SubSocks src={grayBox} />
-                    <DescUL>
-                      <DescLI>&nbsp;국내 생산</DescLI>
-                      <DescLI2>
-                        바이며, 생명을 모래뿐일 불어 이 인생을 청춘 이상의 이상
-                        그리하였는가? 인생을 기관과 목숨을 있는 풀이 끓는다.
-                        따뜻한 대고, 같으며, 행복스럽고 가는 굳세게 것이다.
-                      </DescLI2>
-                    </DescUL>
+                  <DescriptionDiv style={{ margin: '450px 0' }}>
+                    <div
+                      style={{
+                        flex: 1,
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        textAlign: 'center',
+                        fontSize: '30px',
+                        lineHeight: '50px',
+                      }}
+                    >
+                      20년이 넘는 역사를 가진 Injinji.
+                      <br />
+                      그 시작을 알린 Liner는
+                      <br />
+                      발 속옷의 시작이자
+                      <br />
+                      발가락 양말을 널리 알리기 시작했습니다.
+                    </div>
                   </DescriptionDiv>
                 </Description>
               </>
