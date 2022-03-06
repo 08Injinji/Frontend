@@ -171,8 +171,9 @@ const MainSocks1 = styled.img`
 const MainSocks2 = styled.img`
   alt: 'socks';
   position: absolute;
+  height: 880px;
   bottom: 0;
-  left: -258px;
+  left: -292px;
   object-fit: cover;
   @media ${({ theme }) => theme.device.mobile} {
     position: relative;
@@ -292,7 +293,7 @@ const Main = () => {
             mleft="inherit"
             mright="10vw"
           >
-            Runner<br></br>Crew <br></br>
+            Runner Crew <br></br>
             <span>14,900 &#8361;</span>
           </Price>
           <MainSocks2 draggable="false" src={crew} />
