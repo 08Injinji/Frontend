@@ -342,7 +342,8 @@ const Main = () => {
             mright="inherit"
             mleft="10vw"
           >
-            Trailer + Liner<br></br>
+            Trailer
+            <br />
             <span>16,900 &#8361;</span>
           </Price>
         </MainsocksDiv>
@@ -377,7 +378,8 @@ const Main = () => {
             mright="inherit"
             mleft="10vw"
           >
-            Eco-Wool + Liner<br></br>
+            Eco-Wool
+            <br />
             <span>16,900 &#8361;</span>
           </Price>
         </MainsocksDiv>
