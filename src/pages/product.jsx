@@ -22,6 +22,9 @@ import trailerblack from '../components/트레일러black.webp';
 import trailersand from '../components/트레일러sand.webp';
 import ecowoolnavy from '../components/에코울navy.webp';
 import ecowoolblack from '../components/에코울black.webp';
+import orangeImage from '../components/오렌지 깃털2.jpg';
+import grayImage from '../components/그레이 깃털2.jpg';
+import coolmaxLogo from '../components/coolmax-logo-removebg-preview.png';
 
 const ProductMenu = styled.div`
   display: flex;
@@ -226,6 +229,7 @@ const Product = () => {
   useEffect(() => {
     setActive('WhiteSocks');
     setTitle(pathname.split('/')[2]);
+    console.log(orangeImage);
   }, [pathname]);
 
   const Product = ({ title, name }) => {
@@ -405,8 +409,218 @@ const Product = () => {
                       <br />
                       발 속옷의 시작이자
                       <br />
-                      발가락 양말을 널리 알리기 시작했습니다.
+                      발가락 양말을 널리 알리기 시작하였습니다.
                     </div>
+                  </DescriptionDiv>
+                  <DescriptionDiv
+                    style={{
+                      position: 'relative',
+                      width: '100vw',
+                      height: '700px',
+                      background: 'orange',
+                      left: 0,
+                    }}
+                  >
+                    <div
+                      style={{
+                        position: 'absolute',
+                        left: 0,
+                        right: 0,
+                        width: '100vw',
+                        height: '100%',
+                        marginLeft: 'calc(-50vw + 50%)',
+                        background: 'gray',
+                        display: 'flex',
+                      }}
+                    >
+                      <div
+                        style={{
+                          width: '50%',
+                          height: '100%',
+                          backgroundImage: `url('${grayImage}')`,
+                          backgroundRepeat: 'no-repeat',
+                          backgroundSize: 'cover',
+                          backgroundPosition: 'center',
+                        }}
+                      ></div>
+                      <div
+                        style={{
+                          width: '50%',
+                          height: '100%',
+                          backgroundImage: `url('${orangeImage}')`,
+                          backgroundRepeat: 'no-repeat',
+                          backgroundSize: 'cover',
+                          backgroundPosition: 'center',
+                        }}
+                      ></div>
+                    </div>
+                  </DescriptionDiv>
+                  <DescriptionDiv
+                    style={{ marginTop: '450px', marginBottom: '450px' }}
+                  >
+                    <div style={{ display: 'flex', width: '100%' }}>
+                      <div
+                        style={{
+                          flex: 1,
+                          display: 'flex',
+                          justifyContent: 'center',
+                          alignItems: 'center',
+                          flexDirection: 'column',
+                        }}
+                      >
+                        <div style={{ fontSize: '150px' }}>
+                          15<span style={{ fontSize: '80px' }}>g</span>
+                        </div>
+                        <div>Medium 사이즈 한 발 기준</div>
+                      </div>
+                      <div
+                        style={{
+                          flex: 1,
+                          display: 'flex',
+                          justifyContent: 'center',
+                          alignItems: 'center',
+                        }}
+                      >
+                        <div>
+                          <div style={{ fontSize: '40px' }}>
+                            <span style={{ fontSize: '60px' }}>liner</span>:
+                            안에 대는 것, 안감
+                          </div>
+                          <div
+                            style={{
+                              fontSize: '25px',
+                              marginTop: '30px',
+                              lineHeight: '50px',
+                            }}
+                          >
+                            속옷에서 영감을 받은 이 제품은
+                            <br />
+                            일반 양말 속에 착용하는 것을 목적으로
+                            <br />
+                            얇고 가볍게 만들었습니다.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </DescriptionDiv>
+                  <DescriptionDiv>
+                    <div
+                      style={{
+                        position: 'relative',
+                        width: '100%',
+                        height: '700px',
+                      }}
+                    >
+                      <div
+                        style={{
+                          position: 'absolute',
+                          width: '100vw',
+                          height: '100%',
+                          left: 0,
+                          right: 0,
+                          marginLeft: 'calc(-50vw + 50%)',
+                          backgroundColor: 'gray',
+                        }}
+                      ></div>
+                    </div>
+                  </DescriptionDiv>
+                  <DescriptionDiv>
+                    <div style={{ display: 'flex', width: '100%' }}>
+                      <div
+                        style={{
+                          flex: 1,
+                          display: 'flex',
+                          justifyContent: 'center',
+                          alignItems: 'center',
+                          flexDirection: 'column',
+                        }}
+                      >
+                        <div style={{ fontSize: '150px' }}>NST</div>
+                        <div style={{ fontSize: '35px' }}>Technology</div>
+                      </div>
+                      <div
+                        style={{
+                          flex: 1,
+                          display: 'flex',
+                          justifyContent: 'center',
+                          alignItems: 'center',
+                          padding: '450px 0',
+                        }}
+                      >
+                        <div style={{ fontSize: '25px', lineHeight: '50px' }}>
+                          <span
+                            style={{ fontSize: '30px', fontWeight: 'bold' }}
+                          >
+                            Non Seam Treatment
+                          </span>
+                          는 발을 위해 개발한
+                          <br />
+                          Injinji의 무봉제 공법입니다.
+                          <br />
+                          발가락부터 발바닥을 거쳐 발목 마감 부분까지
+                          <br />
+                          거친 바느질 자국이 없어
+                          <br />
+                          상처 발생 가능성을 최소화하였습니다.
+                        </div>
+                      </div>
+                    </div>
+                  </DescriptionDiv>
+                  <DescriptionDiv>
+                    <div
+                      style={{
+                        flex: 1,
+                        backgroundColor: '#FBF8F6',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        justifyContent: 'space-around',
+                        padding: '130px 0',
+                        gap: '253px',
+                      }}
+                    >
+                      <div style={{ fontSize: '40px', textAlign: 'center' }}>
+                        <img
+                          style={{ display: 'block' }}
+                          src={coolmaxLogo}
+                          width="593px"
+                          height="139px"
+                          alt="coolmax"
+                        />
+                        독보적인 수분 관리 능력
+                      </div>
+                      <div
+                        style={{
+                          fontSize: '25px',
+                          lineHeight: '50px',
+                          textAlign: 'center',
+                        }}
+                      >
+                        COOLMAX 섬유의 원료인 폴리에스터는 <br />
+                        스포츠 의류로 많이 사용되지만, <br />
+                        수분을 밀어내는 성질이 있어
+                        <br />
+                        의류 내부에서 발생하는 수분을 <br />
+                        흡수하지 못합니다.
+                        <br />
+                        또한, 폴리에스터로 이루어진 원사는
+                        <br />
+                        빈 공간이 거의 없어 <br />
+                        공기 투과가 굉장히 어렵다는 단점도 있죠.
+                        <br />
+                        <br />
+                        이러한 특장을 장점으로 이용하기 위해
+                        <br />
+                        Injinji는{' '}
+                        <span style={{ fontSize: '30px', fontWeight: 'bold' }}>
+                          COOLMAX
+                        </span>{' '}
+                        섬유를 선택하였습니다.
+                      </div>
+                    </div>
+                  </DescriptionDiv>
+                  <DescriptionDiv>
+                    <div style={{ flex: 1, background: '#585858' }}></div>
                   </DescriptionDiv>
                 </Description>
               </>
