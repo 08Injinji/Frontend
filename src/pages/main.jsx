@@ -171,8 +171,9 @@ const MainSocks1 = styled.img`
 const MainSocks2 = styled.img`
   alt: 'socks';
   position: absolute;
+  height: 880px;
   bottom: 0;
-  left: -258px;
+  left: -292px;
   object-fit: cover;
   @media ${({ theme }) => theme.device.mobile} {
     position: relative;
@@ -292,7 +293,7 @@ const Main = () => {
             mleft="inherit"
             mright="10vw"
           >
-            Runner<br></br>Crew <br></br>
+            Runner Crew <br></br>
             <span>14,900 &#8361;</span>
           </Price>
           <MainSocks2 draggable="false" src={crew} />
@@ -342,7 +343,8 @@ const Main = () => {
             mright="inherit"
             mleft="10vw"
           >
-            Trailer + Liner<br></br>
+            Trailer
+            <br />
             <span>16,900 &#8361;</span>
           </Price>
         </MainsocksDiv>
@@ -377,7 +379,8 @@ const Main = () => {
             mright="inherit"
             mleft="10vw"
           >
-            Eco-Wool + Liner<br></br>
+            Eco-Wool
+            <br />
             <span>16,900 &#8361;</span>
           </Price>
         </MainsocksDiv>
