@@ -8,6 +8,7 @@ import { links } from './menudata';
 // import Injinji from './Injinji.svg';
 import Footer from './footer';
 import Icon from './icon';
+import GridChecker from './gridChecker';
 
 const Navbar = styled.nav`
   height: ${(props) => (props.extendNavbar ? '100vh' : '55px')};
@@ -126,7 +127,7 @@ const OutletDiv = styled.div`
   margin: 0 auto;
 
   @media ${({ theme }) => theme.device.desktop} {
-    padding: 55px 20px 0;
+    padding-top: 55px;
   }
   @media ${({ theme }) => theme.device.mobile} {
     padding-top: 55px;
@@ -275,6 +276,7 @@ const Gnb = () => {
         )}
       </Navbar>
       <OutletDiv>
+        <GridChecker></GridChecker>
         <Outlet />
       </OutletDiv>
       <Footer />

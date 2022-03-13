@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import video1 from '../components/surfing.mp4';
-import B1 from '../components/B1.webp';
-import ceoimage from '../components/ceoimage.webp';
+import video1 from '../images/surfing.mp4';
+import B1 from '../images/B1.webp';
+import ceoimage from '../images/ceoimage.webp';
 //style.js
 
 const Container = styled.div`
