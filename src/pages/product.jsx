@@ -26,7 +26,15 @@ import ecowoolblack from '../components/에코울black.webp';
 import orangeImage from '../components/오렌지 깃털2.jpg';
 import grayImage from '../components/그레이 깃털2.jpg';
 import coolmaxLogo from '../components/coolmax-logo-removebg-preview.png';
-import strap from '../components/strap.png';
+// import strap from '../components/strap.png';
+import strap from '../images/2ply.png';
+import stacked from '../images/IMG_0156.jpg';
+import blackFeather from '../images/블랙-깃털2.jpg';
+import blueFeather from '../images/블루-깃털1.jpg';
+import whiteFeather from '../images/화이트-깃털1.png';
+import nst from '../images/NST.jpg';
+import coolmaxDescImage from '../images/coolmax2.png';
+import flag from '../images/태극기.png';
 
 const ProductMenu = styled.div`
   display: flex;
@@ -157,7 +165,6 @@ const Description = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  gap: 100px;
   @media ${({ theme }) => theme.device.mobile} {
     padding: 5vh 0 15vh;
   }
@@ -219,6 +226,15 @@ const SubSocks = styled.img`
     height: 100%;
     margin-bottom: 40px;
   }
+`;
+
+const GridContainer = styled.div`
+  display: grid;
+  width: 100%;
+  height: 100%;
+  margin: 0 20px;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 24px;
 `;
 
 const Product = () => {
@@ -405,164 +421,236 @@ const Product = () => {
                 </Media>
 
                 <Description>
-                  <DescriptionDiv style={{ margin: '450px 0' }}>
+                  <DescriptionDiv>
                     <div
                       style={{
                         flex: 1,
                         display: 'flex',
+                        width: '100%',
+                        position: 'relative',
                         justifyContent: 'center',
                         alignItems: 'center',
                         textAlign: 'center',
                         fontSize: '30px',
                         lineHeight: '50px',
+                        color: '#fff',
+                        left: 0,
+                        marginTop: '400px',
+                        padding: '450px 0',
                       }}
                     >
-                      20년이 넘는 역사를 가진 Injinji.
-                      <br />
-                      그 시작을 알린 Liner는
-                      <br />
-                      발 속옷의 시작이자
-                      <br />
-                      발가락 양말을 널리 알리기 시작하였습니다.
+                      <div
+                        style={{
+                          background: '#252121',
+                          position: 'absolute',
+                          width: '100vw',
+                          top: 0,
+                          height: '100%',
+                        }}
+                      ></div>
+                      <div style={{ zIndex: 0 }}>
+                        20년이 넘는 역사를 가진 Injinji.
+                        <br />
+                        <br />
+                        그 시작을 알린 Liner는
+                        <br />
+                        발 속옷의 시작이자
+                        <br />
+                        발가락 양말을 널리 알리기 시작하였습니다.
+                      </div>
                     </div>
                   </DescriptionDiv>
                   <DescriptionDiv
                     style={{
                       position: 'relative',
                       width: '100vw',
-                      height: '700px',
-                      background: 'orange',
-                      left: 0,
+                      marginTop: '450px',
                     }}
                   >
-                    <div
-                      style={{
-                        position: 'absolute',
-                        left: 0,
-                        right: 0,
-                        width: '100vw',
-                        height: '100%',
-                        marginLeft: 'calc(-50vw + 50%)',
-                        background: 'gray',
-                        display: 'flex',
-                      }}
-                    >
+                    <GridContainer>
                       <div
                         style={{
-                          width: '50%',
-                          height: '100%',
-                          backgroundImage: `url('${grayImage}')`,
-                          backgroundRepeat: 'no-repeat',
-                          backgroundSize: 'cover',
-                          backgroundPosition: 'center',
+                          position: 'relative',
+                          gridColumnStart: 1,
+                          gridColumnEnd: 7,
+                        }}
+                      >
+                        <div
+                          style={{
+                            position: 'absolute',
+                            width: '50vw',
+                            height: '788px',
+                            backgroundImage: `url('${grayImage}')`,
+                            backgroundRepeat: 'no-repeat',
+                            backgroundSize: 'cover',
+                            backgroundOrigin: 'border-box',
+                            backgroundPosition: 'center',
+                            right: 0,
+                          }}
+                        ></div>
+                      </div>
+                      <div
+                        style={{
+                          position: 'relative',
+                          gridColumnStart: 7,
+                          gridColumnEnd: 13,
+                        }}
+                      >
+                        <div
+                          style={{
+                            position: 'relative',
+                            left: 0,
+                            marginTop: '235px',
+                            width: '50vw',
+                            height: '647px',
+                            backgroundImage: `url('${orangeImage}')`,
+                            backgroundRepeat: 'no-repeat',
+                            backgroundPosition: 'center',
+                            backgroundSize: 'cover',
+                          }}
+                        ></div>
+                      </div>
+                    </GridContainer>
+                  </DescriptionDiv>
+                  <DescriptionDiv
+                    style={{
+                      width: '100%',
+                      marginTop: '450px',
+                      marginBottom: '450px',
+                    }}
+                  >
+                    <GridContainer>
+                      <div
+                        style={{
+                          gridColumnStart: 1,
+                          gridColumnEnd: 7,
+                          textAlign: 'center',
+                        }}
+                      >
+                        <div style={{ fontSize: '80px' }}>
+                          <span style={{ fontSize: '150px' }}>15</span>g
+                        </div>
+                        <div style={{ fontSize: '20px' }}>
+                          medium 사이즈 한 발 기준
+                        </div>
+                      </div>
+                      <div
+                        style={{
+                          gridColumnStart: 8,
+                          gridColumnEnd: 13,
+                        }}
+                      >
+                        <div style={{ fontSize: '40px', marginBottom: '31px' }}>
+                          <span style={{ fontSize: '60px' }}>liner:</span> 안에
+                          대는 것, 안감
+                        </div>
+                        <div style={{ fontSize: '25px', lineHeight: '50px' }}>
+                          속옷에서 영감을 받아
+                          <br />
+                          일반 양말 속에 착용하는 것을 목적으로 <br />
+                          얇고 가볍게 만들었습니다.
+                        </div>
+                      </div>
+                    </GridContainer>
+                  </DescriptionDiv>
+                  <DescriptionDiv style={{ marginBottom: '450px' }}>
+                    <GridContainer>
+                      <div
+                        style={{
+                          gridColumnStart: 3,
+                          gridColumnEnd: 13,
+                          backgroundColor: 'red',
+                          height: '823px',
+                          backgroundImage: `url('${stacked}')`,
                         }}
                       ></div>
                       <div
                         style={{
-                          width: '50%',
-                          height: '100%',
-                          backgroundImage: `url('${orangeImage}')`,
-                          backgroundRepeat: 'no-repeat',
-                          backgroundSize: 'cover',
-                          backgroundPosition: 'center',
+                          marginTop: '100px',
+                          gridColumnStart: 2,
+                          gridColumnEnd: 11,
+                          backgroundColor: 'blue',
+                          height: '674px',
+                          backgroundImage: `url('${blackFeather}')`,
                         }}
                       ></div>
-                    </div>
+                    </GridContainer>
                   </DescriptionDiv>
                   <DescriptionDiv
-                    style={{ marginTop: '450px', marginBottom: '450px' }}
-                  >
-                    <div style={{ display: 'flex', width: '100%' }}>
-                      <div
-                        style={{
-                          flex: 1,
-                          display: 'flex',
-                          justifyContent: 'center',
-                          alignItems: 'center',
-                          flexDirection: 'column',
-                        }}
-                      >
-                        <div style={{ fontSize: '150px' }}>
-                          15<span style={{ fontSize: '80px' }}>g</span>
-                        </div>
-                        <div>Medium 사이즈 한 발 기준</div>
-                      </div>
-                      <div
-                        style={{
-                          flex: 1,
-                          display: 'flex',
-                          justifyContent: 'center',
-                          alignItems: 'center',
-                        }}
-                      >
-                        <div>
-                          <div style={{ fontSize: '40px' }}>
-                            <span style={{ fontSize: '60px' }}>liner</span>:
-                            안에 대는 것, 안감
-                          </div>
-                          <div
-                            style={{
-                              fontSize: '25px',
-                              marginTop: '30px',
-                              lineHeight: '50px',
-                            }}
-                          >
-                            속옷에서 영감을 받은 이 제품은
-                            <br />
-                            일반 양말 속에 착용하는 것을 목적으로
-                            <br />
-                            얇고 가볍게 만들었습니다.
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </DescriptionDiv>
-                  <DescriptionDiv
-                    style={{ height: '800px', overflow: 'hidden' }}
+                    style={{ position: 'relative', justifyContent: 'center' }}
                   >
                     <div
                       style={{
-                        display: 'flex',
                         position: 'absolute',
-                        height: '800px',
-                        backgroundColor: '#585858',
+                        backgroundColor: '#414141',
                         width: '100vw',
-                        marginLeft: 'calc(-50vw + 50%)',
-                        zIndex: '-1',
+                        height: '1396px',
+                        top: 0,
                       }}
                     ></div>
-                    <div
+                    <GridContainer
                       style={{
-                        display: 'flex',
-                        flex: '50%',
-                        flexDirection: 'column',
+                        position: 'relative',
+                        height: '1396px',
                         color: '#fff',
+                        overflow: 'hidden',
                       }}
                     >
-                      <h1
+                      <div
                         style={{
-                          fontSize: '2.7rem',
+                          gridColumnStart: 2,
+                          gridColumnEnd: 7,
+                          display: 'flex',
+                          flexDirection: 'column',
+                          justifyContent: 'center',
                         }}
                       >
-                        Liner가 얇은 이유
-                      </h1>
-                      <p
+                        <div style={{ fontSize: '40px', fontWeight: 'bold' }}>
+                          Liner가 얇은 이유
+                        </div>
+                        <div
+                          style={{
+                            marginTop: '30px',
+                            fontSize: '25px',
+                            lineHeight: '50px',
+                          }}
+                        >
+                          발가락 양말 제조 공정은 일반 양말과는 달리
+                          <br />
+                          특수기계를 사용해야 할 만큼 복잡합니다.
+                          <br />
+                          <br />
+                          거기에 다루기가 까다롭기로 유명한
+                          <br />
+                          COOLMAX 100% 원사 사용을 고집하다보니
+                          <br />
+                          수도 없이 많은 불량이 나왔죠.
+                          <br />
+                          <br />
+                          하지만, 지속적인 개선을 통해
+                          <br />
+                          COOLMAX 원사 단{' '}
+                          <span style={{ fontSize: '30px' }}>두 올</span>을
+                          이용한
+                          <br />
+                          발가락 양말 제조에 성공하였습니다.
+                        </div>
+                      </div>
+                      <div
+                        ref={rellaxRef}
                         style={{
-                          lineHeight: '50px',
-                          fontSize: '25px',
+                          gridColumnStart: 8,
+                          gridColumnEnd: 13,
                         }}
                       >
-                        발가락 양말 제조 공정은 일반 양말과는 달리
-                        <br />
-                        특수 기계를 사용해야 할 만큼 복잡합니다.
-                        <br /> 거기에 다루기가 까다롭기로 유명한
-                        <br /> COOLMAX 100% 원사 사용을 고집하다보니
-                        <br /> 수도 없이 많은 불량이 나왔죠.
-                        <br /> 하지만, 지속적인 개선을 통해
-                        <br /> COOLMAX 원사 단 <span>두 올</span>을 이용한
-                        <br /> 발가락 양말 제조에 성공하였습니다.
-                      </p>
-                    </div>
+                        <img
+                          src={strap}
+                          alt=""
+                          style={{ transform: 'translateY(-150px)' }}
+                        />
+                      </div>
+                    </GridContainer>
+                    {/* 
                     <div
                       ref={rellaxRef}
                       style={{
@@ -581,7 +669,20 @@ const Product = () => {
                           transform: 'translateY(-300px)',
                         }}
                       />
-                    </div>
+                    </div> */}
+                  </DescriptionDiv>
+                  <DescriptionDiv style={{ marginTop: '450px' }}>
+                    <GridContainer>
+                      <div
+                        style={{
+                          backgroundColor: 'red',
+                          gridColumnStart: 1,
+                          gridColumnEnd: 10,
+                          height: '674px',
+                          backgroundImage: `url('${blueFeather}')`,
+                        }}
+                      ></div>
+                    </GridContainer>
                   </DescriptionDiv>
                   <DescriptionDiv>
                     <div style={{ display: 'flex', width: '100%' }}>
@@ -626,6 +727,18 @@ const Product = () => {
                     </div>
                   </DescriptionDiv>
                   <DescriptionDiv>
+                    <GridContainer>
+                      <div
+                        style={{
+                          gridColumnStart: 2,
+                          gridColumnEnd: 12,
+                          height: '732px',
+                          backgroundImage: `url('${nst}')`,
+                        }}
+                      ></div>
+                    </GridContainer>
+                  </DescriptionDiv>
+                  <DescriptionDiv style={{ marginTop: '450px' }}>
                     <div
                       style={{
                         flex: 1,
@@ -633,17 +746,16 @@ const Product = () => {
                         display: 'flex',
                         flexDirection: 'column',
                         alignItems: 'center',
-                        justifyContent: 'space-around',
-                        padding: '130px 0',
-                        gap: '253px',
+                        justifyContent: 'center',
+                        height: '1815px',
                       }}
                     >
                       <div style={{ fontSize: '40px', textAlign: 'center' }}>
                         <img
-                          style={{ display: 'block' }}
+                          style={{ display: 'block', marginBottom: '40px' }}
                           src={coolmaxLogo}
-                          width="593px"
-                          height="139px"
+                          width="436px"
+                          height="106px"
                           alt="coolmax"
                         />
                         독보적인 수분 관리 능력
@@ -653,6 +765,7 @@ const Product = () => {
                           fontSize: '25px',
                           lineHeight: '50px',
                           textAlign: 'center',
+                          marginTop: '200px',
                         }}
                       >
                         COOLMAX 섬유의 원료인 폴리에스터는 <br />
@@ -661,6 +774,7 @@ const Product = () => {
                         <br />
                         의류 내부에서 발생하는 수분을 <br />
                         흡수하지 못합니다.
+                        <br />
                         <br />
                         또한, 폴리에스터로 이루어진 원사는
                         <br />
@@ -678,8 +792,118 @@ const Product = () => {
                       </div>
                     </div>
                   </DescriptionDiv>
-                  <DescriptionDiv>
-                    <div style={{ flex: 1, background: '#585858' }}></div>
+                  <DescriptionDiv
+                    style={{
+                      position: 'relative',
+                      justifyContent: 'center',
+                      color: '#fff',
+                      height: '1384px',
+                    }}
+                  >
+                    <div
+                      style={{
+                        position: 'absolute',
+                        width: '100vw',
+                        height: '100%',
+                        backgroundColor: '#363D43',
+                        top: 0,
+                        zIndex: -1,
+                      }}
+                    ></div>
+                    <GridContainer>
+                      <div
+                        style={{
+                          gridColumnStart: 2,
+                          gridColumnEnd: 7,
+                          display: 'flex',
+                          alignItems: 'center',
+                        }}
+                      >
+                        <div style={{ fontSize: '25px', lineHeight: '50px' }}>
+                          한가닥 한가닥이 굉장히 미세한
+                          <br />
+                          COOLMAX 섬유는
+                          <br />
+                          독특한 형상의{' '}
+                          <span
+                            style={{ fontSize: '30px', fontWeight: 'bold' }}
+                          >
+                            4채널 구조
+                          </span>
+                          를 가지고 있습니다.
+                          <br />
+                          <br />
+                          수분이 지나다닐 수 있는 <br />
+                          4개의 길을 가진 이 미세한 섬유들이 모여
+                          <br />
+                          하나의 원사로 만들어지면
+                          <br />
+                          원사 내부에 아주 작은 빈 공간들이 생깁니다.
+                          <br />
+                          <br />
+                          이는 수분을 끌어당기는 모세관 현상을 발생시켜
+                          <br />
+                          흡습성을 높여주고, <br />
+                          공기가 잘 드나들 수 있는 길을 만들어
+                          <br />
+                          통기성을 높여줍니다.
+                          <br />
+                          <br />
+                          또한, 이 독특한 형상 덕분에
+                          <br />
+                          섬유의 표면적이 넓어져
+                          <br />
+                          보다 빠른 건조가 가능합니다.
+                        </div>
+                      </div>
+                      <div
+                        style={{
+                          position: 'relative',
+                          gridColumnStart: 7,
+                          gridColumnEnd: 13,
+                          display: 'flex',
+                          alignItems: 'center',
+                        }}
+                      >
+                        <div
+                          style={{
+                            position: 'absolute',
+                            left: 0,
+                            width: '50vw',
+                            height: '892px',
+                            backgroundImage: `url('${coolmaxDescImage}')`,
+                          }}
+                        ></div>
+                      </div>
+                    </GridContainer>
+                  </DescriptionDiv>
+                  <DescriptionDiv style={{ marginTop: '450px' }}>
+                    <GridContainer>
+                      <div
+                        style={{
+                          gridColumnStart: 2,
+                          gridColumnEnd: 12,
+                          height: '751px',
+                          backgroundImage: `url('${whiteFeather}')`,
+                        }}
+                      ></div>
+                    </GridContainer>
+                  </DescriptionDiv>
+                  <DescriptionDiv style={{ margin: '450px 0' }}>
+                    <div
+                      style={{
+                        flex: 1,
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        flexDirection: 'column',
+                      }}
+                    >
+                      <img src={flag} alt="flag" />
+                      <div style={{ marginTop: '80px', fontSize: '25px' }}>
+                        Injinji의 전 제품은 대한민국에서 생산됩니다.
+                      </div>
+                    </div>
                   </DescriptionDiv>
                 </Description>
               </>
