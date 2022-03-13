@@ -17,39 +17,42 @@ import AuthRoute from './components/authroute';
 import AdminMain from './pages/admin/index';
 import theme from './pages/theme';
 import { ThemeProvider } from 'styled-components';
+import { GridProvider } from './components/gridContext';
 
 ReactDOM.render(
   <React.StrictMode>
     <AuthProvider>
       <Router>
-        <ThemeProvider theme={theme}>
-          <Routes>
-            <Route path="/" element={<Gnb />}>
-              <Route index element={<Main />} />
-              <Route path="product" element={<Product />} />
-              <Route path="product/:item" element={<Product />} />
-              <Route path="about" element={<About />} />
-            </Route>
-            <Route path="/login" element={<Login />} />
-            <Route
-              path="/admin"
-              element={
-                <AuthRoute>
-                  <Admin />
-                </AuthRoute>
-              }
-            >
-              <Route index element={<AdminMain />} />
-              <Route path="1" element={<Admin1 />} />
-              <Route path="2" element={<Admin2 />} />
-              <Route path="3" />
-              <Route path="4" />
-              <Route path="5" />
-            </Route>
-            <Route path="/auth" element={<AuthRoute element={<Admin />} />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </ThemeProvider>
+        <GridProvider>
+          <ThemeProvider theme={theme}>
+            <Routes>
+              <Route path="/" element={<Gnb />}>
+                <Route index element={<Main />} />
+                <Route path="product" element={<Product />} />
+                <Route path="product/:item" element={<Product />} />
+                <Route path="about" element={<About />} />
+              </Route>
+              <Route path="/login" element={<Login />} />
+              <Route
+                path="/admin"
+                element={
+                  <AuthRoute>
+                    <Admin />
+                  </AuthRoute>
+                }
+              >
+                <Route index element={<AdminMain />} />
+                <Route path="1" element={<Admin1 />} />
+                <Route path="2" element={<Admin2 />} />
+                <Route path="3" />
+                <Route path="4" />
+                <Route path="5" />
+              </Route>
+              <Route path="/auth" element={<AuthRoute element={<Admin />} />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </ThemeProvider>
+        </GridProvider>
       </Router>
     </AuthProvider>
   </React.StrictMode>,
