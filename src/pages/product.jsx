@@ -69,7 +69,7 @@ const SocksContainer = styled.div`
   height: calc(100vh - 110px);
   align-items: center;
   /* overflow: auto; */
-  padding-bottom: 10vh;
+  /* padding-bottom: 10vh; */
   margin: 0;
   box-sizing: border-box;
   &::after {
@@ -103,7 +103,7 @@ const MainDiv = styled.div`
 const MainSocks = styled.img`
   alt: 'linerwhite';
   width: ${(props) => props.width};
-  margin-top: 50px;
+  /* margin-top: 50px; */
   @media ${({ theme }) => theme.device.mobile} {
     width: ${(props) => props.mwidth};
   }
@@ -164,7 +164,7 @@ const ColorBtn2 = styled.button`
 
 const UL1 = styled.ul`
   list-style: none;
-  margin: 250px 0 0 0;
+  margin: 200px 0 0 0;
 
   @media ${({ theme }) => theme.device.mobile} {
     margin: 10px 0 0 0;
@@ -376,7 +376,6 @@ const Product = () => {
                                 href="https://smartstore.naver.com/injinji"
                                 style={{
                                   display: 'inline-block',
-                                  width: '25vw',
                                   fontSize: '22px',
                                   fontWeight: 'normal',
                                   marginTop: '20px',
@@ -417,42 +416,46 @@ const Product = () => {
                           </div>
                           <div
                             style={{
+                              display: 'grid',
+                              alignItems: 'center',
                               position: 'relative',
-                              gridColumnStart: 6,
-                              gridColumnEnd: 12,
+                              gridColumnStart: 7,
+                              gridColumnEnd: 13,
+                              placeItems: 'center',
+                              minHeight: '100%',
                             }}
                           >
                             {active === 'WhiteSocks' && (
                               <MainSocks
-                                width="130%"
+                                width="108%"
                                 mwidth="100%"
                                 src={linerwhite}
                               />
                             )}
                             {active === 'BlackSocks' && (
                               <MainSocks
-                                width="130%"
+                                width="108%"
                                 mwidth="100%"
                                 src={linerblack}
                               />
                             )}
                             {active === 'GraySocks' && (
                               <MainSocks
-                                width="130%"
+                                width="108%"
                                 mwidth="100%"
                                 src={linergray}
                               />
                             )}
                             {active === 'OrangeSocks' && (
                               <MainSocks
-                                width="130%"
+                                width="108%"
                                 mwidth="100%"
                                 src={linerorange}
                               />
                             )}
                             {active === 'BlueSocks' && (
                               <MainSocks
-                                width="130%"
+                                width="108%"
                                 mwidth="100%"
                                 src={linerblue}
                               />
