@@ -310,7 +310,7 @@ const Product = () => {
         <Product title="liner" name="Liner"></Product>
         <Product title="runner" name="Runner"></Product>
         <Product title="trailer" name="Trailer"></Product>
-        <Product title="ecowool" name="Ecowool"></Product>
+        <Product title="ecowool" name="Eco-wool"></Product>
       </ProductMenu>
       <div style={{ transform: 'translateY(55px)' }}>
         {
