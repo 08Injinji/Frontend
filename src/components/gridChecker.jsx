@@ -4,15 +4,15 @@ import { GridContext } from './gridContext';
 
 const GridContainer = styled.div`
   display: ${({ visible }) => (visible ? 'grid' : 'none')};
-  width: calc(100% - 40px);
+  max-width: 1400px;
+  width: 100vw;
   height: 100vh;
   grid-template-columns: repeat(12, 1fr);
   position: fixed;
   top: 0;
-  left: 0;
-  margin: 0 20px;
   column-gap: 24px;
   z-index: 1000000;
+  padding: 0 20px;
   @media screen and (min-width: 768px) and (max-width: 1024px) {
     grid-template-columns: repeat(8, 1fr);
   }
