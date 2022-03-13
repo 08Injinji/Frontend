@@ -421,7 +421,6 @@ const Product = () => {
                               position: 'relative',
                               gridColumnStart: 7,
                               gridColumnEnd: 13,
-                              placeItems: 'center',
                               minHeight: '100%',
                             }}
                           >

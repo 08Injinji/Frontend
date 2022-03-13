@@ -244,9 +244,9 @@ const Main = () => {
     return parseInt(Math.random() * length);
   };
 
-  const imgUrl = require('../images/라이너 ' +
+  const imgUrl = require('../images/Liner-' +
     `${socksList[getRandomIndex(socksList.length)][0].url}` +
-    '.webp');
+    '.png');
 
   return (
     <>
@@ -342,6 +342,7 @@ const Main = () => {
             right="0"
             mright="inherit"
             mleft="10vw"
+            style={{ textAlign: 'right' }}
           >
             Trailer
             <br />

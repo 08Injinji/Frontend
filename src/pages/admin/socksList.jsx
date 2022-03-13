@@ -2,31 +2,31 @@ const socks = [
   [
     {
       title: 'linerwhite',
-      url: '화이트',
+      url: 'White',
     },
   ],
   [
     {
       title: 'linerblue',
-      url: '블랙',
+      url: 'Black',
     },
   ],
   [
     {
       title: 'linergray',
-      url: '그레이',
+      url: 'Gray',
     },
   ],
   [
     {
       title: 'linerorange',
-      url: '오렌지',
+      url: 'Orange',
     },
   ],
   [
     {
       title: 'linerblue',
-      url: '블루',
+      url: 'Blue',
     },
   ],
 ];
