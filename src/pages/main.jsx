@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-// import mainwebp from '../components/main.webp';
-// import mainwebp2 from '../components/main2.webp';
+// import mainwebp from '../images/main.webp';
+// import mainwebp2 from '../images/main2.webp';
 import socksList from './admin/socksList';
-import ecowool from '../components/에코울.webp';
-import crew from '../components/크루.webp';
-import trailer1 from '../components/트레일러1.webp';
-import trailer2 from '../components/트레일러2.webp';
+import ecowool from '../images/에코울.webp';
+import crew from '../images/크루.webp';
+import trailer1 from '../images/트레일러1.webp';
+import trailer2 from '../images/트레일러2.webp';
 
 // const VideoContainer = styled.div`
 //   width: 100vw;
@@ -244,7 +244,7 @@ const Main = () => {
     return parseInt(Math.random() * length);
   };
 
-  const imgUrl = require('../components/라이너 ' +
+  const imgUrl = require('../images/라이너 ' +
     `${socksList[getRandomIndex(socksList.length)][0].url}` +
     '.webp');
 

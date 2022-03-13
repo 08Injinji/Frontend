@@ -9,24 +9,24 @@ import Rellax from 'rellax';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import './swiperstyle.css';
-import grayBox from '../components/Rectangle.png';
-import linerwhite from '../components/라이너 화이트.webp';
-import linerblack from '../components/라이너 블랙.webp';
-import linergray from '../components/라이너 그레이.webp';
-import linerorange from '../components/라이너 오렌지.webp';
-import linerblue from '../components/라이너 블루.webp';
-import crewwhite from '../components/크루white.webp';
-import crewblack from '../components/크루black.webp';
-import crewsand from '../components/크루sand.webp';
-import trailergray from '../components/트레일러gray.webp';
-import trailerblack from '../components/트레일러black.webp';
-import trailersand from '../components/트레일러sand.webp';
-import ecowoolnavy from '../components/에코울navy.webp';
-import ecowoolblack from '../components/에코울black.webp';
-import orangeImage from '../components/오렌지 깃털2.jpg';
-import grayImage from '../components/그레이 깃털2.jpg';
-import coolmaxLogo from '../components/coolmax-logo-removebg-preview.png';
-// import strap from '../components/strap.png';
+import grayBox from '../images/Rectangle.png';
+import linerwhite from '../images/Liner-White.png';
+import linerblack from '../images/Liner-Black.png';
+import linergray from '../images/Liner-Gray.png';
+import linerorange from '../images/Liner-Orange.png';
+import linerblue from '../images/Liner-Blue.png';
+import crewwhite from '../images/크루white.webp';
+import crewblack from '../images/크루black.webp';
+import crewsand from '../images/크루sand.webp';
+import trailergray from '../images/트레일러gray.webp';
+import trailerblack from '../images/트레일러black.webp';
+import trailersand from '../images/트레일러sand.webp';
+import ecowoolnavy from '../images/에코울navy.webp';
+import ecowoolblack from '../images/에코울black.webp';
+import orangeImage from '../images/오렌지 깃털2.jpg';
+import grayImage from '../images/그레이 깃털2.jpg';
+import coolmaxLogo from '../images/coolmax-logo-removebg-preview.png';
+// import strap from '../images/strap.png';
 import strap from '../images/2ply.png';
 import stacked from '../images/IMG_0156.jpg';
 import blackFeather from '../images/블랙-깃털2.jpg';
@@ -103,10 +103,7 @@ const MainDiv = styled.div`
 const MainSocks = styled.img`
   alt: 'linerwhite';
   width: ${(props) => props.width};
-  position: absolute;
-  top: 50%;
-  left: 59%;
-  transform: translate(-50%, -45%);
+  margin-top: 50px;
   @media ${({ theme }) => theme.device.mobile} {
     width: ${(props) => props.mwidth};
   }
@@ -138,9 +135,36 @@ const ColorBtn = styled.button`
   }
 `;
 
+const ColorBtn2 = styled.button`
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 2px solid #ccc;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  bottom: ${(props) => props.bottom};
+  background: ${(props) => props.background};
+  text-decoration: none;
+  z-index: 99;
+  transition: 0.2s ease;
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+  }
+  &:focus {
+    border: 3px solid #ccc;
+    transform: scale(1.1);
+  }
+
+  @media ${({ theme }) => theme.device.mobile} {
+    left: 90vw;
+  }
+`;
+
 const UL1 = styled.ul`
   list-style: none;
-  margin: 20vh 0 0 8.54vw;
+  margin: 250px 0 0 0;
 
   @media ${({ theme }) => theme.device.mobile} {
     margin: 10px 0 0 0;
@@ -338,6 +362,104 @@ const Product = () => {
                       </>
                     ) : (
                       <SocksContainer>
+                        <GridContainer>
+                          <div
+                            style={{
+                              position: 'relative',
+                              gridColumnStart: 3,
+                              gridColumnEnd: 5,
+                            }}
+                          >
+                            <UL1>
+                              <LI1>Liner</LI1>
+                              <a
+                                href="https://smartstore.naver.com/injinji"
+                                style={{
+                                  display: 'inline-block',
+                                  width: '25vw',
+                                  fontSize: '22px',
+                                  fontWeight: 'normal',
+                                  marginTop: '20px',
+                                  marginBottom: '100px',
+                                }}
+                              >
+                                구매하러 가기 &gt;
+                              </a>
+                            </UL1>
+                            <div
+                              style={{
+                                display: 'flex',
+                                justifyContent: 'space-between',
+                                width: '100%',
+                              }}
+                            >
+                              <ColorBtn2
+                                background="#fff"
+                                onClick={() => setActive('WhiteSocks')}
+                              />
+                              <ColorBtn2
+                                background="#000000"
+                                onClick={() => setActive('BlackSocks')}
+                              />
+                              <ColorBtn2
+                                background="#666666"
+                                onClick={() => setActive('GraySocks')}
+                              />
+                              <ColorBtn2
+                                background="#e57d3e"
+                                onClick={() => setActive('OrangeSocks')}
+                              />
+                              <ColorBtn2
+                                background="#3f80f4"
+                                onClick={() => setActive('BlueSocks')}
+                              />
+                            </div>
+                          </div>
+                          <div
+                            style={{
+                              position: 'relative',
+                              gridColumnStart: 6,
+                              gridColumnEnd: 12,
+                            }}
+                          >
+                            {active === 'WhiteSocks' && (
+                              <MainSocks
+                                width="130%"
+                                mwidth="100%"
+                                src={linerwhite}
+                              />
+                            )}
+                            {active === 'BlackSocks' && (
+                              <MainSocks
+                                width="130%"
+                                mwidth="100%"
+                                src={linerblack}
+                              />
+                            )}
+                            {active === 'GraySocks' && (
+                              <MainSocks
+                                width="130%"
+                                mwidth="100%"
+                                src={linergray}
+                              />
+                            )}
+                            {active === 'OrangeSocks' && (
+                              <MainSocks
+                                width="130%"
+                                mwidth="100%"
+                                src={linerorange}
+                              />
+                            )}
+                            {active === 'BlueSocks' && (
+                              <MainSocks
+                                width="130%"
+                                mwidth="100%"
+                                src={linerblue}
+                              />
+                            )}
+                          </div>
+                        </GridContainer>
+                        {/* 
                         <UL1>
                           <LI1>Liner</LI1>
                           <a
@@ -414,7 +536,7 @@ const Product = () => {
                               src={linerblue}
                             />
                           )}
-                        </MainDiv>
+                        </MainDiv> */}
                       </SocksContainer>
                     )
                   }
