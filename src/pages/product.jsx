@@ -23,8 +23,8 @@ import trailerblack from '../images/트레일러black.webp';
 import trailersand from '../images/트레일러sand.webp';
 import ecowoolnavy from '../images/에코울navy.webp';
 import ecowoolblack from '../images/에코울black.webp';
-import orangeImage from '../images/오렌지 깃털2.jpg';
-import grayImage from '../images/그레이 깃털2.jpg';
+import orangeImage from '../images/오렌지-깃털2.jpg';
+import grayImage from '../images/그레이-깃털2.jpg';
 import coolmaxLogo from '../images/coolmax-logo-removebg-preview.png';
 // import strap from '../images/strap.png';
 import strap from '../images/2ply.png';
@@ -608,7 +608,7 @@ const Product = () => {
                             backgroundRepeat: 'no-repeat',
                             backgroundSize: 'cover',
                             backgroundOrigin: 'border-box',
-                            backgroundPosition: 'center',
+                            backgroundPosition: 'right center',
                             right: 0,
                           }}
                         ></div>
@@ -629,7 +629,7 @@ const Product = () => {
                             height: '647px',
                             backgroundImage: `url('${orangeImage}')`,
                             backgroundRepeat: 'no-repeat',
-                            backgroundPosition: 'center',
+                            backgroundPosition: 'left center',
                             backgroundSize: 'cover',
                           }}
                         ></div>
