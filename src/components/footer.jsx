@@ -3,10 +3,12 @@ import React from 'react';
 
 const Footerbar = styled.div`
   width: 100vw;
+  max-width: 1400px;
   height: 300px;
   display: flex;
   align-items: center;
   flex-direction: column;
+  margin: 0 auto;
   margin-top: 100px;
   @media ${({ theme }) => theme.device.mobile} {
     line-height: 1.3;
@@ -74,27 +76,52 @@ const FootSpan2 = styled.span`
   }
 `;
 
+const GridContainer = styled.div`
+  display: grid;
+  width: 100%;
+  height: 100%;
+  margin: 0 20px;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 24px;
+`;
+
 const footer = () => {
   return (
     <Footerbar>
-      <div style={{ width: '82.91vw', borderTop: '1px solid #bcbcbc' }}>
-        <FootP1>인진지코리아</FootP1>
-        <FootP2Desktop>
-          대표자: 박원민 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;주소: 경기도 고양시
-          일산서구 일현로 159 4층 좌측 injinji
-          <br></br>사업자등록번호: 659-55-00516&nbsp;통신판매업신고:
-          2019-고양일산서-0871
-        </FootP2Desktop>
-        <FootP2Mobile>
-          대표자: 박원민<br></br>주소: 경기도 고양시 일산서구 일현로 159 4층
-          좌측 injinji
-          <br></br>사업자등록번호: 659-55-00516<br></br>통신판매업신고:
-          2019-고양일산서-0871
-        </FootP2Mobile>
-        <FootSpan1>고객센터</FootSpan1>
-        <FootSpan2>070-8095-2374</FootSpan2>
-        <FootP3>운영시간 : 09:00 ~ 18:00</FootP3>
-      </div>
+      <div
+        style={{
+          width: '82.91vw',
+          maxWidth: '1400px',
+          borderTop: '1px solid #bcbcbc',
+          marginBottom: '40px',
+        }}
+      ></div>
+      <GridContainer>
+        <div
+          style={{
+            position: 'relative',
+            gridColumnStart: 2,
+            gridColumnEnd: 7,
+          }}
+        >
+          <FootP1>인진지코리아</FootP1>
+          <FootP2Desktop>
+            대표자: 박원민 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;주소: 경기도
+            고양시 일산서구 일현로 159 4층 좌측 injinji
+            <br></br>사업자등록번호: 659-55-00516&nbsp;통신판매업신고:
+            2019-고양일산서-0871
+          </FootP2Desktop>
+          <FootP2Mobile>
+            대표자: 박원민<br></br>주소: 경기도 고양시 일산서구 일현로 159 4층
+            좌측 injinji
+            <br></br>사업자등록번호: 659-55-00516<br></br>통신판매업신고:
+            2019-고양일산서-0871
+          </FootP2Mobile>
+          <FootSpan1>고객센터</FootSpan1>
+          <FootSpan2>070-8095-2374</FootSpan2>
+          <FootP3>운영시간 : 09:00 ~ 18:00</FootP3>
+        </div>
+      </GridContainer>
     </Footerbar>
   );
 };

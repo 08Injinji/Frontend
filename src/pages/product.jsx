@@ -72,13 +72,13 @@ const SocksContainer = styled.div`
   /* padding-bottom: 10vh; */
   margin: 0;
   box-sizing: border-box;
-  &::after {
+  /* &::after {
     content: '';
     position: absolute;
     bottom: 0;
     width: 100%;
     border-bottom: 1px solid #bcbcbc;
-  }
+  } */
   @media ${({ theme }) => theme.device.mobile} {
     height: 80vh;
     display: flex;
@@ -655,7 +655,7 @@ const Product = () => {
                           <span style={{ fontSize: '150px' }}>15</span>g
                         </div>
                         <div style={{ fontSize: '20px' }}>
-                          medium 사이즈 한 발 기준
+                          Medium 사이즈 한 발 기준
                         </div>
                       </div>
                       <div
@@ -665,7 +665,7 @@ const Product = () => {
                         }}
                       >
                         <div style={{ fontSize: '40px', marginBottom: '31px' }}>
-                          <span style={{ fontSize: '60px' }}>liner:</span> 안에
+                          <span style={{ fontSize: '60px' }}>liner :</span> 안에
                           대는 것, 안감
                         </div>
                         <div style={{ fontSize: '25px', lineHeight: '50px' }}>
@@ -754,8 +754,12 @@ const Product = () => {
                           하지만, 지속적인 개선을 통해
                           <br />
                           COOLMAX 원사 단{' '}
-                          <span style={{ fontSize: '30px' }}>두 올</span>을
-                          이용한
+                          <span
+                            style={{ fontSize: '30px', fontWeight: 'bolder' }}
+                          >
+                            두 올
+                          </span>
+                          을 이용한
                           <br />
                           발가락 양말 제조에 성공하였습니다.
                         </div>
@@ -815,12 +819,18 @@ const Product = () => {
                           flex: 1,
                           display: 'flex',
                           justifyContent: 'center',
-                          alignItems: 'center',
+                          alignItems: 'stretch',
                           flexDirection: 'column',
                         }}
                       >
-                        <div style={{ fontSize: '150px' }}>NST</div>
-                        <div style={{ fontSize: '35px' }}>Technology</div>
+                        <div
+                          style={{ fontSize: '150px', paddingLeft: '200px' }}
+                        >
+                          NST
+                        </div>
+                        <div style={{ fontSize: '35px', paddingLeft: '200px' }}>
+                          Technology
+                        </div>
                       </div>
                       <div
                         style={{
