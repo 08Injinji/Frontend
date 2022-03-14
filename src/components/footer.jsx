@@ -80,7 +80,7 @@ const GridContainer = styled.div`
   display: grid;
   width: 100%;
   height: 100%;
-  margin: 0 20px;
+  padding: 0 20px;
   grid-template-columns: repeat(12, 1fr);
   gap: 24px;
 `;
