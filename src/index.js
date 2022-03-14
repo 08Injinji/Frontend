@@ -3,8 +3,6 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Gnb from './components/gnb';
-
-import Main from './pages/main';
 import Product from './pages/product';
 import About from './pages/about';
 import Login from './pages/login';
@@ -18,7 +16,7 @@ import AdminMain from './pages/admin/index';
 import theme from './pages/theme';
 import { ThemeProvider } from 'styled-components';
 import { GridProvider } from './components/gridContext';
-import MainTest from './pages/main-test';
+import MainGrid from './pages/main-grid';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -28,8 +26,7 @@ ReactDOM.render(
           <ThemeProvider theme={theme}>
             <Routes>
               <Route path="/" element={<Gnb />}>
-                <Route index element={<Main />} />
-                <Route path="test" element={<MainTest />} />
+                <Route index element={<MainGrid />} />
                 <Route path="product" element={<Product />} />
                 <Route path="product/:item" element={<Product />} />
                 <Route path="about" element={<About />} />
