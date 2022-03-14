@@ -683,9 +683,9 @@ const Product = () => {
                         style={{
                           gridColumnStart: 3,
                           gridColumnEnd: 13,
-                          backgroundColor: 'red',
                           height: '823px',
                           backgroundImage: `url('${stacked}')`,
+                          backgroundRepeat: 'no-repeat',
                         }}
                       ></div>
                       <div
@@ -693,9 +693,9 @@ const Product = () => {
                           marginTop: '100px',
                           gridColumnStart: 2,
                           gridColumnEnd: 11,
-                          backgroundColor: 'blue',
                           height: '674px',
                           backgroundImage: `url('${blackFeather}')`,
+                          backgroundRepeat: 'no-repeat',
                         }}
                       ></div>
                     </GridContainer>
@@ -803,11 +803,11 @@ const Product = () => {
                     <GridContainer>
                       <div
                         style={{
-                          backgroundColor: 'red',
                           gridColumnStart: 1,
                           gridColumnEnd: 10,
                           height: '674px',
                           backgroundImage: `url('${blueFeather}')`,
+                          backgroundRepeat: 'no-repeat',
                         }}
                       ></div>
                     </GridContainer>
@@ -868,6 +868,7 @@ const Product = () => {
                           gridColumnEnd: 12,
                           height: '732px',
                           backgroundImage: `url('${nst}')`,
+                          backgroundRepeat: 'no-repeat',
                         }}
                       ></div>
                     </GridContainer>
@@ -1006,6 +1007,7 @@ const Product = () => {
                             width: '50vw',
                             height: '892px',
                             backgroundImage: `url('${coolmaxDescImage}')`,
+                            backgroundRepeat: 'no-repeat',
                           }}
                         ></div>
                       </div>
@@ -1019,6 +1021,7 @@ const Product = () => {
                           gridColumnEnd: 12,
                           height: '751px',
                           backgroundImage: `url('${whiteFeather}')`,
+                          backgroundRepeat: 'no-repeat',
                         }}
                       ></div>
                     </GridContainer>
