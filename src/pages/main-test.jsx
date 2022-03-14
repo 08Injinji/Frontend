@@ -264,8 +264,8 @@ const Main = () => {
         <GridContainer>
           <div
             style={{
-              gridColumnStart: 3,
-              gridColumnEnd: 6,
+              gridColumnStart: 2,
+              gridColumnEnd: 4,
               position: 'relative',
             }}
           >
@@ -390,8 +390,8 @@ const Main = () => {
           </div>
           <div
             style={{
-              gridColumnStart: 7,
-              gridColumnEnd: 11,
+              gridColumnStart: 8,
+              gridColumnEnd: 12,
               position: 'relative',
             }}
           >
