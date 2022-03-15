@@ -641,8 +641,19 @@ const Product = () => {
                       width: '100%',
                       marginTop: '450px',
                       marginBottom: '450px',
+                      justifyContent: 'center',
+                      position: 'relative',
                     }}
                   >
+                    <div
+                      style={{
+                        background: '#FFFCFC',
+                        position: 'absolute',
+                        width: '100vw',
+                        height: '1400px',
+                        zIndex: '-1',
+                      }}
+                    ></div>
                     <GridContainer>
                       <div
                         style={{
@@ -690,7 +701,7 @@ const Product = () => {
                       ></div>
                       <div
                         style={{
-                          marginTop: '100px',
+                          marginTop: '176px',
                           gridColumnStart: 2,
                           gridColumnEnd: 11,
                           height: '674px',
