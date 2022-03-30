@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Gnb from './components/gnb';
-import Product from './pages/product';
+import Product from './pages/product/index';
 import About from './pages/about';
 import Login from './pages/login';
 import NotFound from './pages/notFound';
