@@ -7,6 +7,25 @@ import { Pagination } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import './swiperstyle.css';
+import {
+  MainDiv,
+  ProductName,
+  ProductMenu,
+  SocksContainer,
+  MainSocks,
+  ColorBtn,
+  ColorBtn2,
+  SubSocks,
+  DescUL,
+  DescLI,
+  DescLI2,
+  DescriptionDiv2,
+  UL1,
+  LI1,
+  Description,
+  DescriptionDiv,
+  GridContainer,
+} from './styles';
 import grayBox from '../../images/Rectangle.png';
 import trailergray from '../../images/Trailer-Gray.png';
 import trailerblack from '../../images/Trailer-Black.png';
@@ -17,14 +36,14 @@ import coolmaxLogo from '../../images/coolmax-logo-removebg-preview.png';
 import coolmaxDescImage from '../../images/coolmax2.png';
 import flag from '../../images/태극기.png';
 
-import trailer1 from '../images/trailer1.png';
-import trailer2 from '../images/Trailer-Sand-Liner.png';
-import trailer3 from '../images/Trailer-Sand-pile.png';
-import trailer4 from '../images/trailer4.png';
-import trailer5 from '../images/trailer5.png';
-import trailer6 from '../images/trailer6.png';
-import trailer7 from '../images/trailer7.png';
-import trailer8 from '../images/trailer8.png';
+import trailer1 from '../../images/trailer1.png';
+import trailer2 from '../../images/Trailer-Sand-Liner.png';
+import trailer3 from '../../images/Trailer-Sand-pile.png';
+import trailer4 from '../../images/trailer4.png';
+import trailer5 from '../../images/trailer5.png';
+import trailer6 from '../../images/trailer6.png';
+import trailer7 from '../../images/trailer7.png';
+import trailer8 from '../../images/trailer8.png';
 
 import Liner from './liner';
 import Runner from './runner';
@@ -39,7 +58,6 @@ const Product = () => {
   useEffect(() => {
     setActive('WhiteSocks');
     setTitle(pathname.split('/')[2]);
-    console.log(orangeImage);
   }, [pathname]);
 
   const Product = ({ title, name }) => {
@@ -71,8 +89,8 @@ const Product = () => {
       <div style={{ transform: 'translateY(55px)' }}>
         {
           {
-            liner: <Liner />,
-            runner: <Runner />,
+            liner: <Liner active={active} setActive={setActive} />,
+            runner: <Runner active={active} setActive={setActive} />,
             trailer: (
               <>
                 <Media queries={{ small: { maxWidth: 599 } }}>

@@ -33,7 +33,7 @@ import coolmaxDescImage from '../../images/coolmax2.png';
 import flag from '../../images/태극기.png';
 import coolmaxLogo from '../../images/coolmax-logo-removebg-preview.png';
 
-const Liner = () => {
+const Liner = ({ active, setActive }) => {
   const rellaxRef = useRef();
 
   useEffect(() => {

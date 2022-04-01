@@ -35,7 +35,7 @@ import coolmaxLogo from '../../images/coolmax-logo-removebg-preview.png';
 import coolmaxDescImage from '../../images/coolmax2.png';
 import flag from '../../images/태극기.png';
 
-const Runner = () => {
+const Runner = ({ active, setActive }) => {
   return (
     <>
       <Media queries={{ small: { maxWidth: 768 } }}>
