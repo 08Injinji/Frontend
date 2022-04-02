@@ -1,12 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import Media from 'react-media';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from 'swiper';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import './swiperstyle.css';
+import { ProductName, ProductMenu } from './styles';
 import Trailer from './trailer';
 import Ecowool from './ecowool';
 import Liner from './liner';
