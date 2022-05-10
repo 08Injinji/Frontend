@@ -167,6 +167,18 @@ const GridContainer = styled.div`
   gap: 24px;
 `;
 
+const Title = styled.div`
+  font-size : 30px;
+  font-weight: bold;
+`;
+
+const Body = styled.div`
+  font-size: 25px;
+  color: #666;
+  margin-top: 20px;
+`;
+
+
 const Main = () => {
   const getRandomIndex = (length) => {
     return parseInt(Math.random() * length);
@@ -209,18 +221,16 @@ const Main = () => {
             <div
               style={{ position: 'absolute', bottom: '100px', color: '#111' }}
             >
-              <div style={{ fontSize: '30px', fontWeight: 'bold' }}>
+              <Title>
                 발을 위한 양말
-              </div>
-              <div
-                style={{ fontSize: '25px', color: '#666', marginTop: '20px' }}
-              >
+              </Title>
+              <Body>
                 신발 속에 갇혀 있는
                 <br />
                 당신의 발을 위한
                 <br />
                 최고의 선택.
-              </div>
+              </Body>
               <div style={{ fontSize: '22px', marginTop: '50px' }}>
                 <a
                   href="https://smartstore.naver.com/injinji?n_media=27758&n_query=%EC%9D%B8%EC%A7%84%EC%A7%80&n_rank=1&n_ad_group=grp-a001-01-000000023238471&n_ad=nad-a001-01-000000153475054&n_keyword_id=nkw-a001-01-000004018620719&n_keyword=%EC%9D%B8%EC%A7%84%EC%A7%80&n_campaign_type=1&n_ad_group_type=1&NaPm=ct%3Dkyvlg7jc%7Cci%3D0ze00009hZ5vMdQuM13b%7Ctr%3Dsa%7Chk%3De2fb33bf768da3ff4cad26734b9d81f9d1e1c5fae"
@@ -341,18 +351,16 @@ const Main = () => {
                 color: '#111',
               }}
             >
-              <div style={{ fontSize: '30px', fontWeight: 'bold' }}>
+              <Title>
                 당신의 페이스 메이커
-              </div>
-              <div
-                style={{ fontSize: '25px', color: '#666', marginTop: '20px' }}
-              >
+              </Title>
+              <Body>
                 자연스러운 움직임과
                 <br />
                 빠른 수분 배출.
                 <br />
                 오랜 시간 유지되는 최상의 컨디션.
-              </div>
+              </Body>
               <div style={{ fontSize: '22px', marginTop: '50px' }}>
                 <a
                   href="https://smartstore.naver.com/injinji?n_media=27758&n_query=%EC%9D%B8%EC%A7%84%EC%A7%80&n_rank=1&n_ad_group=grp-a001-01-000000023238471&n_ad=nad-a001-01-000000153475054&n_keyword_id=nkw-a001-01-000004018620719&n_keyword=%EC%9D%B8%EC%A7%84%EC%A7%80&n_campaign_type=1&n_ad_group_type=1&NaPm=ct%3Dkyvlg7jc%7Cci%3D0ze00009hZ5vMdQuM13b%7Ctr%3Dsa%7Chk%3De2fb33bf768da3ff4cad26734b9d81f9d1e1c5fae"
@@ -451,21 +459,14 @@ const Main = () => {
             textAlign: 'center',
           }}
         >
-          <div style={{ fontSize: '30px', fontWeight: 'bold' }}>
+          <Title>
             눈 앞의 장애물에만 집중
-          </div>
-          <div
-            style={{
-              fontSize: '25px',
-              color: '#666',
-              fontWeight: 'regular',
-              marginTop: '20px',
-            }}
-          >
+          </Title>
+          <Body>
             푹신하고 쾌적한 착용감으로
             <br />
             발이 신경쓰이지 않도록.
-          </div>
+          </Body>
           <div style={{ fontSize: '22px', fontWeight: 500, marginTop: '50px' }}>
             <a
               href="https://smartstore.naver.com/injinji?n_media=27758&n_query=%EC%9D%B8%EC%A7%84%EC%A7%80&n_rank=1&n_ad_group=grp-a001-01-000000023238471&n_ad=nad-a001-01-000000153475054&n_keyword_id=nkw-a001-01-000004018620719&n_keyword=%EC%9D%B8%EC%A7%84%EC%A7%80&n_campaign_type=1&n_ad_group_type=1&NaPm=ct%3Dkyvlg7jc%7Cci%3D0ze00009hZ5vMdQuM13b%7Ctr%3Dsa%7Chk%3De2fb33bf768da3ff4cad26734b9d81f9d1e1c5fae"
@@ -523,41 +524,6 @@ const Main = () => {
           </MentA>
         </BuyMent2>
       </SocksContainer>
-      {/* <Description>
-          <DescriptionDiv>
-            <SubSocks src={softSocks} />
-            <DescUL>
-              <DescLI>&nbsp;부드러운 양말</DescLI>
-              <DescLI2>
-                바이며, 생명을 모래뿐일 불어 이 인생을 청춘 이상의 이상
-                그리하였는가? 인생을 기관과 목숨을 있는 풀이 끓는다. 따뜻한
-                대고, 같으며, 행복스럽고 가는 굳세게 것이다.
-              </DescLI2>
-            </DescUL>
-          </DescriptionDiv>
-          <DescriptionDiv2>
-            <DescUL>
-              <DescLI>&nbsp;다양한 색상</DescLI>
-              <DescLI2>
-                바이며, 생명을 모래뿐일 불어 이 인생을 청춘 이상의 이상
-                그리하였는가? 인생을 기관과 목숨을 있는 풀이 끓는다. 따뜻한
-                대고, 같으며, 행복스럽고 가는 굳세게 것이다.
-              </DescLI2>
-            </DescUL>
-            <SubSocks src={grayBox} />
-          </DescriptionDiv2>
-          <DescriptionDiv>
-            <SubSocks src={grayBox} />
-            <DescUL>
-              <DescLI>&nbsp;국내 생산</DescLI>
-              <DescLI2>
-                바이며, 생명을 모래뿐일 불어 이 인생을 청춘 이상의 이상
-                그리하였는가? 인생을 기관과 목숨을 있는 풀이 끓는다. 따뜻한
-                대고, 같으며, 행복스럽고 가는 굳세게 것이다.
-              </DescLI2>
-            </DescUL>
-          </DescriptionDiv>
-        </Description> */}
     </>
   );
 };
