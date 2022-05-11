@@ -161,8 +161,9 @@ const GridContainer = styled.div`
   display: grid;
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 700px;
   margin: 0 20px;
+  grid-template-rows: 700px;
   grid-template-columns: repeat(12, 1fr);
   gap: 24px;
 `;
@@ -170,6 +171,7 @@ const GridContainer = styled.div`
 const Title = styled.div`
   font-size : 30px;
   font-weight: bold;
+  color: #111;
 `;
 
 const Body = styled.div`
@@ -177,6 +179,30 @@ const Body = styled.div`
   color: #666;
   margin-top: 20px;
 `;
+
+const Explanation = (props) => {
+
+  const divStyle = {
+    position: props.position,
+    bottom: props.bottom,
+    right: props.right,
+    textAlign: props.textAlign
+  };
+
+  return (
+    <div style={divStyle}>
+      <Title>
+        {props.title}
+      </Title>
+      <Body>
+        {props.body}
+      </Body>
+      {props.children}
+    </div>
+  );
+};
+
+
 
 
 const Main = () => {
@@ -213,24 +239,19 @@ const Main = () => {
         <GridContainer>
           <div
             style={{
+              backgroundColor: "blue",
+              girdRowStart: 1,
               gridColumnStart: 2,
               gridColumnEnd: 4,
               position: 'relative',
             }}
           >
-            <div
-              style={{ position: 'absolute', bottom: '100px', color: '#111' }}
+            <Explanation
+              position='absolute'
+              bottom='100px'
+              title="발을 위한 양말"
+              body={["신발 속에 갇혀 있는", < br />, "당신의 발을 위한", < br />, "최고의 선택."]}
             >
-              <Title>
-                발을 위한 양말
-              </Title>
-              <Body>
-                신발 속에 갇혀 있는
-                <br />
-                당신의 발을 위한
-                <br />
-                최고의 선택.
-              </Body>
               <div style={{ fontSize: '22px', marginTop: '50px' }}>
                 <a
                   href="https://smartstore.naver.com/injinji?n_media=27758&n_query=%EC%9D%B8%EC%A7%84%EC%A7%80&n_rank=1&n_ad_group=grp-a001-01-000000023238471&n_ad=nad-a001-01-000000153475054&n_keyword_id=nkw-a001-01-000004018620719&n_keyword=%EC%9D%B8%EC%A7%84%EC%A7%80&n_campaign_type=1&n_ad_group_type=1&NaPm=ct%3Dkyvlg7jc%7Cci%3D0ze00009hZ5vMdQuM13b%7Ctr%3Dsa%7Chk%3De2fb33bf768da3ff4cad26734b9d81f9d1e1c5fae"
@@ -240,10 +261,12 @@ const Main = () => {
                   자세히 알아보기 &gt;
                 </a>
               </div>
-            </div>
+            </Explanation>
           </div>
           <div
             style={{
+              backgroundColor: "yellow",
+              girdRowStart: 1,
               gridColumnStart: 7,
               gridColumnEnd: 13,
               position: 'relative',
@@ -277,7 +300,7 @@ const Main = () => {
             </div>
           </div>
         </GridContainer>
-      </div>
+      </div >
       <div
         className="runner-area"
         style={{
@@ -302,6 +325,35 @@ const Main = () => {
         <GridContainer>
           <div
             style={{
+              girdRowStart: 1,
+              gridColumnStart: 8,
+              gridColumnEnd: 12,
+              position: 'relative',
+            }}
+          >
+            <Explanation
+              position='absolute'
+              bottom='100px'
+              title='당신의 페이스 메이커'
+              right='0px'
+              textAlign='right'
+              body={['자연스로운 움직임과', <br />, '빠른 수분 배출.', <br />, "오랜 시간 유지되는 최상의 컨디션."]}
+            >
+              <div style={{ fontSize: '22px', marginTop: '50px' }}>
+                <a
+                  href="https://smartstore.naver.com/injinji?n_media=27758&n_query=%EC%9D%B8%EC%A7%84%EC%A7%80&n_rank=1&n_ad_group=grp-a001-01-000000023238471&n_ad=nad-a001-01-000000153475054&n_keyword_id=nkw-a001-01-000004018620719&n_keyword=%EC%9D%B8%EC%A7%84%EC%A7%80&n_campaign_type=1&n_ad_group_type=1&NaPm=ct%3Dkyvlg7jc%7Cci%3D0ze00009hZ5vMdQuM13b%7Ctr%3Dsa%7Chk%3De2fb33bf768da3ff4cad26734b9d81f9d1e1c5fae"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  자세히 알아보기 &gt;
+                </a>
+              </div>
+            </Explanation>
+          </div>
+
+          <div
+            style={{
+              gridRowStart: 1,
               gridColumnStart: 1,
               gridColumnEnd: 7,
               position: 'relative',
@@ -309,14 +361,14 @@ const Main = () => {
           >
             <div
               style={{
-                width: '50vw',
-                height: '1108px',
+                width: '900px',
+                height: '1100px',
                 position: 'absolute',
-                right: 0,
-                bottom: '-100px',
+                left: 0,
+                bottom: '-200px',
                 backgroundImage: `url('${crew}')`,
                 backgroundRepeat: 'no-repeat',
-                backgroundSize: 'cover',
+                backgroundSize: 'contain',
                 backgroundPosition: 'right center',
               }}
             ></div>
@@ -335,45 +387,9 @@ const Main = () => {
               </div>
             </div>
           </div>
-          <div
-            style={{
-              gridColumnStart: 8,
-              gridColumnEnd: 12,
-              position: 'relative',
-            }}
-          >
-            <div
-              style={{
-                position: 'absolute',
-                bottom: '100px',
-                right: 0,
-                textAlign: 'right',
-                color: '#111',
-              }}
-            >
-              <Title>
-                당신의 페이스 메이커
-              </Title>
-              <Body>
-                자연스러운 움직임과
-                <br />
-                빠른 수분 배출.
-                <br />
-                오랜 시간 유지되는 최상의 컨디션.
-              </Body>
-              <div style={{ fontSize: '22px', marginTop: '50px' }}>
-                <a
-                  href="https://smartstore.naver.com/injinji?n_media=27758&n_query=%EC%9D%B8%EC%A7%84%EC%A7%80&n_rank=1&n_ad_group=grp-a001-01-000000023238471&n_ad=nad-a001-01-000000153475054&n_keyword_id=nkw-a001-01-000004018620719&n_keyword=%EC%9D%B8%EC%A7%84%EC%A7%80&n_campaign_type=1&n_ad_group_type=1&NaPm=ct%3Dkyvlg7jc%7Cci%3D0ze00009hZ5vMdQuM13b%7Ctr%3Dsa%7Chk%3De2fb33bf768da3ff4cad26734b9d81f9d1e1c5fae"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  자세히 알아보기 &gt;
-                </a>
-              </div>
-            </div>
-          </div>
+
         </GridContainer>
-      </div>
+      </div >
       <div
         style={{
           position: 'relative',
