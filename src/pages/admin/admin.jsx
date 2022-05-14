@@ -5,7 +5,7 @@ import Injinji from '../../components/icon';
 import { MdLogout } from 'react-icons/md';
 import { InfoModal } from '../../components/infoModal';
 import { AuthContext } from '../../components/authContext';
-import { HTTP_URL } from '../../const';
+import { HTTP_URL } from '../../constants';
 
 const Container = styled.div`
   display: flex;

@@ -10,7 +10,7 @@ import {
 } from 'react-icons/md';
 import Skeleton from '@mui/material/Skeleton';
 import Modal from '../../components/modal';
-import { HTTP_URL } from '../../const';
+import { HTTP_URL } from '../../constants';
 
 const Container = styled.div`
   width: 100%;

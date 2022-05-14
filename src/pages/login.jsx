@@ -3,7 +3,7 @@ import { Navigate, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import Icon from '../components/icon';
 import { AuthContext } from '../components/authContext';
-import { HTTP_URL } from '../const';
+import { HTTP_URL } from '../constants';
 
 const Container = styled.div`
   width: 100vw;

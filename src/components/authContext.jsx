@@ -1,5 +1,5 @@
 import React from 'react';
-import { HTTP_URL } from '../const';
+import { HTTP_URL } from '../constants';
 
 const AuthContext = React.createContext({
   isAuth: false,
