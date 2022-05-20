@@ -5,7 +5,7 @@ import Injinji from '../../components/icon';
 import { MdLogout } from 'react-icons/md';
 import { InfoModal } from '../../components/infoModal';
 import { AuthContext } from '../../components/authContext';
-import { HTTP_URL } from '../../constants';
+import { request } from '../../apis';
 
 const Container = styled.div`
   display: flex;
@@ -87,19 +87,15 @@ const Admin = () => {
   const { setAuth } = useContext(AuthContext);
   const [isLoginInfoModalOpen, setLoginInfoModalOpen] = React.useState(false);
 
-  function Logout() {
-    fetch(`${HTTP_URL}/login/logout`, {
+  async function Logout() {
+    const res = await request('/login/logout', {
       method: 'DELETE',
-      credentials: 'include',
+      credentials: 'include'
     })
-      .then((res) => res.json())
-      .then((json) => {
-        console.log(json);
-        if (json.msg === '로그아웃 되었습니다') {
-          setAuth(false);
-          navigate('/login', { replace: true });
-        }
-      });
+    if (res.msg === "로그아웃 되었습니다"){
+      setAuth(false);
+      navigate('/login', { replace: true });
+    }
   }
 
   return (

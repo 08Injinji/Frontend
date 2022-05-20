@@ -10,7 +10,7 @@ import {
 } from 'react-icons/md';
 import Skeleton from '@mui/material/Skeleton';
 import Modal from '../../components/modal';
-import { HTTP_URL } from '../../constants';
+import { request } from '../../apis';
 
 const Container = styled.div`
   width: 100%;
@@ -111,42 +111,48 @@ const Admin1 = () => {
   const [isModalOpen, setModalOpen] = React.useState(false);
   const [isModifying, setModifying] = React.useState(false);
 
-  function GetItemData() {
-    fetch('https://3.36.96.63/fetchtest/fetchAll', {
-      method: 'GET',
-    })
-      .then((res) => res.json())
-      .then((json) => {
-        setData(json);
-      });
+  async function GetItemData() {
+    const res = await request('/fetchtest/fetchAll');
+    setData(res)
   }
 
-  function RemoveItems() {
-    fetch(`${HTTP_URL}/fetchtest/deleteArray`, {
+  async function RemoveItems() {
+    await request('/fetchtest/deleteArray', {
       method: 'DELETE',
       headers: {
-        'Content-type': 'application/json',
+        'Content-type': 'application/json'
       },
       body: JSON.stringify({
         deleteList: [...checkedList],
-      }),
-    }).then((res) => GetItemData());
+      })
+    })
+    GetItemData()
   }
   // 서버에서 데이터 받아오기
   React.useLayoutEffect(() => {
-    fetch(`${HTTP_URL}/fetchtest/fetchAll`, {
-      method: 'GET',
-    })
-      .then((res) => res.json())
-      .then((json) => {
-        console.log(json);
-        setData(json);
-        setDataLoading(false);
-      });
+    // fetch(`${HTTP_URL}/fetchtest/fetchAll`, {
+    //   method: 'GET',
+    // })
+    //   .then((res) => res.json())
+    //   .then((json) => {
+    //     console.log(json);
+    //     setData(json);
+    //     setDataLoading(false);
+    //   });
+    // return () => {
+    //   setData();
+    //   setDataLoading(false);
+    // };
+    async function fetchAll() {
+      const res = await request('/fetchtest/fetchAll');
+      setData(res);
+      setDataLoading(false);
+    }
+    fetchAll()
     return () => {
       setData();
       setDataLoading(false);
-    };
+    }
   }, []);
   return (
     <Container>

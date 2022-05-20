@@ -1,5 +1,5 @@
 import React from 'react';
-import { HTTP_URL } from '../constants';
+import { request } from '../apis';
 
 const AuthContext = React.createContext({
   isAuth: false,
@@ -7,28 +7,25 @@ const AuthContext = React.createContext({
   isLoading: true,
 });
 
-function VerifyLoginToken(setAuth, setLevel, setLoading) {
-  fetch(`${HTTP_URL}/login/check`, {
+async function VerifyLoginToken(setAuth, setLevel, setLoading) {
+  const res = await request('/login/check', {
     method: 'POST',
-    credentials: 'include',
+    credentials: 'include'
   })
-    .then((res) => res.json())
-    .then((json) => {
-      if (
-        json.msg ===
-          '리프레시 토큰은 문제가 없는 상황이므로 정상적으로 사용을 권장한다' ||
-        json.msg === '리프레시 토큰 발급 완료 2' ||
-        json.msg === '리프레시 토큰 재발급 완료 2-1' ||
-        json.msg ===
-          '리프레시 토큰은 문제가 없는 상황이므로 accessToken만 재발급해준다'
-      ) {
-        setAuth(true);
-      } else {
-        setAuth(false);
-      }
-      // setLoading과 setAuth 위치를 바꾸니까 기능이 잘 작동함. 왜인지는 잘 모르겠음.
-      setLoading(false);
-    });
+  if (
+    res.msg === "엑세스 토큰, 리프레시 토큰은 문제가 없는 상황이므로 정상적으로 사용을 권장한다" ||
+    res.msg ===
+      '리프레시 토큰은 문제가 없는 상황이므로 정상적으로 사용을 권장한다' ||
+    res.msg === '리프레시 토큰 발급 완료 2' ||
+    res.msg === '리프레시 토큰 재발급 완료 2-1' ||
+    res.msg ===
+      '리프레시 토큰은 문제가 없는 상황이므로 accessToken만 재발급해준다'
+  ) {
+    setAuth(true);
+  } else {
+    setAuth(false);
+  }
+  setLoading(false);
 }
 
 const AuthProvider = ({ children }) => {

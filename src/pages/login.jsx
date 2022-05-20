@@ -3,7 +3,7 @@ import { Navigate, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import Icon from '../components/icon';
 import { AuthContext } from '../components/authContext';
-import { HTTP_URL } from '../constants';
+import { request } from '../apis';
 
 const Container = styled.div`
   width: 100vw;
@@ -52,31 +52,26 @@ const AlertDiv = styled.div`
   font-weight: 600;
 `;
 
-function SubmitLoginData({ id, pw }, setAlertMsg, navigate, ChangeAuthState) {
-  fetch(`${HTTP_URL}/login/`, {
+async function SubmitLoginData({ id, pw }, setAlertMsg, navigate, ChangeAuthState) {
+  const res = await request('/login', {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json',
+      'Content-type': 'application/json'
     },
     body: JSON.stringify({
-      id: id,
-      password: pw,
+      id,
+      password: pw
     }),
-    credentials: 'include',
+    credentials: 'include'
   })
-    .then((res) => res.json())
-    .then((json) => {
-      console.log(json);
-      if (json.msg === '아이디가 존재하지 않음, 회원가입 필요') {
-        setAlertMsg('존재하지 않는 계정입니다. 회원가입을 진행해주세요.');
-      } else if (json.msg === '패스워드 불일치') {
-        setAlertMsg('비밀번호가 일치하지 않습니다.');
-      } else if (json.id !== undefined && json.id === id) {
-        navigate('/admin', { replace: true });
-        ChangeAuthState();
-      }
-    })
-    .catch((e) => console.error(e));
+  if (res.msg === '아이디가 존재하지 않음, 회원가입 필요') {
+    setAlertMsg('존재하지 않는 계정입니다. 회원가입을 진행해주세요.');
+  } else if (res.msg === '패스워드 불일치') {
+    setAlertMsg('비밀번호가 일치하지 않습니다.');
+  } else if (res.id !== undefined && res.id === id) {
+    ChangeAuthState();
+    navigate('/admin', { replace: true });
+  }
 }
 
 const AdminLogin = () => {
