@@ -1,7 +1,7 @@
 const size = {
-  desktop: '1700px',
+  desktop: '1024px',
   mobile: '768px',
-  tablet: '1400px',
+  tablet: '1023px',
 };
 
 const device = {
@@ -14,4 +14,4 @@ const theme = {
   device,
 };
 
-export default theme;
+export { theme, size };

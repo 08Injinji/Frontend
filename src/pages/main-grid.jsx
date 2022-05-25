@@ -6,6 +6,8 @@ import crew from '../images/크루.webp';
 import trailer1 from '../images/트레일러1.webp';
 import trailer2 from '../images/트레일러2.webp';
 
+import { PcRender, MobileRender } from '../components/responsive';
+
 const GridContainer = styled.div`
   display: grid;
   position: relative;
@@ -308,11 +310,16 @@ const Main = () => {
     '.png');
 
   return (
-    <>
-      <Liner imgUrl={imgUrl} />
-      <Runner imgUrl={imgUrl} />
-      <Trailer />
-    </>
+    <React.Fragment>
+      <PcRender>
+        <Liner imgUrl={imgUrl} />
+        <Runner imgUrl={imgUrl} />
+        <Trailer />
+      </PcRender>
+      <MobileRender>
+        <div>hihi</div>
+      </MobileRender>
+    </React.Fragment>
   );
 };
 
