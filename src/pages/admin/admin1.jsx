@@ -120,7 +120,7 @@ const Admin1 = () => {
     await request('/fetchtest/deleteArray', {
       method: 'DELETE',
       headers: {
-        'Content-type': 'application/json'
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify({
         deleteList: [...checkedList],
@@ -129,20 +129,7 @@ const Admin1 = () => {
     GetItemData()
   }
   // 서버에서 데이터 받아오기
-  React.useLayoutEffect(() => {
-    // fetch(`${HTTP_URL}/fetchtest/fetchAll`, {
-    //   method: 'GET',
-    // })
-    //   .then((res) => res.json())
-    //   .then((json) => {
-    //     console.log(json);
-    //     setData(json);
-    //     setDataLoading(false);
-    //   });
-    // return () => {
-    //   setData();
-    //   setDataLoading(false);
-    // };
+  React.useEffect(() => {
     async function fetchAll() {
       const res = await request('/fetchtest/fetchAll');
       setData(res);
