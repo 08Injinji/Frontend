@@ -1,69 +1,73 @@
 import React from 'react';
 import styled from 'styled-components';
-import socksList from './admin/socksList';
-import ecowool from '../images/에코울.webp';
-import crew from '../images/크루.webp';
-import trailer1 from '../images/트레일러1.webp';
-import trailer2 from '../images/트레일러2.webp';
 
-import { PcRender, MobileRender } from '../components/responsive';
+import LinerBlack from '../../images/new-liner-black-600w.webp';
+
+const AreaDiv = styled.div`
+  display: block;
+  position: relative;
+  margin-top: ${(props) => props.marginTop};
+  /* justify-content: center; */
+  width: 100%;
+  height: ${(props) => props.height ?? '400px'};
+  background-color: ${(props) => props.backgroundColor ?? '#efefef'};
+`;
 
 const GridContainer = styled.div`
   display: grid;
-  position: relative;
-  width: 100%;
-  height: ${(props) => (props.height ? props.height : '700px')};
-  margin: 0 20px;
-  grid-template-rows: 700px;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 24px;
+  height: 100%;
+  padding: 0px 20px 0px 20px;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: 1fr;
+  grid-auto-flow: dense; //그리드 요소 순서 상관 없이 정확히 배치
+  gap: 16px;
 `;
 
 const ContentTitle = styled.div`
-  font-size: 30px;
+  font-size: 17px;
   font-weight: bold;
   color: #111;
 `;
 
 const ContentBody = styled.div`
-  font-size: 25px;
+  font-size: 13px;
   color: #666;
   margin-top: 20px;
 `;
 
-const AreaDiv = styled.div`
-  display: flex;
-  position: relative;
-  justify-content: center;
-  width: 100%;
-  height: ${(props) => (props.height ? props.height : '700px')};
-  margin-top: ${(props) => props.marginTop};
+const ShopLink = styled.div`
+  font-size: 14px;
+  margin-top: 50px;
 `;
 
-const GrayBackground = styled.div`
-  top: 0;
-  position: absolute;
-  background-color: #efefef;
-  width: 1400px;
-  height: 100%;
-  z-index: -1;
+const ProductName = styled.div`
+  font-size: 14px;
+`;
+
+const ProductPrice = styled.div`
+  font-size: 10px;
+  margin-top: 5px;
+  font-weight: 500;
 `;
 
 const Liner = (props) => {
   return (
-    <>
+    <React.Fragment>
       <AreaDiv>
-        <GrayBackground />
         <GridContainer>
           <div
             style={{
-              gridColumnStart: 2,
-              gridColumnEnd: 4,
+              gridColumnStart: 1,
+              gridColumnEnd: 3,
               position: 'relative',
             }}
           >
             <div
-              style={{ position: 'absolute', bottom: '100px', width: '200px' }}
+              style={{
+                position: 'absolute',
+                display: 'inline-block',
+                bottom: '100px',
+              }}
             >
               <ContentTitle>발을 위한 양말</ContentTitle>
               <ContentBody>
@@ -73,7 +77,7 @@ const Liner = (props) => {
                 <br />
                 최고의 선택.
               </ContentBody>
-              <div style={{ fontSize: '22px', marginTop: '50px' }}>
+              <ShopLink>
                 <a
                   href="https://smartstore.naver.com/injinji/category/84e427f2aab44a81a83720d25bb6fb12?cp=1"
                   target="_blank"
@@ -81,28 +85,25 @@ const Liner = (props) => {
                 >
                   자세히 알아보기 &gt;
                 </a>
-              </div>
+              </ShopLink>
             </div>
           </div>
           <div
             style={{
-              girdRowStart: 1,
-              gridColumnStart: 7,
-              gridColumnEnd: 13,
+              gridColumnStart: 4,
+              gridColumnEnd: 6,
               position: 'relative',
             }}
           >
-            <div
+            <img
+              src={LinerBlack}
+              alt="라이너"
               style={{
-                width: '50vw',
-                height: '693px',
                 position: 'absolute',
-                left: 0,
-                bottom: '-100px',
-                backgroundImage: `url('${props.imgUrl}')`,
-                backgroundRepeat: 'no-repeat',
+                marginTop: '80px',
+                width: '400px',
               }}
-            ></div>
+            />
             <div
               style={{
                 position: 'absolute',
@@ -111,29 +112,23 @@ const Liner = (props) => {
                 textAlign: 'right',
               }}
             >
-              <div style={{ fontSize: '22px' }}>Liner</div>
-              <div
-                style={{ fontSize: '20px', marginTop: '10px', fontWeight: 500 }}
-              >
-                8,500 ₩
-              </div>
+              <ProductName>Liner</ProductName>
+              <ProductPrice>8,500 ₩</ProductPrice>
             </div>
           </div>
         </GridContainer>
       </AreaDiv>
-    </>
+    </React.Fragment>
   );
 };
 
 const Runner = (props) => {
   return (
-    <>
+    <React.Fragment>
       <AreaDiv marginTop="500px">
-        <GrayBackground />
         <GridContainer>
           <div
             style={{
-              girdRowStart: 1,
               gridColumnStart: 8,
               gridColumnEnd: 12,
               position: 'relative',
@@ -142,6 +137,7 @@ const Runner = (props) => {
             <div
               style={{
                 position: 'absolute',
+                display: 'inline-block',
                 bottom: '100px',
                 right: '0px',
                 textAlign: 'right',
@@ -155,7 +151,7 @@ const Runner = (props) => {
                 <br />
                 오랜 시간 유지되는 최상의 컨디션
               </ContentBody>
-              <div style={{ fontSize: '22px', marginTop: '50px' }}>
+              <ShopLink>
                 <a
                   href="https://smartstore.naver.com/injinji/search?q=liner"
                   target="_blank"
@@ -163,12 +159,11 @@ const Runner = (props) => {
                 >
                   자세히 알아보기 &gt;
                 </a>
-              </div>
+              </ShopLink>
             </div>
           </div>
           <div
             style={{
-              gridRowStart: 1,
               gridColumnStart: 1,
               gridColumnEnd: 7,
               position: 'relative',
@@ -176,46 +171,29 @@ const Runner = (props) => {
           >
             <div
               style={{
-                width: '900px',
-                height: '1100px',
-                position: 'absolute',
-                left: 0,
-                bottom: '-200px',
-                backgroundImage: `url('${crew}')`,
-                backgroundRepeat: 'no-repeat',
-                backgroundSize: 'contain',
-                backgroundPosition: 'right center',
-              }}
-            ></div>
-            <div
-              style={{
                 position: 'absolute',
                 left: 0,
                 bottom: '20px',
               }}
             >
-              <div style={{ fontSize: '22px' }}>Runner Crew</div>
-              <div
-                style={{ fontSize: '20px', marginTop: '10px', fontWeight: 500 }}
-              >
-                14,900 ₩
-              </div>
+              <ProductName>Runner Crew</ProductName>
+              <ProductPrice>14,900 ₩</ProductPrice>
             </div>
           </div>
         </GridContainer>
       </AreaDiv>
-    </>
+    </React.Fragment>
   );
 };
 
 const Trailer = (props) => {
   return (
-    <>
-      <AreaDiv marginTop="500px" height="900px">
-        <GrayBackground />
+    <React.Fragment>
+      <AreaDiv marginTop="500px" height="900px" backgroundColor="darkgreen">
         <div
           style={{
             position: 'absolute',
+            width: '100%',
             bottom: '140px',
             textAlign: 'center',
           }}
@@ -260,7 +238,7 @@ const Trailer = (props) => {
               top: '265px',
             }}
           >
-            <div
+            {/* <div
               style={{
                 position: 'absolute',
                 width: '50vw',
@@ -271,7 +249,7 @@ const Trailer = (props) => {
                 backgroundSize: 'contain',
                 backgroundPosition: 'right center',
               }}
-            ></div>
+            ></div> */}
           </div>
           <div
             style={{
@@ -281,7 +259,7 @@ const Trailer = (props) => {
               top: '23px',
             }}
           >
-            <div
+            {/* <div
               style={{
                 position: 'absolute',
                 width: '50vw',
@@ -292,35 +270,31 @@ const Trailer = (props) => {
                 backgroundSize: 'contain',
                 backgroundPosition: 'left center',
               }}
-            ></div>
+            ></div> */}
           </div>
         </GridContainer>
       </AreaDiv>
-    </>
-  );
-};
-
-const Main = () => {
-  const getRandomIndex = (length) => {
-    return parseInt(Math.random() * length);
-  };
-
-  const imgUrl = require('../images/Liner-' +
-    `${socksList[getRandomIndex(socksList.length)][0].url}` +
-    '.png');
-
-  return (
-    <React.Fragment>
-      <PcRender>
-        <Liner imgUrl={imgUrl} />
-        <Runner imgUrl={imgUrl} />
-        <Trailer />
-      </PcRender>
-      <MobileRender>
-        <div>hihi</div>
-      </MobileRender>
     </React.Fragment>
   );
 };
 
-export default Main;
+const PcMain = () => {
+  // const getRandomIndex = (length) => {
+  //   return parseInt(Math.random() * length);
+  // };
+
+  // const imgUrl = require('../images/Liner-' +
+  //   `${socksList[getRandomIndex(socksList.length)][0].url}` +
+  //   '.png');
+
+  return (
+    <React.Fragment>
+      <div style={{ display: 'block', backgroundColor: 'red' }}>PC</div>
+      <Liner />
+      <Runner />
+      {/* <Trailer /> */}
+    </React.Fragment>
+  );
+};
+
+export default PcMain;
