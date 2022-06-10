@@ -13,8 +13,7 @@ const Navbar = styled.nav`
   height: 55px;
   z-index: 90;
   position: fixed;
-  /* background-color: #fff; */
-  background-color: skyblue;
+  background-color: #fff;
 
   //외부 flex container
   display: flex;

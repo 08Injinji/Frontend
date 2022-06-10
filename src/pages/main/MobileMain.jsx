@@ -52,7 +52,7 @@ const ProductPrice = styled.div`
 
 const Liner = (props) => {
   return (
-    <React.Fragment>
+    <>
       <AreaDiv>
         <GridContainer>
           <div
@@ -118,13 +118,13 @@ const Liner = (props) => {
           </div>
         </GridContainer>
       </AreaDiv>
-    </React.Fragment>
+    </>
   );
 };
 
 const Runner = (props) => {
   return (
-    <React.Fragment>
+    <>
       <AreaDiv marginTop="500px">
         <GridContainer>
           <div
@@ -182,13 +182,13 @@ const Runner = (props) => {
           </div>
         </GridContainer>
       </AreaDiv>
-    </React.Fragment>
+    </>
   );
 };
 
 const Trailer = (props) => {
   return (
-    <React.Fragment>
+    <>
       <AreaDiv marginTop="500px" height="900px" backgroundColor="darkgreen">
         <div
           style={{
@@ -274,7 +274,7 @@ const Trailer = (props) => {
           </div>
         </GridContainer>
       </AreaDiv>
-    </React.Fragment>
+    </>
   );
 };
 
@@ -289,7 +289,7 @@ const PcMain = () => {
 
   return (
     <React.Fragment>
-      <div style={{ display: 'block', backgroundColor: 'red' }}>PC</div>
+      {/* <div style={{ display: 'block', backgroundColor: 'green' }}>MOBILE</div> */}
       <Liner />
       <Runner />
       {/* <Trailer /> */}
