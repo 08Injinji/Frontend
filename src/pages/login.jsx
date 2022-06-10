@@ -1,7 +1,7 @@
 import { useState, useContext, useEffect } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import Icon from '../components/icon';
+import InjinjiLogo from '../components/Logo';
 import { AuthContext } from '../components/authContext';
 import { HTTP_URL } from '../const';
 
@@ -112,7 +112,7 @@ const AdminLogin = () => {
         }}
       >
         <div style={{ marginBottom: '40px' }}>
-          <Icon />
+          <InjinjiLogo />
         </div>
         <Input
           value={loginData.id}

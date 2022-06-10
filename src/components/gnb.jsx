@@ -1,45 +1,64 @@
 import React, { useState, useRef, useLayoutEffect, useEffect } from 'react';
 import { useLocation } from 'react-router';
 import { Outlet, useNavigate } from 'react-router-dom';
-// import { FaStream } from 'react-icons/fa'; (!)
-// import { BsXLg } from 'react-icons/bs'; (!)
 import styled from 'styled-components';
 import { links } from './menudata';
-// import Injinji from './Injinji.svg';
 import Footer from './footer';
-import Icon from './icon';
+import InjinjiLogo from './Logo';
 import GridChecker from './gridChecker';
+import { flexbox } from '@mui/system';
 
 const Navbar = styled.nav`
-  height: ${(props) => (props.extendNavbar ? '100vh' : '55px')};
-  width: 100vw;
-  box-sizing: border-box;
+  width: 100%;
+  height: 55px;
   z-index: 90;
-  /* display: flex; */
   position: fixed;
-  background-color: #fff;
-  /* align-items: center; */
-  /* justify-content: space-between; */
-  transition: 0.3s cubic-bezier(0.88, 0.78, 0.18, 0.93);
+  /* background-color: #fff; */
+  background-color: skyblue;
+
+  //외부 flex container
+  display: flex;
+  justify-content: space-between;
+`;
+
+const NavbarLeft = styled.div`
+  //내부 flex container
+  display: flex;
+  align-items: center;
+  //외부 flex item으로써의 속성
+  flex-basis: 500px;
+  flex-shrink: 0;
+
   @media ${({ theme }) => theme.device.desktop} {
-    height: 55px;
+    padding-left: 5%;
   }
 `;
 
-// const Menubtn = styled.div` (!)
-//   display: inline-block;
-//   position: relative;
+const PageButton = styled.div`
+  width: 90px;
+  color: ${(props) => (props.pagenumber === props.pages ? '#000' : '#808080')};
+  transition: color 0.2s ease-in-out;
+  &:hover {
+    cursor: pointer;
+    color: #000;
+  }
+`;
+
+// const NavbarRight = styled.div`
+//   //내부 flex container
 //   display: flex;
 //   align-items: center;
-//   width: 250px;
-//   text-align: center;
-//   box-sizing: border-box;
-//   @media ${({ theme }) => theme.device.mobile} {
-//     display: none;
+//   //외부 flex item으로써의 속성
+//   flex-basis: content;
+//   flex-shrink: 0;
+
+//   @media ${({ theme }) => theme.device.desktop} {
+//     padding-right: 5%;
 //   }
+//   background-color: yellow;
 // `;
 
-const MenubtnExtended = styled.div`
+const MenuBtnExtended = styled.div`
   font-size: x-large;
   text-decoration: none;
   margin: 10px;
@@ -57,12 +76,6 @@ const MenubtnExtended = styled.div`
 //   }
 // `;
 
-const NavbarInnerContainer = styled.div`
-  width: 100%;
-  height: 55px;
-  display: flex;
-`;
-
 const NavbarExtendedContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -71,55 +84,6 @@ const NavbarExtendedContainer = styled.div`
     display: none;
   }
 `;
-
-const MenuUl = styled.ul`
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  @media ${({ theme }) => theme.device.mobile} {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    font-size: 1.7em;
-  }
-`;
-
-const MenuLi = styled.li`
-  display: inline-block;
-  color: ${(props) => (props.pagenumber === props.pages ? '#000' : '#808080')};
-  margin: 0 30px 0 30px;
-  transition: color 0.2s ease-in-out;
-  &:hover {
-    cursor: pointer;
-    color: #000;
-  }
-`;
-
-// const InjinjiLogo = styled.img`
-//   height: 25px;
-//   &:hover {
-//     cursor: pointer;
-//   }
-// `;
-
-const NavbarLeft = styled.div`
-  flex: 70%;
-  display: flex;
-  align-items: center;
-  @media ${({ theme }) => theme.device.desktop} {
-    padding-left: 5%;
-  }
-`;
-
-// const NavbarRight = styled.div` (!)
-//   flex: 30%;
-//   display: flex;
-//   justify-content: flex-end;
-//   @media ${({ theme }) => theme.device.mobile} {
-//     padding: 2% 5% 0 0;
-//   }
-// `;
 
 const OutletDiv = styled.div`
   max-width: 1400px;
@@ -134,12 +98,61 @@ const OutletDiv = styled.div`
   }
 `;
 
+const Logo = (props) => {
+  const handleLogo = () => {
+    props.setPages('0');
+    props.navigate(``);
+    props.setExtendNavbar(false);
+  };
+
+  return (
+    <div
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        cursor: 'pointer',
+        marginRight: '50px',
+      }}
+      onClick={handleLogo}
+    >
+      <InjinjiLogo />
+    </div>
+  );
+};
+
+const Btn = ({ setPages, navigate, pages }) => {
+  const handleBtn = (pagenumber, title) => {
+    setPages(pagenumber);
+    navigate(`/${title}`);
+    console.log(this);
+  };
+
+  return (
+    <>
+      {links.map((link) => {
+        const { pagenumber, title, text, id } = link;
+        return (
+          <PageButton
+            onClick={() => handleBtn(pagenumber, title)}
+            pagenumber={pagenumber}
+            pages={pages}
+            key={id}
+          >
+            {text}
+          </PageButton>
+        );
+      })}
+    </>
+  );
+};
+
 const Gnb = () => {
   let navigate = useNavigate();
   const [pages, setPages] = useState('');
   const navbar = useRef(null);
   const { pathname } = useLocation();
   const [extendNavbar, setExtendNavbar] = useState(false);
+
   //네비게이션바 hide 기능
   useLayoutEffect(() => {
     var lastScrollTop;
@@ -160,96 +173,19 @@ const Gnb = () => {
     setExtendNavbar(false);
   }, [pathname]);
 
-  // const Btn = () => { (!)
-  //   return (
-  //     <Menubtn>
-  //       <MenuUl>
-  //         {links.map((link) => {
-  //           const { pagenumber, title, text, id } = link;
-  //           const handleBtn = () => {
-  //             setPages(pagenumber);
-  //             navigate(`/${title}`);
-  //           };
-  //           return (
-  //             <MenuLi
-  //               onClick={handleBtn}
-  //               pagenumber={pagenumber}
-  //               pages={pages}
-  //               title={title}
-  //               text={text}
-  //               key={id}
-  //             >
-  //               {text}
-  //             </MenuLi>
-  //           );
-  //         })}
-  //       </MenuUl>
-  //     </Menubtn>
-  //   );
-  // };
-
-  const BtnExtended = () => {
-    return (
-      <MenubtnExtended>
-        <MenuUl>
-          {links.map((link) => {
-            const { pagenumber, title, text, id } = link;
-            const handleBtn = () => {
-              setPages(pagenumber);
-              navigate(`/${title}`);
-            };
-            return (
-              <MenuLi
-                onClick={handleBtn}
-                pagenumber={pagenumber}
-                pages={pages}
-                title={title}
-                text={text}
-                key={id}
-              >
-                {text}
-              </MenuLi>
-            );
-          })}
-        </MenuUl>
-      </MenubtnExtended>
-    );
-  };
-
-  const Logo = ({ pagenumber, title }) => {
-    const handleLogo = () => {
-      setPages(pagenumber);
-      navigate(`/${title}`);
-      setExtendNavbar(false);
-    };
-
-    return (
-      <div
-        style={{
-          cursor: 'pointer',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-        onClick={handleLogo}
-      >
-        {/* <InjinjiLogo src={Injinji} onClick={handleLogo}></InjinjiLogo> */}
-        <Icon />
-      </div>
-    );
-  };
-
   return (
     <>
-      <Navbar ref={navbar} extendNavbar={extendNavbar}>
-        <NavbarInnerContainer>
-          <NavbarLeft>
-            <Logo pagenumber="0" title=""></Logo>
-            {/* <Btn pagenumber="1" title="about" text="about"></Btn>
-              <Btn pagenumber="2" title="product/liner" text="product"></Btn> */}
-          </NavbarLeft>
-          {/* NavbarRight 영역은 컨텐츠가 다 완성되면 다시 오픈 */}
-          {/* <NavbarRight>
+      <Navbar ref={navbar}>
+        <NavbarLeft>
+          <Logo
+            setPages={setPages}
+            navigate={navigate}
+            setExtendNavbar={setExtendNavbar}
+          />
+          <Btn setPages={setPages} navigate={navigate} pages={pages}></Btn>
+        </NavbarLeft>
+        {/* NavbarRight 영역은 컨텐츠가 다 완성되면 다시 오픈 */}
+        {/* <NavbarRight>
             <OpenLinksButton
               onClick={() => {
                 setExtendNavbar((curr) => !curr);
@@ -268,12 +204,6 @@ const Gnb = () => {
             </OpenLinksButton>
             <Btn />
           </NavbarRight> */}
-        </NavbarInnerContainer>
-        {extendNavbar && (
-          <NavbarExtendedContainer>
-            <BtnExtended />
-          </NavbarExtendedContainer>
-        )}
       </Navbar>
       <OutletDiv>
         <GridChecker></GridChecker>
