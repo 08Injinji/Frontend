@@ -13,10 +13,13 @@ import Admin2 from './pages/admin/admin2';
 import { AuthProvider } from './components/authContext';
 import AuthRoute from './components/authroute';
 import AdminMain from './pages/admin/index';
-import theme from './pages/theme';
+import { theme, size } from './pages/theme';
 import { ThemeProvider } from 'styled-components';
 import { GridProvider } from './components/gridContext';
-import MainGrid from './pages/main-grid';
+import MainGrid from './pages/main/PcMain';
+
+import { PcRender, MobileRender } from './components/responsive';
+import Main from './pages/main';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -26,7 +29,7 @@ ReactDOM.render(
           <ThemeProvider theme={theme}>
             <Routes>
               <Route path="/" element={<Gnb />}>
-                <Route index element={<MainGrid />} />
+                <Route index element={<Main />} />
                 <Route path="product" element={<Product />} />
                 <Route path="product/:item" element={<Product />} />
                 <Route path="about" element={<About />} />

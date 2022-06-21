@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import Injinji from '../../components/icon';
+import InjinjiLogo from '../../components/Logo';
 import { MdLogout } from 'react-icons/md';
 import { InfoModal } from '../../components/infoModal';
 import { AuthContext } from '../../components/authContext';
@@ -107,7 +107,7 @@ const Admin = () => {
       <Left>
         <Logo>
           <Link to="/admin">
-            <Injinji />
+            <InjinjiLogo />
           </Link>
           <div>Admin Page</div>
         </Logo>

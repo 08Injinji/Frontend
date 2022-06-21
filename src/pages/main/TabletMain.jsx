@@ -1,67 +1,78 @@
+import { blue, red } from '@mui/material/colors';
 import React from 'react';
 import styled from 'styled-components';
-import socksList from './admin/socksList';
-import ecowool from '../images/에코울.webp';
-import crew from '../images/크루.webp';
-import trailer1 from '../images/트레일러1.webp';
-import trailer2 from '../images/트레일러2.webp';
+
+import newLinerWhite from '../../images/main/New-Liner-White-870W.webp';
+import runnerCrew from '../../images/main/Runner-Crew-1400W.webp';
+
+const AreaDiv = styled.div`
+  display: block;
+  position: relative;
+  margin-top: ${(props) => props.marginTop};
+  /* justify-content: center; */
+  width: 100%;
+  height: ${(props) => props.height ?? '700px'};
+  background-color: #efefef;
+`;
 
 const GridContainer = styled.div`
   display: grid;
-  position: relative;
-  width: 100%;
-  height: ${(props) => (props.height ? props.height : '700px')};
-  margin: 0 20px;
-  grid-template-rows: 700px;
+  height: 100%;
+  padding: 0px 20px 0px 20px;
   grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 1fr;
+  grid-auto-flow: dense; //그리드 요소 순서 상관 없이 정확히 배치
   gap: 24px;
 `;
 
 const ContentTitle = styled.div`
   font-size: 30px;
   font-weight: bold;
-  color: #111;
+  color: ${(props) => props.color ?? '#111'};
 `;
 
 const ContentBody = styled.div`
   font-size: 25px;
-  color: #666;
+  color: ${(props) => props.color ?? '#666'};
   margin-top: 20px;
 `;
 
-const AreaDiv = styled.div`
-  display: flex;
-  position: relative;
-  justify-content: center;
-  width: 100%;
-  height: ${(props) => (props.height ? props.height : '700px')};
-  margin-top: ${(props) => props.marginTop};
+const ShopLink = styled.div`
+  font-size: 22px;
+  margin-top: 50px;
+  color: ${(props) => props.color ?? 'black'};
 `;
 
-const GrayBackground = styled.div`
-  top: 0;
-  position: absolute;
-  background-color: #efefef;
-  width: 1400px;
-  height: 100%;
-  z-index: -1;
+const ProductName = styled.div`
+  font-size: 22px;
+  color: ${(props) => props.color ?? 'black'};
+`;
+
+const ProductPrice = styled.div`
+  font-size: 20px;
+  margin-top: 10px;
+  font-weight: 500;
+  color: ${(props) => props.color ?? 'black'};
 `;
 
 const Liner = (props) => {
   return (
     <>
       <AreaDiv>
-        <GrayBackground />
         <GridContainer>
           <div
             style={{
-              gridColumnStart: 2,
-              gridColumnEnd: 4,
+              gridColumnStart: 3,
+              gridColumnEnd: 6,
               position: 'relative',
             }}
           >
             <div
-              style={{ position: 'absolute', bottom: '100px', width: '200px' }}
+              style={{
+                position: 'absolute',
+                display: 'inline-block',
+                bottom: '100px',
+              }}
             >
               <ContentTitle>발을 위한 양말</ContentTitle>
               <ContentBody>
@@ -71,7 +82,7 @@ const Liner = (props) => {
                 <br />
                 최고의 선택.
               </ContentBody>
-              <div style={{ fontSize: '22px', marginTop: '50px' }}>
+              <ShopLink>
                 <a
                   href="https://smartstore.naver.com/injinji/category/84e427f2aab44a81a83720d25bb6fb12?cp=1"
                   target="_blank"
@@ -79,42 +90,35 @@ const Liner = (props) => {
                 >
                   자세히 알아보기 &gt;
                 </a>
-              </div>
+              </ShopLink>
             </div>
           </div>
           <div
             style={{
-              girdRowStart: 1,
-              gridColumnStart: 7,
+              gridColumnStart: 6,
               gridColumnEnd: 13,
               position: 'relative',
             }}
           >
-            <div
+            <img
+              src={newLinerWhite}
+              alt="라이너"
               style={{
-                width: '50vw',
-                height: '693px',
                 position: 'absolute',
-                left: 0,
-                bottom: '-100px',
-                backgroundImage: `url('${props.imgUrl}')`,
-                backgroundRepeat: 'no-repeat',
+                marginTop: '70px',
+                width: '870px',
               }}
-            ></div>
+            />
             <div
               style={{
                 position: 'absolute',
-                right: 0,
+                right: '10px',
                 bottom: '20px',
                 textAlign: 'right',
               }}
             >
-              <div style={{ fontSize: '22px' }}>Liner</div>
-              <div
-                style={{ fontSize: '20px', marginTop: '10px', fontWeight: 500 }}
-              >
-                8,500 ₩
-              </div>
+              <ProductName>NEW Liner</ProductName>
+              <ProductPrice>9,500 ₩</ProductPrice>
             </div>
           </div>
         </GridContainer>
@@ -126,78 +130,60 @@ const Liner = (props) => {
 const Runner = (props) => {
   return (
     <>
-      <AreaDiv marginTop="500px">
-        <GrayBackground />
+      <AreaDiv marginTop="200px">
+        <img src={runnerCrew} alt="러너크루" style={{ position: 'absolute' }} />
         <GridContainer>
           <div
             style={{
-              girdRowStart: 1,
-              gridColumnStart: 8,
-              gridColumnEnd: 12,
+              gridColumnStart: 1,
+              gridColumnEnd: 5,
               position: 'relative',
             }}
           >
             <div
               style={{
                 position: 'absolute',
-                bottom: '100px',
+                display: 'inline-block',
+                bottom: '50px',
                 right: '0px',
-                textAlign: 'right',
               }}
             >
-              <ContentTitle>당신의 페이스 메이커</ContentTitle>
-              <ContentBody>
+              <ContentTitle color="white">당신의 페이스 메이커</ContentTitle>
+              <ContentBody color="white">
                 자연스러운 움직임과
                 <br />
                 빠른 수분 배출.
                 <br />
                 오랜 시간 유지되는 최상의 컨디션
               </ContentBody>
-              <div style={{ fontSize: '22px', marginTop: '50px' }}>
+              <ShopLink color="white">
                 <a
-                  href="https://smartstore.naver.com/injinji/search?q=liner"
+                  href="https://smartstore.naver.com/injinji/search?q=runner"
                   target="_blank"
                   rel="noreferrer"
                 >
                   자세히 알아보기 &gt;
                 </a>
-              </div>
+              </ShopLink>
             </div>
           </div>
           <div
             style={{
-              gridRowStart: 1,
-              gridColumnStart: 1,
-              gridColumnEnd: 7,
+              gridColumnStart: 11,
+              gridColumnEnd: 13,
               position: 'relative',
             }}
           >
             <div
               style={{
-                width: '900px',
-                height: '1100px',
                 position: 'absolute',
-                left: 0,
-                bottom: '-200px',
-                backgroundImage: `url('${crew}')`,
-                backgroundRepeat: 'no-repeat',
-                backgroundSize: 'contain',
-                backgroundPosition: 'right center',
-              }}
-            ></div>
-            <div
-              style={{
-                position: 'absolute',
-                left: 0,
+                right: 0,
                 bottom: '20px',
+                textAlign: 'right',
               }}
             >
-              <div style={{ fontSize: '22px' }}>Runner Crew</div>
-              <div
-                style={{ fontSize: '20px', marginTop: '10px', fontWeight: 500 }}
-              >
-                14,900 ₩
-              </div>
+              <ProductName color="white">Runner Crew</ProductName>
+              <ProductPrice color="white">14,900 ₩</ProductPrice>
             </div>
           </div>
         </GridContainer>
@@ -209,11 +195,11 @@ const Runner = (props) => {
 const Trailer = (props) => {
   return (
     <>
-      <AreaDiv marginTop="500px" height="900px">
-        <GrayBackground />
+      <AreaDiv marginTop="500px" height="900px" backgroundColor="darkgreen">
         <div
           style={{
             position: 'absolute',
+            width: '100%',
             bottom: '140px',
             textAlign: 'center',
           }}
@@ -258,7 +244,7 @@ const Trailer = (props) => {
               top: '265px',
             }}
           >
-            <div
+            {/* <div
               style={{
                 position: 'absolute',
                 width: '50vw',
@@ -269,7 +255,7 @@ const Trailer = (props) => {
                 backgroundSize: 'contain',
                 backgroundPosition: 'right center',
               }}
-            ></div>
+            ></div> */}
           </div>
           <div
             style={{
@@ -279,7 +265,7 @@ const Trailer = (props) => {
               top: '23px',
             }}
           >
-            <div
+            {/* <div
               style={{
                 position: 'absolute',
                 width: '50vw',
@@ -290,7 +276,7 @@ const Trailer = (props) => {
                 backgroundSize: 'contain',
                 backgroundPosition: 'left center',
               }}
-            ></div>
+            ></div> */}
           </div>
         </GridContainer>
       </AreaDiv>
@@ -298,22 +284,30 @@ const Trailer = (props) => {
   );
 };
 
-const Main = () => {
-  const getRandomIndex = (length) => {
-    return parseInt(Math.random() * length);
-  };
+const TabletMain = () => {
+  // const getRandomIndex = (length) => {
+  //   return parseInt(Math.random() * length);
+  // };
 
-  const imgUrl = require('../images/Liner-' +
-    `${socksList[getRandomIndex(socksList.length)][0].url}` +
-    '.png');
+  // const imgUrl = require('../images/Liner-' +
+  //   `${socksList[getRandomIndex(socksList.length)][0].url}` +
+  //   '.png');
 
   return (
     <>
-      <Liner imgUrl={imgUrl} />
-      <Runner imgUrl={imgUrl} />
-      <Trailer />
+      <div
+        style={{
+          display: 'block',
+          backgroundColor: 'purple',
+        }}
+      >
+        Tablet
+      </div>
+      <Liner />
+      <Runner />
+      {/* <Trailer /> */}
     </>
   );
 };
 
-export default Main;
+export default TabletMain;
