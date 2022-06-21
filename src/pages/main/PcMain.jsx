@@ -2,7 +2,8 @@ import { blue, red } from '@mui/material/colors';
 import React from 'react';
 import styled from 'styled-components';
 
-import LinerBlack from '../../images/new-liner-black-1000w.webp';
+import newLinerWhite from '../../images/main/New-Liner-White-870W.webp';
+import runnerCrew from '../../images/main/Runner-Crew-1400W.webp';
 
 const AreaDiv = styled.div`
   display: block;
@@ -27,28 +28,31 @@ const GridContainer = styled.div`
 const ContentTitle = styled.div`
   font-size: 30px;
   font-weight: bold;
-  color: #111;
+  color: ${(props) => props.color ?? '#111'};
 `;
 
 const ContentBody = styled.div`
   font-size: 25px;
-  color: #666;
+  color: ${(props) => props.color ?? '#666'};
   margin-top: 20px;
 `;
 
 const ShopLink = styled.div`
   font-size: 22px;
   margin-top: 50px;
+  color: ${(props) => props.color ?? 'black'};
 `;
 
 const ProductName = styled.div`
   font-size: 22px;
+  color: ${(props) => props.color ?? 'black'};
 `;
 
 const ProductPrice = styled.div`
   font-size: 20px;
   margin-top: 10px;
   font-weight: 500;
+  color: ${(props) => props.color ?? 'black'};
 `;
 
 const Liner = (props) => {
@@ -58,8 +62,8 @@ const Liner = (props) => {
         <GridContainer>
           <div
             style={{
-              gridColumnStart: 2,
-              gridColumnEnd: 5,
+              gridColumnStart: 3,
+              gridColumnEnd: 6,
               position: 'relative',
             }}
           >
@@ -91,30 +95,30 @@ const Liner = (props) => {
           </div>
           <div
             style={{
-              gridColumnStart: 7,
+              gridColumnStart: 6,
               gridColumnEnd: 13,
               position: 'relative',
             }}
           >
             <img
-              src={LinerBlack}
+              src={newLinerWhite}
               alt="라이너"
               style={{
                 position: 'absolute',
                 marginTop: '70px',
-                width: '850px',
+                width: '870px',
               }}
             />
             <div
               style={{
                 position: 'absolute',
-                right: 0,
+                right: '10px',
                 bottom: '20px',
                 textAlign: 'right',
               }}
             >
-              <ProductName>Liner</ProductName>
-              <ProductPrice>8,500 ₩</ProductPrice>
+              <ProductName>NEW Liner</ProductName>
+              <ProductPrice>9,500 ₩</ProductPrice>
             </div>
           </div>
         </GridContainer>
@@ -126,12 +130,13 @@ const Liner = (props) => {
 const Runner = (props) => {
   return (
     <>
-      <AreaDiv marginTop="500px">
+      <AreaDiv marginTop="200px">
+        <img src={runnerCrew} alt="러너크루" style={{ position: 'absolute' }} />
         <GridContainer>
           <div
             style={{
-              gridColumnStart: 8,
-              gridColumnEnd: 12,
+              gridColumnStart: 1,
+              gridColumnEnd: 5,
               position: 'relative',
             }}
           >
@@ -139,22 +144,21 @@ const Runner = (props) => {
               style={{
                 position: 'absolute',
                 display: 'inline-block',
-                bottom: '100px',
+                bottom: '50px',
                 right: '0px',
-                textAlign: 'right',
               }}
             >
-              <ContentTitle>당신의 페이스 메이커</ContentTitle>
-              <ContentBody>
+              <ContentTitle color="white">당신의 페이스 메이커</ContentTitle>
+              <ContentBody color="white">
                 자연스러운 움직임과
                 <br />
                 빠른 수분 배출.
                 <br />
                 오랜 시간 유지되는 최상의 컨디션
               </ContentBody>
-              <ShopLink>
+              <ShopLink color="white">
                 <a
-                  href="https://smartstore.naver.com/injinji/search?q=liner"
+                  href="https://smartstore.naver.com/injinji/search?q=runner"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -165,20 +169,21 @@ const Runner = (props) => {
           </div>
           <div
             style={{
-              gridColumnStart: 1,
-              gridColumnEnd: 7,
+              gridColumnStart: 11,
+              gridColumnEnd: 13,
               position: 'relative',
             }}
           >
             <div
               style={{
                 position: 'absolute',
-                left: 0,
+                right: 0,
                 bottom: '20px',
+                textAlign: 'right',
               }}
             >
-              <ProductName>Runner Crew</ProductName>
-              <ProductPrice>14,900 ₩</ProductPrice>
+              <ProductName color="white">Runner Crew</ProductName>
+              <ProductPrice color="white">14,900 ₩</ProductPrice>
             </div>
           </div>
         </GridContainer>
@@ -289,12 +294,19 @@ const PcMain = () => {
   //   '.png');
 
   return (
-    <React.Fragment>
-      {/* <div style={{ display: 'block', backgroundColor: 'red' }}>PC</div> */}
+    <>
+      <div
+        style={{
+          display: 'block',
+          backgroundColor: 'red',
+        }}
+      >
+        PC
+      </div>
       <Liner />
       <Runner />
       {/* <Trailer /> */}
-    </React.Fragment>
+    </>
   );
 };
 

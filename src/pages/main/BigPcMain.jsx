@@ -62,8 +62,8 @@ const Liner = (props) => {
         <GridContainer>
           <div
             style={{
-              gridColumnStart: 3,
-              gridColumnEnd: 6,
+              gridColumnStart: 2,
+              gridColumnEnd: 5,
               position: 'relative',
             }}
           >
@@ -95,7 +95,7 @@ const Liner = (props) => {
           </div>
           <div
             style={{
-              gridColumnStart: 6,
+              gridColumnStart: 7,
               gridColumnEnd: 13,
               position: 'relative',
             }}
@@ -112,7 +112,7 @@ const Liner = (props) => {
             <div
               style={{
                 position: 'absolute',
-                right: '10px',
+                right: 0,
                 bottom: '20px',
                 textAlign: 'right',
               }}
@@ -284,7 +284,7 @@ const Trailer = (props) => {
   );
 };
 
-const PcMain = () => {
+const BigPcMain = () => {
   // const getRandomIndex = (length) => {
   //   return parseInt(Math.random() * length);
   // };
@@ -298,10 +298,10 @@ const PcMain = () => {
       <div
         style={{
           display: 'block',
-          backgroundColor: 'green',
+          backgroundColor: 'lightgreen',
         }}
       >
-        Mobile
+        BigPC
       </div>
       <Liner />
       <Runner />
@@ -310,4 +310,4 @@ const PcMain = () => {
   );
 };
 
-export default PcMain;
+export default BigPcMain;

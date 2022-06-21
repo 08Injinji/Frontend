@@ -1,19 +1,32 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PcMain from './PcMain';
 import MobileMain from './MobileMain';
+import BigPcMain from './BigPcMain';
+import TabletMain from './TabletMain';
 
-import { PcRender, MobileRender } from '../../components/responsive';
+import {
+  BigPcRender,
+  PcRender,
+  MobileRender,
+  TabletRender,
+} from '../../components/responsive';
 
 const Main = () => {
   return (
-    <React.Fragment>
+    <>
+      <BigPcRender>
+        <BigPcMain />
+      </BigPcRender>
       <PcRender>
         <PcMain />
       </PcRender>
+      <TabletRender>
+        <TabletMain />
+      </TabletRender>
       <MobileRender>
         <MobileMain />
       </MobileRender>
-    </React.Fragment>
+    </>
   );
 };
 

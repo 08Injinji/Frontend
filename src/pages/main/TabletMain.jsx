@@ -284,7 +284,7 @@ const Trailer = (props) => {
   );
 };
 
-const PcMain = () => {
+const TabletMain = () => {
   // const getRandomIndex = (length) => {
   //   return parseInt(Math.random() * length);
   // };
@@ -298,10 +298,10 @@ const PcMain = () => {
       <div
         style={{
           display: 'block',
-          backgroundColor: 'green',
+          backgroundColor: 'purple',
         }}
       >
-        Mobile
+        Tablet
       </div>
       <Liner />
       <Runner />
@@ -310,4 +310,4 @@ const PcMain = () => {
   );
 };
 
-export default PcMain;
+export default TabletMain;

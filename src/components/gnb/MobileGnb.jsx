@@ -2,18 +2,21 @@ import React, { useState, useRef, useLayoutEffect, useEffect } from 'react';
 import { useLocation } from 'react-router';
 import { Outlet, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { links } from './menudata';
-import Footer from './footer';
-import InjinjiLogo from './Logo';
-import GridChecker from './gridChecker';
+import { links } from '../menudata';
+import Footer from '../Footer';
+import InjinjiLogo from '../Logo';
+import GridChecker from '../gridChecker';
 import { flexbox } from '@mui/system';
 
 const Navbar = styled.nav`
+  top: 0;
   width: 100%;
-  height: 55px;
+  height: 35px;
   z-index: 90;
   position: fixed;
   background-color: #fff;
+
+  transition: top 0.3s ease-in-out;
 
   //외부 flex container
   display: flex;
@@ -28,9 +31,7 @@ const NavbarLeft = styled.div`
   flex-basis: 500px;
   flex-shrink: 0;
 
-  @media ${({ theme }) => theme.device.desktop} {
-    padding-left: 5%;
-  }
+  padding-left: 2%;
 `;
 
 const PageButton = styled.div`
@@ -89,19 +90,14 @@ const OutletDiv = styled.div`
   width: 100vw;
   margin: 0 auto;
 
-  @media ${({ theme }) => theme.device.desktop} {
-    padding-top: 55px;
-  }
-  @media ${({ theme }) => theme.device.mobile} {
-    padding-top: 55px;
-  }
+  padding-top: 35px;
 `;
 
-const Logo = (props) => {
+const Logo = ({ setPages, navigate, setExtendNavbar }) => {
   const handleLogo = () => {
-    props.setPages('0');
-    props.navigate(``);
-    props.setExtendNavbar(false);
+    setPages('0');
+    navigate(``);
+    setExtendNavbar(false);
   };
 
   return (
@@ -111,10 +107,11 @@ const Logo = (props) => {
         alignItems: 'center',
         cursor: 'pointer',
         marginRight: '50px',
+        backgroundColor: 'yellow',
       }}
       onClick={handleLogo}
     >
-      <InjinjiLogo />
+      <InjinjiLogo logoWidth="10" />
     </div>
   );
 };
@@ -123,7 +120,6 @@ const Btn = ({ setPages, navigate, pages }) => {
   const handleBtn = (pagenumber, title) => {
     setPages(pagenumber);
     navigate(`/${title}`);
-    console.log(this);
   };
 
   return (
@@ -145,14 +141,14 @@ const Btn = ({ setPages, navigate, pages }) => {
   );
 };
 
-const Gnb = () => {
+const MobileGnb = () => {
   let navigate = useNavigate();
   const [pages, setPages] = useState('');
   const navbar = useRef(null);
   const { pathname } = useLocation();
   const [extendNavbar, setExtendNavbar] = useState(false);
 
-  //네비게이션바 hide 기능
+  // 네비게이션바 hide 기능
   useLayoutEffect(() => {
     var lastScrollTop;
     window.addEventListener('scroll', function () {
@@ -213,4 +209,4 @@ const Gnb = () => {
   );
 };
 
-export default Gnb;
+export default MobileGnb;
