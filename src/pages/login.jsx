@@ -56,7 +56,7 @@ async function SubmitLoginData({ id, pw }, setAlertMsg, navigate, ChangeAuthStat
   const res = await request('/login', {
     method: 'POST',
     headers: {
-      'Content-type': 'application/json'
+      'Content-Type': 'application/json'
     },
     body: JSON.stringify({
       id,
@@ -134,7 +134,6 @@ const AdminLogin = () => {
         <AlertDiv>{alertMsg}</AlertDiv>
         <Button
           onClick={() => {
-            // handleLogin();
             SubmitLoginData(loginData, setAlertMsg, navigate, ChangeAuthState);
           }}
         >

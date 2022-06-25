@@ -120,7 +120,7 @@ const Admin1 = () => {
     await request('/fetchtest/deleteArray', {
       method: 'DELETE',
       headers: {
-        'Content-type': 'application/json',
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         deleteList: [...checkedList],
